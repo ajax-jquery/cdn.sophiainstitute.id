@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+  <html lang="en-US">
+
+  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width">
+
+  <link href="{{ site.baseurl }}/images/favico.ico"  rel="icon" type="image/x-icon">	    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/custom.css" />
+
+</head>
+
+<body>
+
+  <div class="demo-container">
+
+    {{ content }}
+
+  </div>
+
+</body>
+
+</html>
