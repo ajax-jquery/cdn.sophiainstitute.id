@@ -269,9 +269,9 @@ button#copy,button#download,button#reset {
 
             : -1 !== input.indexOf("presentation")
 
-            ? (output = "https://drive.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit)))
+            ? (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit)))
 
-            : ((textEdit = input.indexOf("/view")), (output = "https://drive.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
+            : ((textEdit = input.indexOf("/view")), (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
 
       document.getElementById("output").value = output;
 
