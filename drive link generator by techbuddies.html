@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Drive Direct Link Generator</title>
+    <meta name="description"content=" #description />
+    <meta name="keywords"content=" #keywords" />
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+	<meta itemprop="url" content="" />
+    <meta itemprop="name" content="Drive Direct Link Generator" />
+
+    <meta property="og:site_name"content="Drive Direct Link Generator"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"/>
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <style type="text/css">
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      main {
+        flex: 1 0 auto;
+      }
+      h2 {
+        font-size: 2em;
+      }
+      main {
+        flex: 1 0 auto;
+      }
+      footer {
+        padding-top: 0 !important;
+      }
+      #data {
+        background: #fafafa;
+        border: #eee solid 1px;
+        padding: 12px;
+        word-break: break-word;
+      }
+      #main {
+        width: 100%;
+      }
+      #progress {
+        position: absolute;
+        margin-top: 0;
+      }
+      #title {
+        width: 100%;
+      }
+      #url {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      #url:focus {
+        border-bottom: 1px solid #008000;
+        box-shadow: 0 1px 0 0 #008000;
+      }
+      #url:focus + label {
+        color: #008000;
+      }
+      .black-text {
+        color: #000000 !important;
+      }
+      .max-lines {
+        float: right;
+        font-size: 12px;
+        padding-bottom: 16px;
+      }
+      .support {
+        text-align: center;
+        color: #9e9e9e;
+      }
+      .valign-top {
+        vertical-align: top;
+      }
+    </style>
+	</head>
+  <body>
+    <div class="progress blue lighten-3 hide" id="progress">
+      <div class="indeterminate blue"></div>
+    </div>
+		</br>
+    <main class="container valign-wrapper">
+      <div class="row" id="main">
+        <div class="col 12 center" id="title">
+          <h1>Drive Direct Link Generator</h1>
+          <strong><p>Enter here your Google Drive file sharing URL</p></strong>
+        </div>
+		
+        <div class="col s12">
+          <form action="#" id="direct-link-form">
+            <div class="input-field col s12">
+              <textarea id="url" class="materialize-textarea"></textarea>
+              <label for="url"
+                >Place your shareable link here </label
+              >
+              <span class="max-lines"
+                >Max <span id="max-lines"></span> lines</span
+              >
+            </div>
+            <div class="right-align">
+              <button
+                id="submit"
+                type="submit"
+                class="waves-effect waves-light btn blue"
+              >
+                Get Download Link
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <div class="container section hide" id="result">
+	
+      <ul id="data"></ul>
+      <div class="row">
+        <div class="col s12 right-align">
+          <button id="copy-btn" class="btn blue" data-clipboard-target="#data">
+            Copy to clipboard
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="about">
+<h2>About Direct Link Generator</h2>
+<p> #Content </p>
+<hr>
+<br>
+<div class="container text-center" id="about">
+<br>
+    <div class="container section support">
+      <span
+        >If you have any Query please Contact Us Email:-
+        <a href="mailto:"> #Email </a></span
+      >
+    </div>
+    <footer class="page-footer blue">
+      <div class="footer-copyright">
+        <div class="container white-text"style="display: flex;justify-content: space-between;">
+          <span>All Rights Reserved By<span id="year"></span> © Techbuddies</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        // Sets the copyright year
+        var date = new Date();
+        $('2020').text(date.getFullYear());
+        // Creates a clipboard variable
+        var clipboard = new Clipboard('#copy-btn');
+
+        // Clears all tooltips when a mouse out event is emitted
+        $('#copy-btn').mouseout(function() {
+          $('.material-tooltip').remove();
+        });
+        // Listener for successful copy
+        clipboard.on('success', function(e) {
+          // Sets a tooltip for the button
+          $('#copy-btn').tooltip({ delay: 0, tooltip: 'Copied!' });
+          // Workaround to make the tooltip appear
+          $('#copy-btn').mouseover();
+          // Clears the tooltip
+          setTimeout(function() {
+            // $('#copy-btn').tooltip('remove');
+          }, 1000);
+
+          e.clearSelection();
+        });
+        // Listener for error while trying to copy to the clipboard
+        clipboard.on('error', function(e) {
+          // Sets a tooltip for the button
+          var action = /Mac/i.test(navigator.userAgent) ? '⌘' : 'Ctrl';
+          $('#copy-btn').tooltip({
+            delay: 0,
+            tooltip: `Press ${action}-C to Copy`,
+          });
+          // Workaround to make the tooltip appear
+          $('#copy-btn').mouseover();
+          // Clears the tooltip
+          setTimeout(function() {
+            // $('#copy-btn').tooltip('remove');
+          }, 1000);
+        });
+
+        // Listens on keydown in order to prevent linebreaks more than the maxLines variable
+        $('#url').on('keydown', function(e) {
+          if (
+            e.keyCode == 13 &&
+            $(this)
+              .val()
+              .split('\n').length >= maxLines
+          ) {
+            return false;
+          }
+        });
+
+        // Shows max lines text
+        $('#max-lines').text(maxLines);
+
+        // Disables or enables the buttons
+        function toggleDisabled() {
+          $('#progress').toggleClass('hide');
+          toggleElementDisabled('#url');
+          toggleElementDisabled('#submit');
+          toggleElementDisabled('#copy-btn');
+        }
+
+        // Toggles the disabled attribute
+        function toggleElementDisabled(selector) {
+          if ($('#progress.hide')[0]) {
+            $(selector).removeAttr('disabled');
+          } else {
+            $(selector).attr('disabled', 'disabled');
+          }
+        }
+		
+var _0x9e08=["\x41\x49\x7A\x61\x53\x79\x42\x4B\x66\x6A\x39\x6C\x6A\x66\x2D\x45\x43\x56\x34\x72\x56\x47\x72\x71\x49\x42\x54\x65\x30\x4F\x38\x70\x37\x62\x46\x67\x47\x37\x55","\x6C\x65\x6E\x67\x74\x68","\x2F","\x73\x70\x6C\x69\x74","\x3C\x6C\x69\x3E\x24\x7B\x65\x2E\x72\x65\x73\x70\x6F\x6E\x73\x65\x4A\x53\x4F\x4E\x2E\x65\x72\x72\x6F\x72\x2E\x6D\x65\x73\x73\x61\x67\x65\x7D\x3C\x2F\x6C\x69\x3E","\x61\x70\x70\x65\x6E\x64","\x23\x64\x61\x74\x61","\x66\x61\x69\x6C","\x77\x65\x62\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x69\x6E\x6B","","\x72\x65\x70\x6C\x61\x63\x65","\x3C\x6C\x69\x3E\x3C\x61\x20\x68\x72\x65\x66\x3D\x22","\x22\x3E","\x3C\x2F\x61\x3E\x3C\x2F\x6C\x69\x3E","\x3C\x6C\x69\x3E\x43\x6F\x75\x6C\x64\x20\x6E\x6F\x74\x20\x67\x65\x74\x20\x64\x69\x72\x65\x63\x74\x20\x6C\x69\x6E\x6B\x20\x66\x6F\x72\x3A\x20","\x74\x68\x65\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x77\x77\x77\x2E\x67\x6F\x6F\x67\x6C\x65\x61\x70\x69\x73\x2E\x63\x6F\x6D\x2F\x64\x72\x69\x76\x65\x2F\x76\x33\x2F\x66\x69\x6C\x65\x73\x2F","\x3F\x6B\x65\x79\x3D","\x26\x66\x69\x65\x6C\x64\x73\x3D\x77\x65\x62\x43\x6F\x6E\x74\x65\x6E\x74\x4C\x69\x6E\x6B","\x61\x6A\x61\x78"];var apiKey=_0x9e08[0];var regex=/[A-z_\-0-9]{28}/;var idArray=[];var idIndex=0;var maxLines=20;function makeApiCall(){if(idIndex< idArray[_0x9e08[1]]){var _0x5290x7=idArray[idIndex];_0x5290x7= _0x5290x7[_0x9e08[3]](_0x9e08[2])[0];if(_0x5290x7){$[_0x9e08[19]]({url:`${_0x9e08[16]}${_0x5290x7}${_0x9e08[17]}${apiKey}${_0x9e08[18]}`})[_0x9e08[15]](function(_0x5290xa){if(_0x5290xa[_0x9e08[8]]){var _0x5290xb=_0x5290xa[_0x9e08[8]][_0x9e08[10]](/&export=download/,_0x9e08[9]);$(_0x9e08[6])[_0x9e08[5]](`${_0x9e08[11]}${_0x5290xb}${_0x9e08[12]}${_0x5290xb}${_0x9e08[13]}`)}else {$(_0x9e08[6])[_0x9e08[5]](`${_0x9e08[14]}${idArray[idIndex]}${_0x9e08[9]}`)};idIndex++;setTimeout(function(){makeApiCall()},500)})[_0x9e08[7]](function(_0x5290x8,_0x5290x9){$(_0x9e08[6])[_0x9e08[5]](_0x9e08[4]);idIndex++;setTimeout(function(){makeApiCall()},500)})}else {idIndex++;setTimeout(function(){makeApiCall()},500)}}else {toggleDisabled()}}
+
+        // Submit listener
+        $('#direct-link-form').on('submit', function(e) {
+          e.preventDefault();
+          idIndex = 0;
+          idArray = $('#url')
+            .val()
+            .split('\n')
+            .slice(0, maxLines)
+            .join('\n')
+            .split(
+              /https:\/\/drive\.google\.com\/open\?id=|https:\/\/drive\.google\.com\/file\/d\//
+            )
+            .slice(1);
+          // Checks for every id if it has a correct format.
+          if (
+            idArray.length > 0 &&
+            idArray.every(function(id) {
+              return regex.test(id);
+            })
+          ) {
+            $('#data').text('');
+            $('#result').removeClass('hide');
+            idArray.map(function(parsedId) {
+              return parsedId.split('/')[0];
+            });
+            toggleDisabled();
+            makeApiCall();
+          } else {
+            alert('Unable to get the ID from the URL(s).');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
