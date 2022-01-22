@@ -3,8 +3,6 @@ layout: post
 title: You're up and running!
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+Sophia Institute merupakan komunitas epistemik dan nonprofit yang bergelut dalam bidang literasi dan kajian mendalam mengenai berbagai persoalan yang berkenaan dengan studi kefilsafatan dan—juga dalam berbagai aspeknya yang didirikan pada 4 September 2020.
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
-
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+Sebelumnya, komunitas ini bernama Lingkar Studi Filsafat (LSF) Sophia. Namun karena suatu pertimbangan dan juga beberapa perombakan sistem yang kami canangkan di dalamnya, maka sebulan pasca milad pertama LSF Sophia tepatnya pada Hari Filsafat Dunia 18 November 2021, kami mengubah nama "Lingkar Studi Filsafat (LSF) Sophia" menjadi "Sophia Institute." [Selengkapnya..](https://www.sophiainstitute.id/p/tentang-kami.html)
