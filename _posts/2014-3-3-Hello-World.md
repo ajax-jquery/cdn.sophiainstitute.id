@@ -1,6 +1,6 @@
 ---
 layout: post
-title: You're up and running!
+title: Tentang Kami
 ---
 
 Sophia Institute merupakan komunitas epistemik dan nonprofit yang bergelut dalam bidang literasi dan kajian mendalam mengenai berbagai persoalan yang berkenaan dengan studi kefilsafatan dan—juga dalam berbagai aspeknya yang didirikan pada 4 September 2020.
