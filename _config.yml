@@ -19,16 +19,16 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 footer-links:
   dribbble:
   email: info@sophiainstitute.id
-  facebook: https://facebook.com/sophiainstitute.official
+  facebook: sophiainstitute.official
   flickr:
-  github: barryclark/jekyll-now
-  instagram: https://instagram.com/sophiainstitute.official
+  github: 
+  instagram: sophiainstitute.official
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: https://twitter.com/sophiainstitut
+  rss: https://www.sophiainstitute.id/feeds/posts/default?alt=rss&redirect=false&start-index=1&max-results=9999
+  twitter: sophiainstitut
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
+  youtube: fadhelfikri # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
 
 
