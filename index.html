@@ -108,200 +108,48 @@ layout: default
 
 </div>
 
-<div id="mbtloading1" ></div>      
-<script type="text/javascript">
-
-    
-//#################### Defaults      
-var ListBlogLink = window.location.hostname;       
-var ListCount = 5;       
-var ChrCount = 150;       
-var TitleCount = 66;       
-var ImageSize = 200;       
-//################ Function Start       
-function mbtlist(json) {       
-document.write('<ul class="mbtlist">');       
-for (var i = 0; i < ListCount; i++)       
-{       
-//################### Variables Declared       
-var listing= ListImage = ListUrl = ListTitle = ListImage = ListContent = ListConten = ListAuthor = ListTag = ListDate = ListUpdate = ListComments = thumbUrl = TotalPosts = sk = ListMonth = Y = D = M = m = YY = DD = MM = mm = TT =  "";
-
-    
-//################### Category      
-if (json.feed.entry[i].category != null)       
-{       
-for (var k = 0; k < json.feed.entry[i].category.length; k++) {       
-    ListTag += json.feed.entry[i].category[k].term;       
-if(k < json.feed.entry[i].category.length-1)       
-{ ListTag += ", ";}       
-}       
-}
-
-    
-//################### URL      
-for (var j = 0; j < json.feed.entry[i].link.length; j++) {       
-      if (json.feed.entry[i].link[j].rel == 'alternate') {       
-        break;       
-      }       
-    }       
-ListUrl= "'" + json.feed.entry[i].link[j].href + "'";
-
-    
-//################### Info      
-TotalPosts = json.feed.openSearch$totalResults.$t;       
-if (json.feed.entry[i].title!= null)       
-{       
-ListTitle= json.feed.entry[i].title.$t.substr(0, TitleCount);       
-}       
-if (json.feed.entry[i].thr$total)       
-{       
-ListComments= json.feed.entry[i].thr$total.$t;       
-}       
-ListAuthor= json.feed.entry[i].author[0].name.$t.split(" ");       
-ListAuthor=ListAuthor.slice(0, 1).join(" ");
-
-    
-     
-//################### Content Check
-
-    
-ListConten = json.feed.entry[i].content.$t;      
-ListContent= ListConten.replace(/(<([^>]+)>)/ig,"").substring(0, ChrCount);
-
-    
-//################### Date Format
-
-    
-ListMonth= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-    
-ListDate= json.feed.entry[i].published.$t.substring(0,10);
-
-    
-                         Y = ListDate.substring(0, 4);      
-                        m = ListDate.substring(5, 7);       
-                         D = ListDate.substring(8, 10);       
-                         M = ListMonth[parseInt(m - 1)];                        
-
-    
-ListUpdate= json.feed.entry[i].updated.$t.substring(0, 16);
-
-    
-                         YY = ListUpdate.substring(0, 4);      
-                        mm = ListUpdate.substring(5, 7);       
-                         DD = ListUpdate.substring(8, 10);       
-                         TT = ListUpdate.substring(11, 16);       
-                         MM = ListMonth[parseInt(mm - 1)];
-//################### Thumbnail Check      
-// YouTube scan
-
-    
-if (json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/) != null)      
-{
-
-    
-    var youtube_id = json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();      
-    
-    if (youtube_id.length == 11) {       
-        var ListImage = "'//img.youtube.com/vi/"+youtube_id+"/0.jpg'";       
-        }       
-} 
-
-    
-else if (json.feed.entry[i].media$thumbnail)      
-{       
-thumbUrl = json.feed.entry[i].media$thumbnail.url;       
-sk= thumbUrl.replace("/s72-c/","/s"+ImageSize+"/");       
-ListImage= "'" + sk.replace("?imgmax=800","") + "'";       
-}
-
-    
-else if (json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)      
-{       
-// Support For 3rd Party Images       
-ListImage =  json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];       
-}       
-else       
-{       
-ListImage= "'http://4.bp.blogspot.com/-HALLtgFeep0/VfryhQ0C5oI/AAAAAAAAPcY/77mSGND4q84/s200/Icon.png'";       
-}       
-//################### Printing List
-
-    
-var listing = "<li class='node"+[i]+"' ><a href="      
-+ ListUrl+       
-  "><img src="       
-+ListImage+       
-"/></a><a class='mbttitle' href="       
-+ ListUrl+       
-"target='_blank'>"       
-+ ListTitle+       
-"</a> <span class='icon'>"       
-+ListContent+       
-" ...  <a href="       
-+ListUrl+       
-" class='imore'>more »</a></span><div class='iline'><span class='iauthor'>"       
-+ListAuthor+       
-"</span><span class='itag'>"       
-+ListTag+       
-"</span><span class='icomments'>"       
-+ ListComments+       
-"</span><span class='idate'>"       
-+ M +       
-" "       
-+ D +       
-", "       
-+ Y + 
-
-    
-"</span><span class='iedit'> <a class='tooltip1'>Edited<span><b></b>On ► "      
-+ MM +       
-" "       
-+ DD +       
-", "       
-+ YY +       
-" at ► "       
-+TT+       
-" </span></a> </span></div></li>";       
-document.write(listing);       
-}       
-document.write("<div class='itotal'><span> <a href='"+ListBlogLink+"/search'>View all <font>"+TotalPosts+"</font> posts</a></span></div></ul>");       
-}       
-</script>   
-<script>      
-var ListBlogLink = "https://www.sophiainstitute.id";       
-var ListCount = 99999;       
+<div id='related-posts'>
+<script>
+//<![CDATA[
+var relatedTitles=new Array();var relatedTitlesNum=0;var relatedUrls=new Array();var thumburl=new Array();function related_results_labels_thumbs(json){for(var i=0;i<json.feed.entry.length;i++){var entry=json.feed.entry[i];relatedTitles[relatedTitlesNum]=entry.title.$t;try{thumburl[relatedTitlesNum]=entry.gform_foot.url}catch(error){s=entry.content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl[relatedTitlesNum]=d.replace(/.*?:\/\//g, "//")}else thumburl[relatedTitlesNum]='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAA3NCSVQICAjb4U/gAAAADElEQVQImWOor68HAAL+AX7vOF2TAAAAAElFTkSuQmCC'}if(relatedTitles[relatedTitlesNum].length>300)relatedTitles[relatedTitlesNum]=relatedTitles[relatedTitlesNum].substring(0,300)+"";for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){relatedUrls[relatedTitlesNum]=entry.link[k].href;relatedTitlesNum++}}}}function removeRelatedDuplicates_thumbs(){var tmp=new Array(0);var tmp2=new Array(0);var tmp3=new Array(0);for(var i=0;i<relatedUrls.length;i++){if(!contains_thumbs(tmp,relatedUrls[i])){tmp.length+=1;tmp[tmp.length-1]=relatedUrls[i];tmp2.length+=1;tmp3.length+=1;tmp2[tmp2.length-1]=relatedTitles[i];tmp3[tmp3.length-1]=thumburl[i]}}relatedTitles=tmp2;relatedUrls=tmp;thumburl=tmp3}function contains_thumbs(a,e){for(var j=0;j<a.length;j++)if(a[j]==e)return true;return false}function printRelatedLabels_thumbs(){for(var i=0;i<relatedUrls.length;i++){if((relatedUrls[i]==currentposturl)||(!(relatedTitles[i]))){relatedUrls.splice(i,1);relatedTitles.splice(i,1);thumburl.splice(i,1);i--}}var r=Math.floor((relatedTitles.length-1)*Math.random());var i=0;if(relatedTitles.length>0)document.write('<div class="judul">'+relatedpoststitle+'</div>');document.write('<div class="related_items"/>');while(i<relatedTitles.length&&i<20&&i<maxresults){document.write('<div class="related_item"><a class="url_item');if(i!=0)document.write('"');else document.write('"');document.write(' href="'+relatedUrls[r]+'" title="'+relatedTitles[r]+'"><img class="img_item" alt="'+relatedTitles[r]+'" width="16" src="'+thumburl[r]+'" title="'+relatedTitles[r]+'" height="9" loading="lazy"/><div class="clear"></div><div class="title_item">'+relatedTitles[r]+'</div></a></div>');if(r<relatedTitles.length-1){r++}else{r=0}i++}document.write('<div class="clear"></div></div>');relatedUrls.splice(0,relatedUrls.length);thumburl.splice(0,thumburl.length);relatedTitles.splice(0,relatedTitles.length)}
+//]]>
 </script>
-
-    
-<script>      
-document.write("<script ='https://www.sophiainstitute.id/feeds/posts/default?alt=json-in-script&callback=mbtlist&max-results=9999'></"+"script>");       
+<script>
+var RelatedLabel = "recent";
+    RelatedLabel = encodeURIComponent(RelatedLabel.trim());
+(function(){var script = document.createElement('script');script.setAttribute('src', 'https://www.sophiainstitute.id/feeds/posts/default/-?alt=json-in-script&orderby=updated&callback=related_results_labels_thumbs&max-results=99999');document.write(script.outerHTML)})();
 </script>
+</b:loop>
+<script>
+var currentposturl="<data:post.url/>";
+var maxresults=6;
+var relatedpoststitle="Menarik Untuk Dibaca Juga:";
+removeRelatedDuplicates_thumbs();
+printRelatedLabels_thumbs();
+</script>
+</div>
 
-    
-<script>      
-document.getElementById("mbtloading1").style.display = "none";</script>
   <style type="text/css"> 
-.mbtlist {list-style-type:none;overflow:hidden; padding:10px!important;}      
-.mbtlist li {margin:0px auto 20px auto; clear:both; color:#666; font-family:helvetica; font-size:12px; }       
-.mbtlist i{color:#999; padding-right:4px; }       
-.mbtlist .iline{line-height:2em; clear:both; border:1px solid #eee; margin-top:10px; padding: 0px 4px;   font-size: 12px;}       
-.mbtlist div span{margin:0 10px 0 0; display:inline-block;}       
-.mbtlist span {display:block; margin:5px 0px 0px; padding-right:5px;}       
-.mbtlist .icon {color: #999;font-family: verdana;font-size: 12px;text-align: justify;}       
-.mbtlist img {float:left; margin:0px 10px 10px 0px; border:6px solid #fff; padding:0px; width:150px; height:100px; box-shadow:-1px -1px 4px #777; }       
-.mbtlist .mbttitle {font-family:oswald; font-size:18px; color:#0080ff; font-weight:normal; text-decoration:none;    line-height: 1.4em;}       
-.mbtlist .mbttitle:hover, .mbtlist .itotal a:hover  {color:#00A5FF;}       
-.mbtlist .iedit a{text-decoration:none; color:#999; cursor:pointer}       
-.mbtlist .iedit:before, .mbtlist .iauthor:before, .mbtlist .itag:before, .mbtlist .icomments:before, .mbtlist .idate:before, .mbtlist .itotal span:before{font-family:fontAwesome; position:relative; padding-right:5px;}       
-.mbtlist .iauthor:before {content:'\f007';}       
-.mbtlist .itag:before {content:'\f02c';}       
-.mbtlist .icomments:before {content:'\f086';}       
-.mbtlist .idate:before {content:'\f017';}       
-.mbtlist .iedit:before {content:'\f040';}.mbtlist .imore {font-size:12px; font-weight:bold; text-decoration:none; color:#999;}.mbtlist .itotal {color:#333;  padding:5px 10px; border:1px solid #eee;}.mbtlist .itotal a {font-family:oswald; font-size:12px; font-weight:normal; color:#0080ff; text-decoration:none}.mbtlist .itotal span:before {content:'\f07c';}.mbtlist .itotal span font {padding:0px 3px; color:#333; font-family:georgia; font-size:15px; font-weight:bold}#mbtloading1{ margin: 20% auto;       
-background: url('http://downloads.mybloggertricks.com/Spin%20and%20pulsate.gif') no-repeat left center;width: 80px;height: 80px;}      
-.tooltip1{outline:none;text-decoration:none!important;position:relative;color: orange!important; font-weight: bold;}.tooltip1:hover {border-bottom: none;}.tooltip1 strong{line-height:30px}.tooltip1 > span{max-width:300px;width:115px;padding:5px 8px;opacity:0;bottom:170%;left:0px; visibility:hidden;z-index:10;position:absolute;font-family:helvetica;font-size:12px;font-weight:bold;border-radius:2px;box-shadow:2px 2px 5px #999;-webkit-transition-property:opacity,margin-top,visibility,margin-left;-webkit-transition-duration:0.4s,0.3s,0.4s,.3s;-webkit-transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out;transition-property:opacity,margin-top,visibility,margin-left;transition-duration:0.4s,0.3s,0.4s,.3s;transition-timing-function:ease-in-out,ease-in-out,ease-in-out,ease-in-out}.tooltip1 > span img{float:right;width:110px;margin:0 0 30px 10px;padding: 0;border: none;}.tooltip1:hover > span{opacity:1;text-decoration:none;visibility:visible;overflow:visible;display:inline;margin-left:-90px}.tooltip1 span b{width:15px;height:15px;right:25px;bottom:-9px;display:block;position:absolute;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);transform:rotate(-45deg);display:none\0/;*display:none}.tooltip1 > span{color:#fff;background:orange;border:1px solid #ffffff}.tooltip1 span b{background:orange;border-bottom:1px solid #ffffff;border-left:1px solid #ffffff}
-  </style>
+#related-posts .judul{margin:10px 0;font-size:20px;font-weight:500;padding:0;color:#333}
+#related-posts .related_item{margin:0 10px 10px 0;display:block;float:left;width:calc(33.333333% - 10px);height:auto;}
+#related-posts .related_items,#related-posts .related_item:nth-of-type(4n+0),#related-posts .related_item .clear{clear:both;}
+#related-posts .related_items{margin-right:-10px;}
+#related-posts .url_item{display:block;text-decoration:none;}
+#related-posts .img_item {display:block;margin-bottom:5px;padding:0;width:100%;height:auto;transition:all 400ms ease-in-out;}
+#related-posts .related_item:hover .img_item{opacity:.7;}
+#related-posts .title_item{display:block;padding-right:10px;text-align:left;margin:0;color:#000;font-weight:400;line-height:1.1;transition:all 400ms ease-in-out;}
+#related-posts .related_item:hover .title_item{color:#555;}
+@media screen and (max-width:425px){
+#related-posts .related_item{width:calc(50% - 10px);}
+#related-posts .related_item:nth-of-type(4n+0){clear:none;}
+#related-posts .related_item:nth-child(odd){clear:both;}
+}
+@media screen and (max-width:375px){
+#related-posts .related_item{width:100%;}
+#related-posts .related_items{margin-right:0;}
+#related-posts .related_item:nth-child(odd){clear:none;}
+}
+</Style>p
 
 
 
