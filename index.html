@@ -4,27 +4,7 @@ layout: default
 
 ---
 
-<div class="posts">
 
-  {% for post in site.posts %}
-
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-
-        {{ post.excerpt }}
-
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-
-    </article>
-
-  {% endfor %}
-
-</div>
 <style>
 .generator-gdrive {
     position: relative;
@@ -260,3 +240,24 @@ function arlinafeed(e,t){for(var n=e.split("<"),r=0;r<n.length;r++)-1!=n[r].inde
 function loadCSS(e,t,n){eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('x b=["\\w\\g\\a\\r\\g\\c\\d\\j\\l\\c","\\f\\j\\h\\F","\\l\\d\\a\\i\\c\\a\\u\\f\\a\\k\\a\\h\\c","\\p\\m\\l\\w\\k\\a\\h\\c","\\g\\l\\d\\j\\D\\c","\\z\\a\\c\\u\\f\\a\\k\\a\\h\\c\\g\\C\\q\\E\\i\\z\\v\\i\\k\\a","\\d\\a\\f","\\g\\c\\q\\f\\a\\g\\A\\a\\a\\c","\\A\\d\\a\\B","\\k\\a\\p\\j\\i","\\m\\h\\f\\q\\r\\G","\\j\\h\\g\\a\\d\\c\\C\\a\\B\\m\\d\\a","\\D\\i\\d\\a\\h\\c\\v\\m\\p\\a","\\i\\f\\f"];b[0];x o=y[b[3]][b[2]](b[1]),s=t||y[b[3]][b[5]](b[4])[0];o[b[6]]=b[7],o[b[8]]=e,o[b[9]]=b[J],s[b[K]][b[H]](o,s),I(L(){o[b[9]]=n||b[M]})',49,49,'||||||||||x65|_0x6bba|x74|x72||x6C|x73|x6E|x61|x69|x6D|x63|x6F|||x64|x79|x20|||x45|x4E|x75|var|window|x67|x68|x66|x42|x70|x54|x6B|x78|11|setTimeout|10|12|function|13'.split('|'),0,{}))} loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");loadCSS("https://pro.fontawesome.com/releases/v5.15.1/css/all.css");
 //]]>
 </script>
+<div class="posts">
+
+  {% for post in site.posts %}
+
+    <article class="post">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+
+        {{ post.excerpt }}
+
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+
+    </article>
+
+  {% endfor %}
+
+</div>
