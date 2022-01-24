@@ -367,30 +367,117 @@ button#copy,button#download,button#reset {
 
 </div>
 
-<script type="text/javascript"> 
-  function showlatestpostswiththumbs(t){document.write('<ul class="recent-posts-container">');for(var e=0;e<posts_no;e++){var r,n=t.feed.entry[e],i=n.title.$t;if(e==t.feed.entry.length)break;for(var o=0;o<n.link.length;o++){if("replies"==n.link[o].rel&&"text/html"==n.link[o].type)var l=n.link[o].title,m=n.link[o].href;if("alternate"==n.link[o].rel){r=n.link[o].href;break}}var u;try{u=n.media$thumbnail.url}catch(h){s=n.content.$t,a=s.indexOf("<img"),b=s.indexOf('src="',a),c=s.indexOf('"',b+5),d=s.substr(b+5,c-b-5),u=-1!=a&&-1!=b&&-1!=c&&""!=d?d:"https://2.bp.blogspot.com/-C3Mo0iKKiSw/VGdK808U7rI/AAAAAAAAAmI/W7Ae_dsEVAE/s1600/no-thumb.png"}var p=n.published.$t,f=p.substring(0,4),g=p.substring(5,7),v=p.substring(8,10),w=new Array;if(w[1]="Jan",w[2]="Feb",w[3]="Mar",w[4]="Apr",w[5]="May",w[6]="Jun",w[7]="Jul",w[8]="Aug",w[9]="Sep",w[10]="Oct",w[11]="Nov",w[12]="Dec",document.write('<li class="recent-posts-list">'),1==showpoststhumbs&&document.write('<a href="'+r+'"><img class="recent-post-thumb" src="'+u+'"/></a>'),document.write('<div class="recent-post-title"><a href="'+r+'" target ="_top">'+i+"</a></div>"),"content"in n)var A=n.content.$t;else if("summary"in n)var A=n.summary.$t;else var A="";var k=/<\S[^>]*>/g;if(A=A.replace(k,""),1==post_summary)if(A.length<summary_chars)document.write(A);else{A=A.substring(0,summary_chars);var y=A.lastIndexOf(" ");A=A.substring(0,y),document.write(A+"...")}var _="",$=0;document.write('<br><div class="recent-posts-details">'),1==posts_date&&(_=_+w[parseInt(g,10)]+" "+v+" "+f,$=1),1==readmorelink&&(1==$&&(_+=" | "),_=_+'<a href="'+r+'" class="url" target ="_top">Read more</a>',$=1),1==showcommentslink&&(1==$&&(_+=" <br> "),"1 Comments"==l&&(l="1 Comment"),"0 Comments"==l&&(l="No Comments"),l='<a href="'+m+'" target ="_top">'+l+"</a>",_+=l,$=1),document.write(_),document.write("</div>"),document.write("</li>")}document.write("</ul>")} 
-  </script> 
-  <script type="text/javascript"> 
-  var posts_no = 9999; 
-  var showpoststhumbs = true; 
-  var readmorelink = true; 
-  var showcommentslink = true; 
-  var posts_date = true; 
-  var post_summary = true; 
-  var summary_chars = 40;</script> 
+<div id='ignielRelated'>
+    <h3 class='title'><span>Artikel Sophia Institute</span></h3>
+    <script>//<![CDATA[
+      var jumlah = 99999;
+      eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('d a=["\\y","\\x\\1f\\f\\k\\h","\\f\\e\\q\\C\\h\\E","\\w","\\k\\q\\A\\e\\1Y\\1d\\P","\\x\\z\\U\\x\\h\\n\\k\\q\\C","","\\1l\\F\\k\\q","\\e\\q\\h\\n\\1E","\\P\\e\\e\\A","\\1H\\h","\\h\\k\\h\\f\\e","\\S\\F\\q\\h\\e\\q\\h","\\x\\z\\v\\v\\g\\n\\1E","\\v\\e\\A\\k\\g\\1H\\h\\E\\z\\v\\U\\q\\g\\k\\f","\\z\\n\\f","\\A\\g\\h\\g\\2n\\k\\v\\g\\C\\e\\D\\1f\\q\\C\\2q\\U\\g\\x\\e\\1M\\1z\\2p\\k\\1t\\1w\\1d\\1C\\1i\\2k\\2j\\2e\\C\\F\\b\\b\\b\\b\\1I\\1n\\Z\\E\\V\\Z\\C\\b\\b\\b\\b\\V\\b\\b\\b\\b\\1w\\O\\b\\1r\\b\\b\\b\\O\\W\\A\\1b\\2f\\e\\b\\b\\b\\b\\b\\1A\\1I\\O\\1n\\1t\\W\\1r\\O\\b\\1l\\U\\1z\\Z\\D\\C\\b\\b\\b\\b\\2h\\V\\f\\V\\W\\1t\\W\\1r\\v\\1T\\1d\\F\\n\\1M\\2g\\2b\\b\\b\\1B\\1X\\b\\1W\\1V\\1j\\1d\\1K\\1G\\1J\\b\\b\\b\\b\\b\\V\\f\\1K\\1J\\1k\\1n\\z\\W\\v\\O\\O","\\f\\k\\q\\1k","\\n\\e\\f","\\g\\f\\h\\e\\n\\q\\g\\h\\e","\\E\\n\\e\\P","\\n\\g\\q\\A\\F\\v","\\P\\f\\F\\F\\n","\\Z\\1C\\1B","\\y\\f\\k\\w","\\y\\A\\k\\1j\\K\\S\\f\\g\\x\\x\\I\\p\\h\\E\\z\\v\\U\\p\\w\\y\\g\\K\\E\\n\\e\\P\\I\\p","\\p\\K\\h\\k\\h\\f\\e\\I\\p","\\p\\w\\y\\k\\v\\C\\K\\x\\n\\S\\I\\p","\\D\\1i\\1b\\2a\\1b\\X\\E\\1b\\1G\\1A\\X\\1f\\X\\1k\\X\\q\\F\\X\\q\\z","\\n\\e\\1f\\f\\g\\S\\e","\\p\\K\\g\\f\\h\\I\\p","\\p\\D\\w\\y\\D\\g\\w\\y\\D\\A\\k\\1j\\w","\\y\\g\\K\\E\\n\\e\\P\\I\\p","\\p\\K\\S\\f\\g\\x\\x\\I\\p\\1l\\z\\A\\z\\f\\p\\w","\\y\\D\\g\\w","\\y\\D\\f\\k\\w","\\1i\\n\\k\\h\\e"];d Q=0,l=J H(),r=J H(),B=J H();1c 2l(t,T){d i=t[a[1]](a[0]);N(d j=0;j<i[a[2]];j++){u(i[j][a[4]](a[3])!=-1){i[j]=i[j][a[5]](i[j][a[4]](a[3])+1,i[j][a[2]])}};i=i[a[7]](a[6]);i=i[a[5]](0,T-1);1q i}1c 2d(T){N(d i=0;i<T[a[9]][a[8]][a[2]];i++){d t=T[a[9]][a[8]][i];l[Q]=t[a[11]][a[10]];1g=a[6];u(a[12]1h t){1g=t[a[12]][a[10]]}1s{u(a[13]1h t){1g=t[a[13]][a[10]]}};u(a[14]1h t){1m=t[a[14]][a[15]]}1s{1m=a[16]};B[Q]=1m;N(d j=0;j<t[a[17]][a[2]];j++){u(t[a[17]][j][a[18]]==a[19]){r[Q]=t[a[17]][j][a[20]];1o}};Q++}}1c 1L(1p,i){N(d j=0;j<1p[a[2]];j++){u(1p[j]==i){1q 1Q}};1q 1P}1c 1R(){d L=J H(0);d R=J H(0);d 1N=J H(0);d Y=J H(0);N(d m=0;m<r[a[2]];m++){u(!1L(L,r[m])){L[a[2]]+=1;L[L[a[2]]-1]=r[m];R[a[2]]+=1;R[R[a[2]]-1]=l[m];1N[a[2]]+=1;Y[a[2]]+=1;Y[Y[a[2]]-1]=B[m]}};l=R;r=L;B=Y;N(d m=0;m<l[a[2]];m++){d G=1a[a[22]]((l[a[2]]-1)*1a[a[21]]());d 1O=l[m];d 1F=r[m];d 1v=B[m];l[m]=l[G];r[m]=r[G];B[m]=B[G];l[G]=1O;r[G]=1F;B[G]=1v};d 1e=0;d o=1a[a[22]]((l[a[2]]-1)*1a[a[21]]());d 1D=o;d M;d 1y=1u[a[23]];2i(1e<1x){u(r[o]!=1y){M=a[24];M+=a[25]+r[o]+a[26]+l[o]+a[27]+B[o][a[29]](/\\/s[0-9]+(\\-c)?/,a[28])+a[2o]+l[o]+a[26]+l[o]+a[2c];M+=a[2m]+r[o]+a[2r]+l[o]+a[1Z];M+=a[1S];1u[a[1U]](M);1e++;u(1e==1x){1o}};u(o<l[a[2]]-1){o++}1s{o=0};u(o==1D){1o}}}',62,152,'||||||||||_0x91f7|x41||var|x65|x6C|x61|x74|_0x46aax8|_0x46aax9|x69|judul|_0x46aax12|x72|_0x46aax18|x27|x6E|urls||_0x46aax6|if|x6D|x3E|x73|x3C|x75|x64|gambar|x67|x2F|x68|x6F|_0x46aax13|Array|x3D|new|x20|_0x46aaxe|_0x46aax1a|for|x43|x66|rel|_0x46aaxf|x63|_0x46aax7|x62|x45|x51|x2D|_0x46aax11|x55|||||||||||Math|x31|function|x4F|_0x46aax17|x70|postcontent|in|x77|x76|x6B|x6A|postimg|x53|break|_0x46aaxc|return|x49|else|x56|document|_0x46aax16|x42|jumlah|_0x46aax1b|x34|x33|x4C|x52|_0x46aax19|x79|_0x46aax15|x32|x24|x4E|x54|x46|contains|x36|_0x46aax10|_0x46aax14|false|true|ignielRelatedGrid|35|x57|36|x37|x58|x2B|x78|34|||||||||||x39|x48|31|relpostimgcuplik|x47|x50|x38|x44|while|x4B|x30|filter|32|x3A|30|x2C|x3B|33'.split('|'),0,{}));
+      //]]></script>
+    
+      
+        <script expr:src='"/feeds/posts/default?alt=json-in-script&amp;callback=relpostimgcuplik&amp;max-results=99999"'/>
+      
+      <ul>
+        <script>ignielRelatedGrid();</script>
+      </ul>
+  </div>
+<div class='clear'/>
   <script src="https://www.sophiainstitute.id/feeds/posts/default?orderby=published&alt=json-in-script&callback=showlatestpostswiththumbs&start-index=1&max-results=9999"></script> 
   <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'/> 
   <style type="text/css"> 
-  img.recent-post-thumb{padding:2px;width:65px;height:65px;float:left;margin:0px 10px 10px;border: 1px solid #69B7E2;} 
-  .recent-posts-container {font-family:'Oswald', sans-serif;font-size:12px;} 
-  ul.recent-posts-container li{list-style-type: none; margin-bottom: 10px;font-size:12px;float:left;width:100%} 
-  ul.recent-posts-container {counter-reset: countposts;list-style-type:none;padding:0;} 
-  ul.recent-posts-container li:before {content: counter(countposts,decimal);counter-increment: countposts;z-index: 1;position:absolute; left: 0px; font-size: 13px;font-weight: bold;color: #fff;background: #69B7E2;line-height:25px;height:25px;width:25px;text-align:center;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;} 
-  .recent-posts-container a{text-decoration:none;} 
-  .recent-post-title {margin-bottom:5px;} 
-  .recent-post-title a {font-size:12px; text-transform: uppercase; color: #2aace3;} 
-  .recent-posts-details {margin: 5px 0px 0px 92px;font-size:11px;} 
-  .recent-posts-details a{color: #777;} 
+  /* Related Post Grid by igniel.com */
+#ignielRelated{
+  display:block;
+  margin:20px 0px;
+  line-height:1.5em;
+}
+#ignielRelated h3.title{
+  font-size:16px;
+  font-weight:600;
+  text-align:center;
+  text-transform:uppercase;
+  line-height:initial;
+}
+#ignielRelated h3.title span{
+  background-color:#fff;
+  padding:0px 15px;
+  position:relative;
+  z-index:1;
+}
+#ignielRelated h3.title:before{
+  content: '';
+  display: block;
+  position: relative;
+  top:10px;
+  width: 100%;
+  border-top: 2px solid #cccccc;
+}
+#ignielRelated ul{
+  margin:20px 0px 0px;
+  padding:0px;
+  display:flex;
+  display:-webkit-flex;
+  flex-wrap:wrap;
+  -webkit-flex-wrap:wrap;
+  -ms-flex-wrap:wrap;
+}
+#ignielRelated ul li{
+  list-style:none;
+  width:calc((100% / 3) - 15px);
+  text-align:center;
+  margin-right:20px;
+  margin-bottom:20px;
+  padding:0px;
+  -webkit-margin-start:0px !important;
+}
+#ignielRelated ul li .thumb{
+  overflow:hidden;
+  line-height:0px;
+  border-radius:7px;
+}
+#ignielRelated ul li:nth-of-type(3n){
+  margin-right:0px;
+}
+#ignielRelated ul li a{
+  display:block;
+}
+#ignielRelated ul li a.judul{
+  color:#000; /* Warna Huruf */
+  font-weight:600;
+  margin-top:7px;
+}
+#ignielRelated ul li a.judul:hover, #ignielRelated ul li:hover a.judul{
+  color:#ff5722; /* Warna Huruf Ketika Disorot */
+}
+#ignielRelated ul li a img{
+  width:100%;
+  max-height:143px;
+  transition:all .3s ease;
+  border:0px;
+  margin:0px;
+}
+#ignielRelated ul li a img:hover, #ignielRelated ul li:hover img{
+  transform:scale(1.1) rotate(-5deg);
+  filter: brightness(75%);
+  -webkit-filter: brightness(75%);
+}
+#ignielRelated .norelated{
+  text-align:center;
+  font-weight:600;
+}
+@media screen and (max-width:480px){
+  #ignielRelated ul li{
+    width: calc((100% / 2) - 7.5px);
+    margin-right:15px;
+    margin-bottom:15px;
+  }
+  #ignielRelated ul li:nth-of-type(3n){
+    margin-right:15px;
+  }
+  #ignielRelated ul li:nth-of-type(2n){
+    margin-right:0px;
+  }
+}
   </style>
 
 
