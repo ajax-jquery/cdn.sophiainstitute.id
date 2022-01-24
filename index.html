@@ -218,206 +218,38 @@ function getButton(){
 
 </div>
 
-<ul class="mbtlist"></ul>
+<style scoped="" type="text/css">
 
-<script type="text/javascript">
+ul.borecentpost *{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box }ul.borecentpost{font-size:11px}ul.borecentpost,ul.borecentpost li{margin:0;padding:0;list-style:none;position:relative }ul.borecentpost{width:100%;height:500px }ul.borecentpost li{height:24.5%;position:absolute;padding:0;width:49.5%;float:left;overflow:hidden;display:none }ul.borecentpost li:nth-child(1),ul.borecentpost li:nth-child(2),ul.borecentpost li:nth-child(3),ul.borecentpost li:nth-child(4){display:block }ul.borecentpost img{border:0;width:100%;height:auto}ul.borecentpost li:nth-child(1){width:100%;height:49.5%;margin:0 0 2px;left:0;top:0 }ul.borecentpost li:nth-child(2){left:0;top:50% }ul.borecentpost li:nth-child(3){left:50.5%;top:50% }ul.borecentpost li:nth-child(4){width:100%;left:0;top:75% }ul.borecentpost .overlayx,ul.borecentpost li{transition:all .4s ease-in-out }ul.borecentpost .overlayx{width:100%;height:100%;position:absolute;z-index:2;left:0;top:0;opacity:.6;background-image:url(http://1.bp.blogspot.com/-FtnGJHMcWH8/UIV3IE-aaJI/AAAAAAAAGHs/WvLypnWxg5A/s1600/linebg-fade.png);background-position:50% 50%;background-repeat:repeat-x }ul.borecentpost .overlayx,ul.borecentpost img{margin:3px}ul.borecentpost li:nth-child(1).overlayx{background-position:50% 25% }ul.borecentpost .overlayx:hover{opacity:.1 }ul.borecentpost h4{position:absolute;bottom:10px;left:10px;right:10px;z-index:2;color:#fff;font-weight:700;margin:0;padding:10px;line-height:1.5em;font-weight:normal;overflow:hidden;transition:all .3s}ul.borecentpost li:hover h4{bottom:30px}ul.borecentpost li:nth-child(1)h4,ul.borecentpost li:nth-child(4)h4{font-size:150% }ul.borecentpost .label_text{position:absolute;bottom:0;left:20px;z-index:2;color:#fff;font-size:90%;opacity:0;transition:all .3s}ul.borecentpost li:hover .label_text{bottom:20px;opacity:1}ul.borecentpost li:nth-child(2).autname,ul.borecentpost li:nth-child(3).autname{display:none }.buttons{margin:5px 0 0 }.buttons a{display:inline-block;text-indent:-9999px;width:15px;height:25px;position:relative }.buttons a::before{content:"";width:0;height:0;border-width:8px 7px;border-style:solid;border-color:transparent #535353 transparent transparent;position:absolute;top:50%;margin-top:-8px;margin-left:-10px;left:50% }.buttons a.nextx::before{border-color:transparent transparent transparent #535353;margin-left:-3px }
 
-//#################### Default Settings
-var ListBlogLink = "http://www.sophiainstitute.id/";
-var ListCount = 9999;
-var ListLabel = "SEO";
-var ChrCount = 45;
-var TitleCount = 66;
-var ImageSize = 200;
-var showcomments = "";
-var showdate = "";
-var showauthor = "";
-var showthumbnail = "";
-var showlabel = "";
-var showcontent = "";
-var showTotal = "";
-
-//################ Function Start
-function mbtlist(json) {
-document.write('<ul class="mbtlist">');
-for (var i = 0; i < ListCount; i++)
-{
-
-//################### Variables Declared
-var listing= ListImage = ListUrl = ListTitle = ListImage = ListContent = ListConten = ListAuthor = ListTag = ListDate = ListUpdate = ListComments = thumbUrl = TotalPosts = sk = AuthorPic= ListMonth = Y = D = M = m = YY = DD = MM = mm = TT =  "";
-
-//################### Category
-if (json.feed.entry[i].category != null)
-{
-for (var k = 0; k < json.feed.entry[i].category.length; k++) {
-ListTag += "<a href='"+ListBlogLink+"/search/label/"+json.feed.entry[i].category[k].term+"'>"+json.feed.entry[i].category[k].term+"</a>";
-if(k < json.feed.entry[i].category.length-1)
-{ ListTag += " ";}
-}}
-
-//################### URL
-for (var j = 0; j < json.feed.entry[i].link.length; j++) {
-      if (json.feed.entry[i].link[j].rel == 'alternate') {
-        break;
-      }
-    }
-ListUrl= "'" + json.feed.entry[i].link[j].href + "'";
-
-//################### Info
-TotalPosts = json.feed.openSearch$totalResults.$t;
-if (json.feed.entry[i].title!= null)
-{
-ListTitle= json.feed.entry[i].title.$t.substr(0, TitleCount);
-}
-if (json.feed.entry[i].thr$total)
-{
-ListComments= "<a href='"+json.feed.entry[i].link[j].href+"#comment-form'>"+json.feed.entry[i].thr$total.$t+"</a>";
-}
-ListAuthor= json.feed.entry[i].author[0].name.$t.split(" ");
-ListAuthor=ListAuthor.slice(0, 1).join(" ");
-
-AuthorPic = json.feed.entry[i].author[0].gd$image.src;
-//################### Content Check
-
-ListConten = json.feed.entry[i].content.$t;
-ListContent= ListConten.replace(/(<([^>]+)>)/ig,"").substring(0, ChrCount);
-
-//################### Date Format
-
-ListMonth= ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-
-ListDate= json.feed.entry[i].published.$t.substring(0,10);
-
-                         Y = ListDate.substring(0, 4);
-                        m = ListDate.substring(5, 7);
-                         D = ListDate.substring(8, 10);
-                         M = ListMonth[parseInt(m - 1)];                       
-
-ListUpdate= json.feed.entry[i].updated.$t.substring(0, 16);
-
-                         YY = ListUpdate.substring(0, 4);
-                        mm = ListUpdate.substring(5, 7);
-                         DD = ListUpdate.substring(8, 10);
-                         TT = ListUpdate.substring(11, 16);
-                         MM = ListMonth[parseInt(mm - 1)];   
-
-//################### Thumbnail Check
-// YouTube scan
-
-if (json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/) != null)
-{
-
-    var youtube_id = json.feed.entry[i].content.$t.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
-   
-    if (youtube_id.length == 11) {
-        var ListImage = "'//img.youtube.com/vi/"+youtube_id+"/0.jpg'";
-        }
-}
-
-else if (json.feed.entry[i].media$thumbnail)
-{
-thumbUrl = json.feed.entry[i].media$thumbnail.url;
-sk= thumbUrl.replace("/s72-c/","/s"+ImageSize+);
-ListImage= "'" + sk.replace("?imgmax=800","") + "'";
-}
-
-else if (json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/) != null)
-{
-// Support For 3rd Party Images
-ListImage =  json.feed.entry[i].content.$t.match(/src=(.+?[\.jpg|\.gif|\.png]")/)[1];
-}
-
-else
-{
-ListImage= "'http://4.bp.blogspot.com/-HALLtgFeep0/VfryhQ0C5oI/AAAAAAAAPcY/77mSGND4q84/s200/Icon.png'";
-}
-//################### Printing List
-
-document.write( "<li class='node"+[i]+"' >");
-if (showthumbnail == 'on'){
-document.write("<div class='iFeatured'><a  href="
-+ ListUrl+
-  "><img src="
-+ListImage+
-"/></a></div>");
-}
-if (showlabel == 'on'){
-document.write("<span class='itag'>"
-+ListTag +
-"</span>");
-}
-document.write("<a class='mbttitle' href="
-+ ListUrl+
-">"
-+ ListTitle+
-"</a><div class='iline'>");
-
-if (showauthor == 'on'){
-document.write("<span class='iauthor'><img class='iauthorpic' src='/images/PicsArt_01-03-03.03.59.png'/>"
-+ListAuthor+
-"</span>");
-}
-if (showcomments == 'on'){
-document.write("<span class='icomments'>"
-+ListComments +
-"</span> ");
-}
-
-if (showdate == 'on'){
-document.write("<span class='idate'>"
-+ M +
-" "
-+ D +
-"</span>");
-}
-
-if (showcontent == 'on'){
-document.write("<div class='icontent'>"
-+ListContent +
-"...</div> ");
-}
-document.write("</div></li>");
-
-}if (showTotal == 'on'){
-document.write("<div class='itotal'><span> <a href='https://www.sophiainstitute.id'>View all <font>"+TotalPosts+"</font> posts in  →  " +ListLabel+" </a></span></div>");
-}
-document.write("</ul>");
-}
-
-document.write("<script src='https://www.sophiainstitute.id/feeds/posts/default?alt=json-in-script&callback=mbtlist&max-results=9999'></"+"script>");
-</script>
-
-<style>
-/*------Recent Posts Gadget By STCnetwork.org--------*/
-.mbtlist {list-style-type:none;overflow:hidden; margin: 10px 0px!important; width:300px; padding:0px!important;}
-.mbtlist li {margin:0px auto 10px auto; clear:both; color:#666; font-family:helvetica; font-size:12px; border-bottom:1px solid #eee; overflow:hidden; position:relative}
-.mbtlist li a { color:#666; text-decoration:none; }
-.mbtlist i{color:#999; padding-right:5px; }
-.mbtlist .iline{line-height:2em; margin-top:3px;}
-.mbtlist .icontent{line-height:1.5em; margin-top:5px;}
-.mbtlist div span{margin:0 5px 0 0; display:inline-block;font-weight: normal; }
-.mbtlist .mbttitle {font-family:oswald; font-size:13px; color:#666; font-weight:normal; text-decoration:none;}
-.mbtlist .mbttitle:hover, .mbtlist .itotal a:hover  {color:#333; text-decoration:none;}
-.mbtlist .iedit a{text-decoration:none; color:#999; cursor:pointer}
-.mbtlist .iedit:before, .mbtlist .iauthor:before, .mbtlist .itag:before, .mbtlist .icomments:before, .mbtlist .idate:before, .mbtlist .itotal span:before{font-family:fontAwesome; position:relative; padding-right:8px; color:#999;}
-.mbtlist .iauthorpic{width: 17px;height: 17px;border-radius: 50%;
-float: none; display: inline-block; margin:0px 0px 0px 0px; padding-right:3px; position:relative; top:3px;}
-.mbtlist .itag{    color: #fff;position: absolute;left: 7px;top: 8px;display: inline-block;font-size: 11px;width: 130px; height:22px;    overflow: hidden;}
-.mbtlist .itag a{background:#000;background:rgba(0,0,0,0.7);text-decoration:none;color:#fff;padding:4px 5px;text-transform:capitalize;line-height: 2em;font-family: arial;
-    font-size: 11px;border:1px solid #333;}
-.mbtlist .itag a:hover{background:#222; color:#eee; text-decoration:none;}
-.iFeatured{overflow:hidden;position:relative;float:left;margin:0 5px 10px 0;padding:0;}
-.iFeatured a {background: url(http://3.bp.blogspot.com/-U2SNjBF_hE8/VLFfl4mJmtI/AAAAAAAAOYs/nDK3GKUJFr4/s100/mbt-bg1.png) 0 0;padding: 7px 7px 8px 7px;display: block;}
-.iFeatured img{width:;height:80px;-moz-transition:all .3s;-webkit-transition:all .3s;transition:all .3s;     border-radius: 2px;}
-.iFeatured:hover img{ opacity:1;   -moz-transform:scale(1.4);-webkit-transform:scale(1.4);transform:scale(1.4)}
-.mbtlist .icomments a{color; font-family: arial;font-size:12px;}
-.mbtlist .icomments a:hover{text-decoration:underline}
-.mbtlist .icomments:before {content:'\f086'; padding:0px 3px 0px 7px; color:;}
-.mbtlist .idate:before {content:'\f073';padding-right:3px}
-.mbtlist .iedit:before {content:'\f040';}
-.mbtlist .imore {font-size:16px; font-weight:bold; text-decoration:none; color:#666;}
-.mbtlist .itotal {color:#333;  padding:5px 0px; }
-.mbtlist .itotal a {font-family:oswald, arial; font-size:12px; font-weight:normal; color:#0080ff; text-decoration:none}
-.mbtlist .itotal span:before {content:'\f07c';}
-.mbtlist .itotal span font {padding:0px 3px; color:#333; font-family:georgia; font-size:15px; font-weight:bold}
 </style>
+
+<div id="featuredpostslider"></div>
+
+<script type='text/javascript'>
+
+function FeaturedPostSlider(a){(function(e){var h={blogURL:"",MaxPost:4,idcontaint:"",ImageSize:100,interval:5000,autoplay:false,loadingClass:"loadingxx",pBlank:"http://1.bp.blogspot.com/-htG7vy9vIAA/Tp0KrMUdoWI/AAAAAAAABAU/e7XkFtErqsU/s1600/grey.gif",MonthNames:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],tagName:false};h=e.extend({},h,a);var g=e(h.idcontaint);var d=h.MaxPost*200;g.html('<div class="sliderx"><ul class="borecentpost"></ul></div><div class="buttons"><a href="#" class="prevx">prev</a><a href="#" class="nextx">next</a></div>');var f=function(w){var q,k,m,u,x,p,t,v,r,l="",s=w.feed.entry;for(var o=0;o<s.length;o++){for(var n=0;n<s[o].link.length;n++){if(s[o].link[n].rel=="alternate"){q=s[o].link[n].href;break}}if("media$thumbnail" in s[o]){u=s[o].media$thumbnail.url.replace(/\/s[0-9]+\-c/g,"/s"+h.ImageSize+"-c")}else{u=h.pBlank.replace(/\/s[0-9]+(\-c|\/)/,"/s"+h.ImageSize+"$1")}k=s[o].title.$t;r=s[o].published.$t.substring(0,10);m=s[o].author[0].name.$t;x=r.substring(0,4);p=r.substring(5,7);t=r.substring(8,10);v=h.MonthNames[parseInt(p,10)-1];l+='<li><a target="_blank" href="'+q+'"><div class="overlayx"></div><img class="random" src="'+u+'"/><h4>'+k+'</h4></a><div class="label_text"><span class="date"><span class="dd">'+t+'</span> <span class="dm">'+v+'</span> <span class="dy">'+x+'</span></span> <span class="autname">'+m+"</span></div></li>"}e("ul",g).append(l).addClass(h.loadingClass)};var c=function(){e(h.idcontaint+" .nextx").click()};var b=function(){e.get((h.blogURL===""?window.location.protocol+"//"+window.location.host:h.blogURL)+"/feeds/posts/summary?max-results=99999&orderby=published&alt=json-in-script",f,"jsonp");setTimeout(function(){e(h.idcontaint+" .prevx").click(function(){e(h.idcontaint+" .sliderx li:first").before(e(h.idcontaint+" .sliderx li:last"));return false});e(h.idcontaint+" .nextx").click(function(){e(h.idcontaint+" .sliderx li:last").after(e(h.idcontaint+" .sliderx li:first"));return false});if(h.autoplay){var i=h.interval;var j=setInterval(c,i);e(h.idcontaint+" .sliderx li:first").before(e(h.idcontaint+" .sliderx li:last"));e(h.idcontaint+" .sliderx").hover(function(){clearInterval(j)},function(){j=setInterval(c,i)})}e("ul",g).removeClass(h.loadingClass)},d)};e(document).ready(b)})(jQuery)};
+
+//<![CDATA[
+
+FeaturedPostSlider({
+
+  blogURL: "https://www.sophiainstitute.id",
+
+  MaxPost: 9999,
+
+  idcontaint: "#featuredpostslider",
+
+  ImageSize: 300,
+
+  interval: 5000,
+
+  autoplay: true,
+
+  tagName: false
+
+});
+
+//]]>
+
+</script>
