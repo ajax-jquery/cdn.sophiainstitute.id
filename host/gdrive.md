@@ -45,6 +45,12 @@ title: CDN Host
 <div class='panel-primary'>
 
 <div class='panel-heading'>
+
+<h2>Generate Link</h2>
+
+</div>
+
+<div class='panel-body'>
 <div class='generator-gdrive'>
 
   <div class='form-gdrive input'>
@@ -84,11 +90,6 @@ title: CDN Host
   </div>
 
 </div>
-<h2>Generate Link</h2>
-
-</div>
-
-<div class='panel-body'>
 
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url'/>
 
