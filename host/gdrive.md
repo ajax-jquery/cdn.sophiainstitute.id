@@ -153,7 +153,7 @@ function safeLDefer(){var d=document.createElement("script");d.src="/safelink/cs
     display: block;
     margin: 5px 0;
     padding: 10px;
-    width: calc(100% - 20px);
+    width: 100%;
 }
 .form-gdrive.output, .tombol-copy-reset {
     display: none;
