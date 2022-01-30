@@ -76,6 +76,8 @@ title: CDN Host
     <button id='download'>Download</button>
 
     <button id='reset'>Reset</button>
+    
+    <button id='copyandreset'>Copy and Reset</button>
 
   </div>
 
@@ -130,7 +132,7 @@ var setCopied = 'URL Tersalin'; //generator tersalin
 
 // global script version 1.1 open source code
 
-function safeLDefer(){var d=document.createElement("script");d.src="https://cdn.sophiainstitute.id/safelink/css/wcsafelink.js",document.body.appendChild(d)}window.addEventListener?window.addEventListener("load",safeLDefer,!1):window.attachEvent?window.attachEvent("onload",safeLDefer):window.onload=safeLDefer;
+function safeLDefer(){var d=document.createElement("script");d.src="/safelink/css/wcsafelink.js",document.body.appendChild(d)}window.addEventListener?window.addEventListener("load",safeLDefer,!1):window.attachEvent?window.attachEvent("onload",safeLDefer):window.onload=safeLDefer;
 
 //]]> 
 
@@ -228,7 +230,7 @@ button#get-button {
     padding: 7px 15px;
     margin: 0 auto;
 }  
-button#copy,button#download,button#reset {
+button#copy,button#download,button#reset,button#copyandreset {
     color: #fff;
     background-color: #007bff;
     display: inline-block;
@@ -281,7 +283,18 @@ function getButton(){
   function reset(){
     document.querySelector(".output").style.display = "none",document.querySelector(".input").style.display = "block", document.getElementById("get-button").style.display = "block",document.querySelector(".tombol-copy-reset").style.display = "none",$("#driveID").val("")
   }
+  function copyandreset(){
+    document.getElementById("output").select();
+    document.execCommand('copy');
+    document.getElementById("text-keterangan").innerHTML = "Link berhasil disalin";
+    document.getElementById("text-keterangan").style.margin = "10px 0";
+    document.querySelector(".output").style.display = "none";
+    document.querySelector(".input").style.display = "block";
+    document.getElementById("get-button").style.display = "block";
+    document.querySelector(".tombol-copy-reset").style.display = "none";
+    $("#driveID").val("")
+  }
   window.onload = function() {
-    document.getElementById("driveID").focus(), document.getElementById("get-button").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset;
+    document.getElementById("driveID").focus(), document.getElementById("get-button").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
