@@ -279,7 +279,7 @@ function getButton(){
     window.open(linkUnduh,'_blank');
   }
   function reset(){
-    window.location.href = window.location.href;
+    document.querySelector(".output").style.display = "none",document.querySelector(".input").style.display = "block", document.getElementById("get-button").style.display = "block",document.querySelector(".tombol-copy-reset").style.display = "none",$("#driveID").val("")
   }
   window.onload = function() {
     document.getElementById("driveID").focus(), document.getElementById("get-button").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset;
