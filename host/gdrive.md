@@ -41,6 +41,10 @@ title: CDN Host
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
+
+<div class='panel-primary'>
+
+<div class='panel-heading'>
 <div class='generator-gdrive'>
 
   <div class='form-gdrive input'>
@@ -80,10 +84,6 @@ title: CDN Host
   </div>
 
 </div>
-<div class='panel-primary'>
-
-<div class='panel-heading'>
-
 <h2>Generate Link</h2>
 
 </div>
