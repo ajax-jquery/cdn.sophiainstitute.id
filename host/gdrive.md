@@ -4,6 +4,10 @@ layout: post
 title: CDN Host
 
 ---
+<h2>Literatur Kiri</h2>
+<iframe src="https://drive.google.com/embeddedfolderview?id=1XKmQiaTpiqQ45Ur-2BLQNEh9GoGUHdFV#list" width="200" height="100" frameborder="0"></iframe>
+<h2>Literatur Kiri</h2>
+<iframe src="https://drive.google.com/embeddedfolderview?id=11z7rEKCGGmcHbqw2Zv-VlpHrhEnsH5_U#list" width="200" height="100" frameborder="0"></iframe>
 <style>
 
   /* CSS Safelink ubah warna cari kode #f89000 */
