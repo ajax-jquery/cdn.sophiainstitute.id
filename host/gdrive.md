@@ -203,7 +203,6 @@ function safeLDefer(){var d=document.createElement("script");d.src="/safelink/cs
     z-index: 2;
 }
 .form-gdrive.input input {
-    width: calc(100% - 80px);
     padding: 10px 15px 10px 65px;
 }
 .form-gdrive.output input{
