@@ -101,7 +101,7 @@ title: GDRIVE LINK
 <script>
 //<![CDATA[
 /* Pengaturan safeLink */
-var setTimer = 10; //waktu detik
+var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
 var setText = 'Harap Tunggu...'; //pesan pada tombol
 var setCopyUrl = 'Salin URL'; // generator salin
