@@ -4,6 +4,7 @@ layout: post
 title: GDRIVE LINK
 
 ---
+<script async src="/safelink/css/wcsafelink.js"></script>
 <h2>Literatur Kiri</h2>
 <iframe src="https://drive.google.com/embeddedfolderview?id=1XKmQiaTpiqQ45Ur-2BLQNEh9GoGUHdFV#list" width="480" height="250" frameborder="0"></iframe>
 <h2>Literatur Filsafat</h2>
@@ -41,7 +42,7 @@ title: GDRIVE LINK
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
-<script async src="/safelink/css/wcsafelink.js"></script>
+
 <div class='generator-gdrive'>
 
   <div class='form-gdrive input'>
