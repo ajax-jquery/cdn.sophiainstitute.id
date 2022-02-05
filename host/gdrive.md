@@ -56,7 +56,7 @@ title: GDRIVE LINK
   </div>
 
   <div class='tombol-get'>
-<button id='get-button btngenerate' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>Ubah Link</button>
+<button id='btngenerate' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>Ubah Link</button>
   </div>
 
   <div class='form-gdrive output'>
@@ -219,7 +219,7 @@ button#copy,button#download,button#reset,button#copyandreset {
 <script>
 
     function getButton(){
-    var input = document.getElementById("driveID").value,
+    var input = document.getElementById("driveID").value}
         drive = input.indexOf("google.com");
     if (-1 != drive) {
         var textd = input.indexOf("d/"),
@@ -242,7 +242,7 @@ document.getElementById("generateurl").value = output;
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
     }
-  }
+  
   function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
@@ -268,7 +268,7 @@ document.getElementById("generateurl").value = output;
     $("#driveID").val("")
   }
   window.onload = function() {
-    document.getElementById("driveID").focus(), document.getElementById("get-button").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
+    document.getElementById("driveID").focus(), document.getElementById("btngenerate").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
 <script async src="/safelink/css/wcsafelink.js"></script>
