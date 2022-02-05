@@ -41,7 +41,7 @@ title: GDRIVE LINK
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
-<script src="/safelink/css/wcsafelink.js"></script>
+<script async src="/safelink/css/wcsafelink.js"></script>
 <div class='generator-gdrive'>
 
   <div class='form-gdrive input'>
