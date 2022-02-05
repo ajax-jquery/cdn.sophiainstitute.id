@@ -56,8 +56,7 @@ title: GDRIVE LINK
 
   <div class='tombol-get'>
 
-    <button id="btngenerate" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" required="required" type="button">Ubah Link</button>
-
+    
   </div>
 
   <div class='form-gdrive output'>
@@ -294,6 +293,6 @@ document.getElementById("generateurl").value = output;
     $("#driveID").val("")
   }
   window.onload = function() {
-    document.getElementById("driveID").focus(), document.getElementById("").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
+    document.getElementById("driveID").focus(), document.getElementById("btngenerate").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
