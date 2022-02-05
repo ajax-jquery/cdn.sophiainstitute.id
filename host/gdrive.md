@@ -254,7 +254,7 @@ document.getElementById("generateurl").value = output;
     window.open(linkUnduh,'_blank');
   }
   function reset(){
-    document.querySelector(".output").style.display = "none",document.querySelector(".input").style.display = "block", document.getElementById("get-button").style.display = "block",document.querySelector(".tombol-copy-reset").style.display = "none",$("#driveID").val("")
+    document.querySelector(".output").style.display = "none",document.querySelector(".input").style.display = "block", document.getElementById("get-button").style.display = "block",document.querySelector(".tombol-copy-reset").style.display = "none",$("#driveID").val(""),$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")
   }
   function copyandreset(){
     document.getElementById("output").select();
