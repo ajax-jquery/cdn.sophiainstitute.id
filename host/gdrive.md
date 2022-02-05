@@ -261,6 +261,7 @@ function getButton(){
             ? (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit)))
             : ((textEdit = input.indexOf("/view")), (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
       document.getElementById("output").value = output;
+document.getElementById("generateurl").value = output;
       document.querySelector(".input").style.display = "none";
       document.querySelector(".output").style.display = "block";
       document.querySelector(".tombol-copy-reset").style.display = "block";
