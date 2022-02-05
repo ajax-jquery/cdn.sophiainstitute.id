@@ -267,10 +267,10 @@ document.getElementById("generateurl").value = output;
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
     }
-  function (){
+  function getButton(){
     document.getElementById("generateurl").value = output;
   }
-  function getButton(){
+  function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
     document.getElementById("text-keterangan").innerHTML = "Link berhasil disalin";
