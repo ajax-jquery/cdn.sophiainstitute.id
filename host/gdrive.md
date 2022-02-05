@@ -106,30 +106,8 @@ var setColor = '#f89000'; //warna loading timer
 var setText = 'Harap Tunggu...'; //pesan pada tombol
 var setCopyUrl = 'Salin URL'; // generator salin
 var setCopied = 'URL Tersalin'; //generator tersalin
-// global script version 1.1 
 //]]> 
 </script>
-<script>
-
-//<![CDATA[
-
-/* Pengaturan safeLink */
-
-var setTimer = 10; //waktu detik
-
-var setColor = '#f89000'; //warna loading timer
-
-var setText = 'Harap Tunggu...'; //pesan pada tombol
-
-var setCopyUrl = 'Salin URL'; // generator salin
-
-var setCopied = 'URL Tersalin'; //generator tersalin
-
-//safelink blogger di bagikan gratis oleh https://blog.choipanwendy.com versi 1.1
-//]]> 
-
-</script>
-
 <style>
 .generator-gdrive {
     position: relative;
