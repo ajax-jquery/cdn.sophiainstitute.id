@@ -55,7 +55,7 @@ title: GDRIVE LINK
   </div>
 
   <div class='tombol-get'>
-<button id="btngenerate get-button" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" required="required" type="button">Ubah Link</button>
+<button id="get-button" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" required="required" type="button">Ubah Link</button>
   </div>
 
   <div class='form-gdrive output'>
