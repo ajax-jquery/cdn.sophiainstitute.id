@@ -4,7 +4,7 @@ layout: post
 title: GDRIVE LINK
 
 ---
-<script async src="/safelink/css/wcsafelink.js"></script>
+
 <h2>Literatur Kiri</h2>
 <iframe src="https://drive.google.com/embeddedfolderview?id=1XKmQiaTpiqQ45Ur-2BLQNEh9GoGUHdFV#list" width="480" height="250" frameborder="0"></iframe>
 <h2>Literatur Filsafat</h2>
@@ -271,3 +271,4 @@ document.getElementById("generateurl").value = output;
     document.getElementById("driveID").focus(), document.getElementById("get-button").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
+<script async src="/safelink/css/wcsafelink.js"></script>
