@@ -243,7 +243,7 @@ button#copy,button#download,button#reset,button#copyandreset {
 }
 </style>
 <script>
-function getButton(){
+
     var input = document.getElementById("driveID").value,
         drive = input.indexOf("google.com");
     if (-1 != drive) {
@@ -267,7 +267,7 @@ document.getElementById("generateurl").value = output;
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
     }
-  }
+  
   function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
