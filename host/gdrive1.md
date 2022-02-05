@@ -94,7 +94,7 @@ title: GDRIVE LINK
 <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M18.865 5.1238C19.302 5.2768 19.594 5.6888 19.594 6.1518V12.9248C19.594 14.8178 18.906 16.6248 17.691 18.0248C17.08 18.7298 16.307 19.2788 15.486 19.7228L11.928 21.6448L8.364 19.7218C7.542 19.2778 6.768 18.7298 6.156 18.0238C4.94 16.6238 4.25 14.8158 4.25 12.9208V6.1518C4.25 5.6888 4.542 5.2768 4.979 5.1238L11.561 2.8108C11.795 2.7288 12.05 2.7288 12.283 2.8108L18.865 5.1238Z'/><path class='svg-c' d='M9.32251 11.9177L11.2145 13.8107L15.1125 9.91269'/></svg>Generate</button></span>
 <div class='hidden' id='generateloading'>
 <svg viewBox='0 0 50 50' x='0px' y='0px'><path d='M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z'><animateTransform attributeName='transform' attributeType='xml' dur='0.6s' from='0 25 25' repeatCount='indefinite' to='360 25 25' type='rotate'/></path></svg></div>
-<div class='hidden' id='generatelink'>
+<div class='' id='generatelink'>
 <input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
 <button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL</button></div></div>
 <a class='wcSafeClose' href='javascript:void'>Close</a>
