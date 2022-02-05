@@ -56,7 +56,7 @@ title: GDRIVE LINK
 
   <div class='tombol-get'>
 
-    <button id='get-button'>Ubah Link</button>
+    <button id="get-button" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" required="required" type="button">Ubah Link</button>
 
   </div>
 
