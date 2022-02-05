@@ -218,8 +218,8 @@ button#copy,button#download,button#reset,button#copyandreset {
 </style>
 <script>
 
-    function getButton(){document.getElementById("generateurl").value = output;
-    var input = document.getElementById("driveID").value}
+    function getButton(){
+    var input = document.getElementById("driveID").value,
         drive = input.indexOf("google.com");
     if (-1 != drive) {
         var textd = input.indexOf("d/"),
@@ -234,7 +234,7 @@ button#copy,button#download,button#reset,button#copyandreset {
             ? (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit)))
             : ((textEdit = input.indexOf("/view")), (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
       document.getElementById("output").value = output;
-
+      document.getElementById("generateurl").value = output;
       document.querySelector(".input").style.display = "none";
       document.querySelector(".output").style.display = "block";
       document.querySelector(".tombol-copy-reset").style.display = "block";
@@ -242,7 +242,7 @@ button#copy,button#download,button#reset,button#copyandreset {
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
     }
-  
+  }
   function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
