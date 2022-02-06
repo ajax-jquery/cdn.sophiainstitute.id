@@ -86,8 +86,8 @@ var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("
 if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
-new ClipboardJSA("#copytoclipboardA").on("success",function(e){$("#copytoclipboardA").html(setCopiedA)});
-new ClipboardJSB("#copytoclipboardB").on("success",function(e){$("#copytoclipboardB").html(setCopiedB)});
+new ClipboardJS("#copytoclipboardA").on("success",function(e){$("#copytoclipboardA").html(setCopiedA)});
+new ClipboardJS("#copytoclipboardB").on("success",function(e){$("#copytoclipboardB").html(setCopiedB)});
 });
 </script>
 <script>
