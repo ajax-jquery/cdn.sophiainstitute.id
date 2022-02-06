@@ -88,7 +88,7 @@ title: GDRIVE LINK
 <h2>Generate Link</h2>
 </div>
 <div class='panel-body'>
-<input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url'/>
+<input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' value=""/>
 <span class='input-group-btn'>
 <button class='btn-primary' id='btngenerate' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>
 <svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M18.865 5.1238C19.302 5.2768 19.594 5.6888 19.594 6.1518V12.9248C19.594 14.8178 18.906 16.6248 17.691 18.0248C17.08 18.7298 16.307 19.2788 15.486 19.7228L11.928 21.6448L8.364 19.7218C7.542 19.2778 6.768 18.7298 6.156 18.0238C4.94 16.6238 4.25 14.8158 4.25 12.9208V6.1518C4.25 5.6888 4.542 5.2768 4.979 5.1238L11.561 2.8108C11.795 2.7288 12.05 2.7288 12.283 2.8108L18.865 5.1238Z'/><path class='svg-c' d='M9.32251 11.9177L11.2145 13.8107L15.1125 9.91269'/></svg>Generate</button></span>
@@ -100,7 +100,28 @@ title: GDRIVE LINK
 <a class='wcSafeClose' href='javascript:void'>Close</a>
 </div>
 <script>
-$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});$(document).ready(function(){$('#generateurl').keyup(function(){var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard").html(setCopied)})}); 
+$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
+
+$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});
+
+$(document).ready(function(){$('#driveID').keyup(function(){
+var input=document.getElementById("driveID").value,drive=input.indexOf("google.com");if(-1!=drive){var textd=input.indexOf("d/"),textEdit=input.indexOf("/edit"),driveID=input.slice(textd+2,textEdit),output="https://docs.google.com/$type/d/"+driveID+"/export?format=pdf";-1!==input.indexOf("document")?(output=output.replace("$type","document").split("pdf").join("docx")):-1!==input.indexOf("spreadsheet")?(output=output.replace("$type","spreadsheets").split("pdf").join("xlsx")):-1!==input.indexOf("presentation")?(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))):((textEdit=input.indexOf("/view")),(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))));
+      document.getElementById("output").value = output;$("#generateurl").val(output);
+$('#output').val(output);
+
+    } else {
+      var x = document.getElementById("driveID")
+x.placeholder = "Url tidak s";x.value =""
+    }
+  ;
+var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
+if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),
+
+
+
+n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
+
+new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard").html(setCopied)})});
 </script>
 <script>
 //<![CDATA[
@@ -219,30 +240,6 @@ button#copy,button#download,button#reset,button#copyandreset {
 }
 </style>
 <script>
-$(document).ready(function(){  
-   $('#driveID').keyup(function(){
-    var input = document.getElementById("driveID").value,
-        drive = input.indexOf("google.com");
-    if (-1 != drive) {
-        var textd = input.indexOf("d/"),
-            textEdit = input.indexOf("/edit"),
-            driveID = input.slice(textd + 2, textEdit),
-            output = "https://docs.google.com/$type/d/" + driveID + "/export?format=pdf";
-        -1 !== input.indexOf("document")
-            ? (output = output.replace("$type", "document").split("pdf").join("docx"))
-            : -1 !== input.indexOf("spreadsheet")
-            ? (output = output.replace("$type", "spreadsheets").split("pdf").join("xlsx"))
-            : -1 !== input.indexOf("presentation")
-            ? (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit)))
-            : ((textEdit = input.indexOf("/view")), (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
-      document.getElementById("output").value = output;
-      document.getElementById("generateurl").value = output;
-      
-      $('#output').val(output);
-    } else {
-      document.getElementById("driveID").value = "Url tidak sesuai format";
-    }
-  })});
   function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
