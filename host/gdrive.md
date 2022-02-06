@@ -68,12 +68,12 @@ title: GDRIVE LINK
 <button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL Safelink</button>
 </div>
 </div>
-<a class='wcSafeClose hidden' href='javascript:void'>Close</a>
+<a class='hidden' id="reset" href='javascript:void'>Close</a>
 </div>
 <script>
 $(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
 
-$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val(""),$("#driveID").val(""),$(".wcSafeClose").addClass("hidden")});
+$("#reset").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val(""),$("#driveID").val(""),$("#reset").attr("class","hidden")});
 
 $(document).ready(function(){$('#driveID').keyup(function(){
 var input=document.getElementById("driveID").value,drive=input.indexOf("google.com");if(-1!=drive){var textd=input.indexOf("d/"),textEdit=input.indexOf("/edit"),driveID=input.slice(textd+2,textEdit),output="https://docs.google.com/$type/d/"+driveID+"/export?format=pdf";-1!==input.indexOf("document")?(output=output.replace("$type","document").split("pdf").join("docx")):-1!==input.indexOf("spreadsheet")?(output=output.replace("$type","spreadsheets").split("pdf").join("xlsx")):-1!==input.indexOf("presentation")?(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))):((textEdit=input.indexOf("/view")),(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))));
@@ -87,8 +87,7 @@ x.placeholder = "Hanya Menerima URL GDrive";x.value =""
 var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
 if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),
 
-
-$(".wcSafeClose").removeClass("hidden"),
+$("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
 
 new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard").html(setCopied)})});
@@ -235,7 +234,7 @@ button#copy,button#download,button#reset,button#copyandreset {
     $("#driveID").val("")
   }
   window.onload = function() {
-    document.getElementById("driveID").focus(), document.getElementById("btngenerate").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
+    document.getElementById("driveID").focus(), document.getElementById("btngenerate").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
 <script src="/safelink/css/wcsafelink.js"></script>
