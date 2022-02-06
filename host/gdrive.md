@@ -98,7 +98,7 @@ new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard
 var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
 var setText = 'Harap Tunggu...'; //pesan pada tombol
-var setCopyUrl = 'Salin URL'; // generator salin
+var setCopyUrl = ''; // generator salin
 var setCopied = 'URL Tersalin'; //generator tersalin
 //]]> 
 </script>
