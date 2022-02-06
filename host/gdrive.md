@@ -63,8 +63,8 @@ title: GDRIVE LINK
 
     <label for='gdrive'>Result</label>
 
-    <input name='gdrive' id='output' placeholder='Input Link Disini' type='text' readonly='readonly'/>
-
+<input name='gdrive' id='output' placeholder='Input Link Disini' type='text' readonly='readonly'/>
+<button id='download'>Download</button>
   </div>
 
   <div class='tombol-copy-reset'>
@@ -117,8 +117,7 @@ var setCopied = 'URL Tersalin'; //generator tersalin
     padding: 20px 0;
     max-width: 800px;
     text-align: center;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height: 1.5;
 }
 .form-gdrive {
     position: relative;
@@ -128,7 +127,7 @@ var setCopied = 'URL Tersalin'; //generator tersalin
     width: 100%;
 }
 .form-gdrive.output, .tombol-copy-reset {
-    display: none;
+    display: block;
 }
 .form-gdrive label {
     position: relative;
@@ -217,8 +216,8 @@ button#copy,button#download,button#reset,button#copyandreset {
 }
 </style>
 <script>
-
-    function getButton(){
+$(document).ready(function(){  
+   $('#driveID').keyup(function(){
     var input = document.getElementById("driveID").value,
         drive = input.indexOf("google.com");
     if (-1 != drive) {
@@ -239,10 +238,11 @@ button#copy,button#download,button#reset,button#copyandreset {
       document.querySelector(".output").style.display = "block";
       document.querySelector(".tombol-copy-reset").style.display = "block";
       document.getElementById("get-button").style.display = "none";
+      $('#output').val(output);
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
     }
-  }
+  })});
   function copy(){
     document.getElementById("output").select();
     document.execCommand('copy');
@@ -268,7 +268,7 @@ button#copy,button#download,button#reset,button#copyandreset {
     $("#driveID").val("")
   }
   window.onload = function() {
-    document.getElementById("driveID").focus(), document.getElementByClassName("btn-primary").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
+    document.getElementById("driveID").focus(), document.getElementById("btngenerate").onclick = getButton, document.getElementById("copy").onclick = copy, document.getElementById("download").onclick = download, document.getElementById("reset").onclick = reset, document.getElementById("copyandreset").onclick = copyandreset;
   };
 </script>
 <script>
