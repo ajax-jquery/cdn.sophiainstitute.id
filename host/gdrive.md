@@ -89,7 +89,7 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
-new ClipboardJS1("#copytoclipboard1")("#copytoclipboard2").on("success",function(e){$("#copytoclipboard1").html(setCopied1),$("#copytoclipboard2").html(setCopied2)});
+new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard1").html(setCopied1),$("#copytoclipboard2").html(setCopied2)});
 });
 </script>
 <script>
@@ -100,7 +100,6 @@ var setColor = '#f89000'; //warna loading timer
 var setCopyUrl = 'Copy URL Download'; // generator salin
 var setText = 'Harap Tunggu...'; //pesan pada tombol
 var setCopied1 = 'URL Tersalin'; //generator tersalin
-var setCopied2 = 'URL Tersalin'; //generator tersalin
 //]]> 
 </script>
 <style>
