@@ -42,6 +42,11 @@ title: GDRIVE LINK
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
+
+<div class='panel-primary'>
+<div class='panel-heading'>
+<h2>Generate Link</h2>
+</div>
 <div class='generator-gdrive'>
   <div class='form-gdrive input'>
     <span>*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
@@ -51,10 +56,6 @@ title: GDRIVE LINK
 <label for="gdrive">Result</label>
 <input name="gdrive" id="output" placeholder="Input Link Disini" type="text" readonly="readonly" />
 </div>
-</div>
-<div class='panel-primary'>
-<div class='panel-heading'>
-<h2>Generate Link</h2>
 </div>
 <div class='panel-body'>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
