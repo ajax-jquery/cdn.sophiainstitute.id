@@ -92,7 +92,7 @@ n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error lo
 
 new ClipboardJS1("#copytoclipboard1").on("success",function(e){$("#copytoclipboard1").html(setCopied1)});
 new ClipboardJS2("#copytoclipboard2").on("success",function(e){$("#copytoclipboard2").html(setCopied2)});
-
+});
 </script>
 <script>
 //<![CDATA[
