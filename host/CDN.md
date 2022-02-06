@@ -25,7 +25,7 @@ title: CDN Host
 .darkMode .panel-body input,.darkMode .panel-body input:focus{background:#2d2d30;color:#fefefe}
 .darkMode .wcSafeClose{color:#fefefe}
 </style>
-<div class='safeWrap'>
+
 <div class='panel-primary'>
 <div class='panel-heading'>
 <h2>Generate Link</h2>
@@ -41,7 +41,7 @@ title: CDN Host
 <input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
 <button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL</button></div></div>
 <a class='wcSafeClose' href='javascript:void'>Close</a>
-</div></div>
+</div>
 <script>
 $(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});$(document).ready(function(){$("#btngenerate").on("click",function(){var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard").html(setCopied)})});
 </script>
