@@ -127,7 +127,7 @@ var setCopied = 'URL Tersalin'; //generator tersalin
     width: 100%;
 }
 .form-gdrive.output, .tombol-copy-reset {
-    display: block;
+    display: none;
 }
 .form-gdrive label {
     position: relative;
@@ -234,10 +234,7 @@ $(document).ready(function(){
             : ((textEdit = input.indexOf("/view")), (output = "https://docs.google.com/uc?export=download&id=" + (driveID = input.slice(textd + 2, textEdit))));
       document.getElementById("output").value = output;
       document.getElementById("generateurl").value = output;
-      document.querySelector(".input").style.display = "none";
-      document.querySelector(".output").style.display = "block";
-      document.querySelector(".tombol-copy-reset").style.display = "block";
-      document.getElementById("get-button").style.display = "none";
+      
       $('#output').val(output);
     } else {
       document.getElementById("driveID").value = "Url tidak sesuai format";
