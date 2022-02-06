@@ -85,7 +85,7 @@ x.placeholder = "Hanya Menerima URL GDrive";x.value =""
     }
   ;
 var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
-if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard1").html(setCopyUrl1),$("#copytoclipboard2").html(setCopyUrl2),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),
+if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),$.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",type:"get",dataType:"jsonp",success:function(t){var o="",l=t.feed.entry,s=new Array;if(void 0!==l){for(var i=0;i<l.length;i++){for(var d=0;d<l[i].link.length;d++)if("alternate"==l[i].link[d].rel){o=l[i].link[d].href;break}s[i]=o;var c=Math.random()*s.length;c=parseInt(c)}resultgenerate=s[c]+"#?o="+aesCrypto.encrypt(convertstr(e),convertstr("root")),a.addClass("hidden"),r.removeClass("hidden"),
 
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
@@ -99,8 +99,7 @@ new ClipboardJS(".copytoclipboard2").on("success",function(e){$("#copytoclipboar
 /* Pengaturan safeLink */
 var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
-var setCopyUrl1 = 'Copy URL Download'; // generator salin
-var setCopyUrl2 = 'Copy URL Safelink'; // generator salin
+var setCopyUrl = 'Copy URL Download'; // generator salin
 var setText = 'Harap Tunggu...'; //pesan pada tombol
 var setCopied = 'URL Tersalin'; //generator tersalin
 //]]> 
