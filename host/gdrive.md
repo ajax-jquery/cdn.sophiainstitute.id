@@ -90,7 +90,7 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
 
-new ClipboardJS("#copytoclipboard1","#copytoclipboard2").on("success",function(e){$("#copytoclipboard1","#copytoclipboard2").html(setCopied1,setCopied2)})});
+new ClipboardJS("#copytoclipboard").on("success",function(e){$("#copytoclipboard1").html(setCopied1),$("#copytoclipboard2").html(setCopied2)})});
 </script>
 <script>
 //<![CDATA[
