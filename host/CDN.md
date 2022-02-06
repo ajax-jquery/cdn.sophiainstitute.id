@@ -8,7 +8,12 @@ title: CDN Host
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:400,700">
 <link rel="stylesheet" href="//rawcdn.githack.com/neoascetic/rawgithack/9e126bd/rawgithack.css">
 <div class="bd"><div class="content"><div class="url-helper"><div class="url-paste"><p id="url-form"><label for="url" class="offscreen">URL:</label><input id="url" class="url" type="url" placeholder="Paste an URL here" autofocus tabindex="1"></p></div><div class="column"><p class="url-container"><input id="url-prod" class="url" placeholder="https://rawcdn.githack.com/user/repo/tag/file" readonly tabindex="2"> <button id="url-prod-copy" class="url-copy-button" data-clipboard-target="#url-prod" title="Copy URL" disabled style="display:inline-block"><img src="//rawcdn.githack.com/neoascetic/rawgithack/4558441/clippy.svg" alt=""></button></p></div><div class="column"><p class="url-container"><input id="url-dev" class="url" placeholder="https://raw.githack.com/user/repo/branch/file" readonly tabindex="3"> <button id="url-dev-copy" class="url-copy-button" data-clipboard-target="#url-dev" title="Copy URL" disabled style="display:inline-block"><img src="//rawcdn.githack.com/neoascetic/rawgithack/4558441/clippy.svg" alt=""></button></p></div></div></div></div>
-<script src="https://rawcdn.githack.com/cdnjs/cdnjs/0971b44/ajax/libs/fetch/2.0.1/fetch.min.js"></script><script src="https://rawcdn.githack.com/zenorocha/document.queryCommandSupported/v1.0.0/dist/queryCommandSupported.min.js"></script><script src="https://rawcdn.githack.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script><script src="https://rawcdn.githack.com/jackmoore/autosize/master/dist/autosize.min.js"></script><script src="https://rawcdn.githack.com/neoascetic/rawgithack/c3942b4/rawgithack.js"></script>
+
+<script src="https://rawcdn.githack.com/zenorocha/document.queryCommandSupported/v1.0.0/dist/queryCommandSupported.min.js"></script>
+<script src="https://rawcdn.githack.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+<script src="https://rawcdn.githack.com/jackmoore/autosize/master/dist/autosize.min.js"></script>
+<script src="https://rawcdn.githack.com/neoascetic/rawgithack/c3942b4/rawgithack.js"></script>
+
 <style>
 /* CSS Safelink ubah warna cari kode #f89000 */
 .wcSafeShow{position:relative;width:35px;height:35px;display:flex;margin:auto} /* atur margin untuk mengubah posisi icon */
