@@ -68,7 +68,7 @@ title: GDRIVE LINK
 <button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard2'>Copy URL Safelink</button>
 </div>
 </div>
-<a class='hidden' id="reset" href='javascript:void'>Close</a>
+<a class='hidden' id="reset" href='javascript:void'>RESET</a>
 </div>
 <script>
 $(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
@@ -90,7 +90,7 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
 
-new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard1","#copytoclipboard2").html(setCopied1,setCopied1)})});
+new ClipboardJS("#copytoclipboard1","#copytoclipboard2").on("success",function(e){$("#copytoclipboard1","#copytoclipboard2").html(setCopied1,setCopied2)})});
 </script>
 <script>
 //<![CDATA[
