@@ -63,9 +63,11 @@ title: GDRIVE LINK
 <div class='hidden' id='generatelink'>
 <h2>Hasil</h2>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
-<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboard'>Copy URL Download</button></div></div>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboard'>Copy URL Download</button>
 <input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
-<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL Safelink</button></div></div>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL Safelink</button>
+</div>
+</div>
 <a class='wcSafeClose hidden' href='javascript:void'>Close</a>
 </div>
 <script>
