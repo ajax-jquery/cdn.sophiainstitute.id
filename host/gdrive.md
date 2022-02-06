@@ -63,9 +63,9 @@ title: GDRIVE LINK
 <div class='hidden' id='generatelink'>
 <h2>Hasil</h2>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
-<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboard1'>Copy URL Download</button>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboardA'>Copy URL Download</button>
 <input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
-<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard2'>Copy URL Safelink</button>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboardB'>Copy URL Safelink</button>
 </div>
 </div>
 <a class='hidden' id="reset" href='javascript:void'>RESET</a>
@@ -89,7 +89,7 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
-new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard1").html(setCopied1),$("#copytoclipboard2").html(setCopied2)});
+new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboardA").html(setCopiedA),$("#copytoclipboardB").html(setCopiedB)});
 });
 </script>
 <script>
@@ -99,7 +99,8 @@ var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
 var setCopyUrl = 'Copy URL Download'; // generator salin
 var setText = 'Harap Tunggu...'; //pesan pada tombol
-var setCopied1 = 'URL Tersalin'; //generator tersalin
+var setCopiedA = 'URL Tersalin'; //generator tersalin
+var setCopiedB = 'URL Tersalin'; //generator tersalin
 //]]> 
 </script>
 <style>
