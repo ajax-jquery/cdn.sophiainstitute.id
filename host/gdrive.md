@@ -43,49 +43,15 @@ title: GDRIVE LINK
 
   </style>
 
-<div class='generator-gdrive'>
-
-  <div class='form-gdrive input'>
-
-    <label for='gdrive'>Tools Generator Google Dirve</label>
-
-    <span>*Contoh: https://drive.google.com/file/d/0Bz4YdwRI3rnCMFRoTmtSS0M1VHM/view?usp=sharing</span>
-
-    <input name='gdrive' id='driveID' placeholder='Input Link Disini' type='text'/>
-
-  </div>
-
-  <div class='tombol-get'>
-<button id='get-button' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>Ubah Link</button>
-  </div>
-
-  <div class='form-gdrive output'>
-
-    <label for='gdrive'>Result</label>
-
-<input name='gdrive' id='output' placeholder='Input Link Disini' type='text' readonly='readonly'/>
-<button id='download'>Download</button>
-  </div>
-
-  <div class='tombol-copy-reset'>
-
-    <div id='text-keterangan'></div>
-
-    <button id='copy'>Copy Link</button>
-
-    <button id='download'>Download</button>
-
-    <button id='reset'>Reset</button>
-    
-    <button id='copyandreset'>Copy and Reset</button>
-
-  </div>
-
-</div>
-
 <div class='panel-primary'>
 <div class='panel-heading'>
 <h2>Generate Link</h2>
+</div>
+<div class='generator-gdrive'>
+  <div class='form-gdrive input'>
+    <span>*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
+    <input name='gdrive' id='driveID' placeholder='Input Link Disini' type='text'/>
+  </div>
 </div>
 <div class='panel-body'>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
