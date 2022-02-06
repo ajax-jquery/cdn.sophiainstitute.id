@@ -48,26 +48,9 @@ title: GDRIVE LINK
     <input name='gdrive' id='driveID' placeholder='Input Link Disini' type='text'/>
   </div>
 <div class="form-gdrive output">
-
-    <label for="gdrive">Result</label>
-
+<label for="gdrive">Result</label>
 <input name="gdrive" id="output" placeholder="Input Link Disini" type="text" readonly="readonly" />
-<button id="download">Download</button>
-  </div>
-
-  <div class="tombol-copy-reset">
-
-    <div id="text-keterangan"></div>
-
-    <button id="copy">Copy Link</button>
-
-    <button id="download">Download</button>
-
-    <button id="reset">Reset</button>
-    
-    <button id="copyandreset">Copy and Reset</button>
-
-  </div>
+</div>
 </div>
 <div class='panel-primary'>
 <div class='panel-heading'>
