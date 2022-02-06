@@ -17,7 +17,7 @@ title: GDRIVE LINK
 
 .safeWrap{position:fixed;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,.5);z-index:999999;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}.panel-primary{background:#fff;text-align:center;display:block;overflow:hidden;width:100%;max-width:100%;padding:0 0 25px 0;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24)}.panel-body{position:relative;margin:0 25px}.panel-heading h2, .JudulLink h2{background:#f89000;color:#fff;margin:0 auto 25px auto;font-weight:400;padding:15px;font-size:20px}.JudulLink h2{font-size:13px;border-radius: 7px}.panel-body input{height:56px;background:rgba(0,0,0,0.04);width:100%;padding:15px;border-radius:5px;border:1px solid transparent;font-size:16px;color:#000;outline:none;text-indent:60px;transition:all .3s}.panel-body input:focus{background:#fff;color:#000;border-color:#f89000;outline:none;box-shadow:0 0 5px rgba(0,0,0,0.1)}.panel-body .input-group-btn{position:absolute;top:0;right:0}.panel-body button{border-radius:0 5px 5px 0;background:#f89000;color:#fff;border:0;padding:17px 52px;font-weight:500;outline:none;transition:all .3s}.panel-body button:hover,.panel-body button:focus{background:#f89000;outline:none}#generatelink{margin:20px auto 0 auto}#generatelink button{background:#f89000;border-radius:5px;font-size:14px;padding:14px 32px}#generatelink button:hover,#generatelink button:focus{background:#f89000;border-radius:5px;font-size:14px}#generatelink input{background:rgba(0,0,0,0.05);text-indent:0}#generatelink input:hover,#generatelink input:focus{background:#f89000;border-color:transparent;box-shadow:none}#generateloading{margin:20px auto 0 auto;font-size:20px;color:#f89000;font-weight:normal}
 
-.panel-body:before{content:'\279C';background:rgba(0,0,0,0.05);position:absolute;left:0;top:0;color:#888;padding:17px 20px;border-radius:5px 0 0 5px;border-right:1px solid transparent;transition:all .6s}.panel-body:focus-within:before{content:'\279C';background:#f89000;color:#fff}.bt-success{display:inline-flex;align-items:center;margin:15px 15px;padding:10px 20px;outline:0;border:0;border-radius:2px;color:#fefefe;background-color:#f89000;font-size:14px;white-space:nowrap;overflow:hidden;max-width:100%;line-height:2em}.bt-success:hover{color:#f89000;background-color:transparent;border:1px solid #f89000}.hidden,.bt-success.hidden{display:none}.wcSafeClose{display:inline-flex;align-items:center;margin:15px auto -15px;padding:5px 15px;outline:0;border:0;border-radius:2px;color:#fefefe;background-color:#f89000;font-size:14px;white-space:nowrap;overflow:hidden;max-width:100%;line-height:2em}.copytoclipboard1, .copytoclipboard2{margin:10px auto 5px}
+.panel-body:before{content:'\279C';background:rgba(0,0,0,0.05);position:absolute;left:0;top:0;color:#888;padding:17px 20px;border-radius:5px 0 0 5px;border-right:1px solid transparent;transition:all .6s}.panel-body:focus-within:before{content:'\279C';background:#f89000;color:#fff}.bt-success{display:inline-flex;align-items:center;margin:15px 15px;padding:10px 20px;outline:0;border:0;border-radius:2px;color:#fefefe;background-color:#f89000;font-size:14px;white-space:nowrap;overflow:hidden;max-width:100%;line-height:2em}.bt-success:hover{color:#f89000;background-color:transparent;border:1px solid #f89000}.hidden,.bt-success.hidden{display:none}.wcSafeClose{display:inline-flex;align-items:center;margin:15px auto -15px;padding:5px 15px;outline:0;border:0;border-radius:2px;color:#fefefe;background-color:#f89000;font-size:14px;white-space:nowrap;overflow:hidden;max-width:100%;line-height:2em}.copytoclipboard{margin:10px auto 5px}
 
 #timer{margin:0 auto 20px auto;width:80px;text-align:center}.pietimer{position:relative;font-size:200px;width:1em;height:1em}.pietimer > .percent{position:absolute;top:25px;left:12px;width:3.33em;font-size:18px;text-align:center;display:none}.pietimer > .slice{position:absolute;width:1em;height:1em;clip:rect(0px,1em,1em,0.5em)}.pietimer >.slice.gt50{clip:rect(auto,auto,auto,auto)}.pietimer > .slice > .pie{border:0.06em solid #c0c0c0;position:absolute;width:1em;height:1em;clip:rect(0em,0.5em,1em,0em);border-radius:0.5em}.pietimer > .slice > .pie.fill{-moz-transform:rotate(180deg)!important;-webkit-transform:rotate(180deg)!important;-o-transform:rotate(180deg)!important;transform:rotate(180deg)!important}.pietimer.fill > .percent{display:none}.pietimer.fill > .slice > .pie{border:transparent;background-color:#c0c0c0;width:1em;height:1em}
 
@@ -63,9 +63,9 @@ title: GDRIVE LINK
 <div class='hidden' id='generatelink'>
 <h2>Hasil</h2>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
-<button class='copytoclipboard1' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboard1'>Copy URL Download</button>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#generateurl' id='copytoclipboard1'>Copy URL Download</button>
 <input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
-<button class='copytoclipboard2' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard2'>Copy URL Safelink</button>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard2'>Copy URL Safelink</button>
 </div>
 </div>
 <a class='hidden' id="reset" href='javascript:void'>Close</a>
@@ -90,8 +90,7 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
 
-new ClipboardJS1(".copytoclipboard1").on("success",function(e){$("#copytoclipboard1").html(setCopied1)})});
-new ClipboardJS2(".copytoclipboard2").on("success",function(e){$("#copytoclipboard2").html(setCopied2)})});
+new ClipboardJS1(".copytoclipboard").on("success",function(e){$("#copytoclipboard1","#copytoclipboard2").html(setCopied1,setCopied1)})});
 </script>
 <script>
 //<![CDATA[
@@ -100,8 +99,8 @@ var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
 var setCopyUrl = 'Copy URL Download'; // generator salin
 var setText = 'Harap Tunggu...'; //pesan pada tombol
-var setCopied1 = 'URL Tersalin'; //generator tersalin
-var setCopied2 = 'URL Tersalin'; //generator tersalin
+var setCopied1 = 'URL Download Tersalin'; //generator tersalin
+var setCopied2 = 'URL Safelink Tersalin'; //generator tersalin
 //]]> 
 </script>
 <style>
