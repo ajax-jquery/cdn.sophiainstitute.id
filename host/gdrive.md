@@ -50,6 +50,8 @@ title: GDRIVE LINK
 <input name="gdrive" id="output" placeholder="Input Link Disini" type="text" readonly="readonly" />
 </div>
 </div>
+
+
 <div class='panel-primary'>
 <div class='panel-heading'>
 <h2>Generate Link GDrive</h2>
