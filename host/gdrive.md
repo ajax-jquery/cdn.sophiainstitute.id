@@ -97,6 +97,7 @@ new ClipboardJS(".copytoclipboard").on("success",function(e){$("#copytoclipboard
 /* Pengaturan safeLink */
 var setTimer = 1; //waktu detik
 var setColor = '#f89000'; //warna loading timer
+var setCopyUrl = 'Copy URL Download'; // generator salin
 var setText = 'Harap Tunggu...'; //pesan pada tombol
 var setCopied = 'URL Tersalin'; //generator tersalin
 //]]> 
