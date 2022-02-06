@@ -42,7 +42,7 @@ title: GDRIVE LINK
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
-<div class='generator-gdrive'>
+<div style='display:none' class='generator-gdrive'>
   <div class='form-gdrive input'>
       </div>
 <div class="form-gdrive output">
@@ -51,12 +51,11 @@ title: GDRIVE LINK
 </div>
 </div>
 
-
 <div class='panel-primary'>
 <div class='panel-heading'>
 <h2>Generate Link GDrive</h2>
-<span>*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
 </div>
+<span>*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
 <div class='panel-body'>
 <input name='gdrive' id='driveID' placeholder='Input Link Disini' type='text'/>
 <div class='hidden' id='generateloading'>
