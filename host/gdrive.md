@@ -90,8 +90,8 @@ if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyU
 $("#reset").attr("class","wcSafeClose"),
 n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error loading feed!")}})}),
 
-new ClipboardJS(".copytoclipboard1").on("success",function(e){$("#copytoclipboard1").html(setCopied)})});
-new ClipboardJS(".copytoclipboard2").on("success",function(e){$("#copytoclipboard2").html(setCopied)})});
+new ClipboardJS1(".copytoclipboard1").on("success",function(e){$("#copytoclipboard1").html(setCopied)})});
+new ClipboardJS2(".copytoclipboard2").on("success",function(e){$("#copytoclipboard2").html(setCopied)})});
 
 </script>
 <script>
