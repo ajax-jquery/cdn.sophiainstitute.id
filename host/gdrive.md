@@ -102,7 +102,7 @@ title: GDRIVE LINK
 <script>
 $(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
 
-$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});
+$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val(""),$("#driveID").val("")});
 
 $(document).ready(function(){$('#driveID').keyup(function(){
 var input=document.getElementById("driveID").value,drive=input.indexOf("google.com");if(-1!=drive){var textd=input.indexOf("d/"),textEdit=input.indexOf("/edit"),driveID=input.slice(textd+2,textEdit),output="https://docs.google.com/$type/d/"+driveID+"/export?format=pdf";-1!==input.indexOf("document")?(output=output.replace("$type","document").split("pdf").join("docx")):-1!==input.indexOf("spreadsheet")?(output=output.replace("$type","spreadsheets").split("pdf").join("xlsx")):-1!==input.indexOf("presentation")?(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))):((textEdit=input.indexOf("/view")),(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))));
