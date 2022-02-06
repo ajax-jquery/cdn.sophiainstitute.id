@@ -42,9 +42,6 @@ title: GDRIVE LINK
 .darkMode .wcSafeClose{color:#fefefe}
 
   </style>
-<div class='panel-heading'>
-<h2>Generate Link</h2>
-</div>
 <div class='generator-gdrive'>
   <div class='form-gdrive input'>
     <span>*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
@@ -52,6 +49,9 @@ title: GDRIVE LINK
   </div>
 </div>
 <div class='panel-primary'>
+<div class='panel-heading'>
+<h2>Generate Link</h2>
+</div>
 <div class='panel-body'>
 <input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url' readonly='readonly' value=''/>
 <div class='hidden' id='generateloading'>
@@ -73,7 +73,7 @@ $('#output').val(output);
 
     } else {
       var x = document.getElementById("driveID")
-x.placeholder = "Url tidak s";x.value =""
+x.placeholder = "Hanya Menerima URL GDrive";x.value =""
     }
   ;
 var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
