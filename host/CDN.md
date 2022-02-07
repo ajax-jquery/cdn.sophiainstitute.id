@@ -74,7 +74,7 @@ if(doc.queryCommandSupported&&doc.queryCommandSupported('copy')){devCopyButton.s
 urlEl.addEventListener('input',formatURL,!1);if(/(iPhone|iPad|iPod)/i.test(navigator.userAgent)){inputDev.removeAttribute('readonly')
 inputProd.removeAttribute('readonly')
 inputDev.addEventListener('keydown',function(e){e.preventDefault()});inputProd.addEventListener('keydown',function(e){e.preventDefault()})}
-formatURL();function formatURL(){var url=urlEl.value=mergeSlashes(decodeURIComponent(urlEl.value.trim()));urlEl.classList.remove('valid');urlEl.classList.toggle('invalid',url.length);devEl.value='';prodEl.value='';devEl.classList.remove('valid');prodEl.classList.remove('valid');devCopyButton.disabled=!0;prodCopyButton.disabled=!0;var ghUrl=maybeConvertUrl(url);if(ghUrl){var matches=ghUrl.match(/^(\w+:\/\/(raw).githack.com\/([^\/]+)\/([^\/]+))\/([^\/]+)\/(.*)/i);if(!matches){devEl.value=ghUrl;prodEl.value=cdnize(ghUrl);setValid()}else if(matches[2]==='raw'){devEl.value=ghUrl;let apiUrl=`${GITHUB_API_URL}/repos/${matches[3]}/${matches[4]}/git/refs/heads/${matches[5]}`;fetch(apiUrl).then(res=>{if(res.ok)return res.json()}).then(data=>{let ref=data&&data.object&&data.object.sha?data.object.sha:matches[5];prodEl.value=cdnize(`${matches[1]}/${ref}/${matches[6]}`);setValid()})}}}
+formatURL();function formatURL(){var url=urlEl.value=mergeSlashes(decodeURIComponent(urlEl.value.trim()));urlEl.classList.remove('valid');urlEl.classList.toggle('invalid',url.length);devEl.value='';prodEl.value='';devEl.classList.remove('valid');prodEl.classList.remove('valid');devCopyButton.disabled=!0;prodCopyButton.disabled=!0;var ghUrl=maybeConvertUrl(url);if(ghUrl){var matches=ghUrl.match(/^(\w+:\/\/(raw).githack.com\/([^\/]+)\/([^\/]+))\/([^\/]+)\/(.*)/i);if(!matches){$("#generateurl").val(ghUrl);devEl.value=ghUrl;prodEl.value=cdnize(ghUrl);setValid()}else if(matches[2]==='raw'){devEl.value=ghUrl;let apiUrl=`${GITHUB_API_URL}/repos/${matches[3]}/${matches[4]}/git/refs/heads/${matches[5]}`;fetch(apiUrl).then(res=>{if(res.ok)return res.json()}).then(data=>{let ref=data&&data.object&&data.object.sha?data.object.sha:matches[5];prodEl.value=cdnize(`${matches[1]}/${ref}/${matches[6]}`);setValid()})}}}
 function mergeSlashes(url){try{var url=new URL(url)}catch(e){return url}
 url.pathname=url.pathname.replace(/\/\/+/ig,'/');return url.toString()}
 function maybeConvertUrl(url){for(var i in TEMPLATES){var[pattern,template]=TEMPLATES[i];if(pattern.test(url)){return url.replace(pattern,template)}}}
@@ -86,10 +86,8 @@ function show(element){element.classList.remove('hidden')}
 var filesTextarea=doc.querySelector('.purge textarea');var filesSubmit=doc.querySelector('.purge input[type=submit]');var filesWait=doc.querySelector('.purge .wait');var filesSuccess=doc.querySelector('.purge .success');var filesError=doc.querySelector('.purge .error');autosize(filesTextarea);filesTextarea.oninput=function(){var result=[];for(var url of this.value.split('\n')){var url=decodeURIComponent(url.trim());var converted=maybeConvertUrl(url);result.push(converted?cdnize(converted):url)}
 this.value=result.join('\n');return!1}
 document.getElementById('purge-form').onsubmit=function(){filesTextarea.disabled=!0;filesSubmit.disabled=!0;hide(filesSuccess);hide(filesError);show(filesWait);var body='files='+encodeURIComponent(filesTextarea.value);fetch('/purge',{method:'POST',body:body}).then(res=>{if(res.status==429){return{success:!1,response:'too many requests'}}
-return res.json()}).then(res=>{hide(filesWait);filesSubmit.disabled=!1;filesTextarea.disabled=!1;var operand=res.success?filesSuccess:filesError;operand.textContent=res.response;show(operand)});return!1}}(document))
-
-
-var e=$("#generateurl").val(ghUrl),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
+return res.json()}).then(res=>{hide(filesWait);filesSubmit.disabled=!1;filesTextarea.disabled=!1;var operand=res.success?filesSuccess:filesError;operand.textContent=res.response;show(operand)});return!1}}(document));
+var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
 if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),
 $.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",
 type:"get",dataType:"jsonp",success:function(t){
