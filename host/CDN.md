@@ -79,7 +79,7 @@ function mergeSlashes(url){try{var url=new URL(url)}catch(e){return url}
 url.pathname=url.pathname.replace(/\/\/+/ig,'/');return url.toString()}
 function maybeConvertUrl(url){for(var i in TEMPLATES){var[pattern,template]=TEMPLATES[i];if(pattern.test(url)){return url.replace(pattern,template)}}}
 function cdnize(url){return url.replace(/^(\w+):\/\/(\w+)/,"$1://$2cdn")}
-function setValid(){urlEl.classList.remove('invalid');urlEl.classList.add('valid');prodEl.classList.add('valid');devEl.classList.add('valid');devCopyButton.disabled=!1;prodCopyButton.disabled=!1}
+function setValid(){urlEl.classList.remove('invalid');urlEl.classList.add('valid');prodEl.classList.add('valid');devEl.classList.add('valid');$("#generateurl").val(ghUrl);devCopyButton.disabled=!1;prodCopyButton.disabled=!1}
 prodEl.addEventListener('focus',onFocus);devEl.addEventListener('focus',onFocus);urlEl.addEventListener('focus',onFocus);function onFocus(e){setTimeout(function(){e.target.select()},1)}
 function hide(element){element.classList.add('hidden')}
 function show(element){element.classList.remove('hidden')}
