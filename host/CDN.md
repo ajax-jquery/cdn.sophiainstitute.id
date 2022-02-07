@@ -7,7 +7,7 @@ title: CDN Host
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:400,700">
 <link rel="stylesheet" href="//rawcdn.githack.com/neoascetic/rawgithack/9e126bd/rawgithack.css">
-<script src="https://rawcdn.githack.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+<script src="/safelink/css/clipboard.min.js"></script>
 <p>
 <input id="url" class="url" type="url" placeholder="Paste an URL here" autofocus="" tabindex="1" />
 </p>
