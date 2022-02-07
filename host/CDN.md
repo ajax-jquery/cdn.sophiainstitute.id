@@ -41,25 +41,6 @@ C
 </button>
 </p>
 <script>
-</script>
-
-<div class='panel-primary'>
-<div class='panel-heading'>
-<h2>Generate Link</h2>
-</div>
-<div class='panel-body'>
-<input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url'/>
-<span class='input-group-btn'>
-<button class='btn-primary' id='btngenerate' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>
-<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M18.865 5.1238C19.302 5.2768 19.594 5.6888 19.594 6.1518V12.9248C19.594 14.8178 18.906 16.6248 17.691 18.0248C17.08 18.7298 16.307 19.2788 15.486 19.7228L11.928 21.6448L8.364 19.7218C7.542 19.2778 6.768 18.7298 6.156 18.0238C4.94 16.6238 4.25 14.8158 4.25 12.9208V6.1518C4.25 5.6888 4.542 5.2768 4.979 5.1238L11.561 2.8108C11.795 2.7288 12.05 2.7288 12.283 2.8108L18.865 5.1238Z'/><path class='svg-c' d='M9.32251 11.9177L11.2145 13.8107L15.1125 9.91269'/></svg>Generate</button></span>
-<div class='hidden' id='generateloading'>
-<svg viewBox='0 0 50 50' x='0px' y='0px'><path d='M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z'><animateTransform attributeName='transform' attributeType='xml' dur='0.6s' from='0 25 25' repeatCount='indefinite' to='360 25 25' type='rotate'/></path></svg></div>
-<div class='hidden' id='generatelink'>
-<input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
-<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL</button></div></div>
-<a class='wcSafeClose' href='javascript:void'>Close</a>
-</div>
-<script>
 (function(doc){"use strict";const GITHUB_API_URL='https://api.github.com';const TEMPLATES=[[/^(https?):\/\/gitlab\.com\/([^\/]+.*\/[^\/]+)\/(?:raw|blob)\/(.+?)(?:\?.*)?$/i,'$1://gl.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/([^\/]+\/[^\/]+)\/(?:raw|src)\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/]+)\/revisions\/([^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/$3/files/$4'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/HEAD/files/$3'],[/^(https?):\/\/bitbucket\.org\/\!api\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/api\.bitbucket\.org\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/raw\.github(?:usercontent)?\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/github\.com\/(.[^\/]+?)\/(.[^\/]+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?\/.+)/i,'$1://raw.githack.com/$2/$3/$4'],[/^(https?):\/\/gist\.github(?:usercontent)?\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/git\.sr\.ht\/(~[^\/]+\/[^\/]+\/blob\/.+\/.+)/i,'$1://srht.githack.com/$2'],[/^(https?):\/\/hg\.sr\.ht\/(~[^\/]+\/[^\/]+\/raw\/.+)/i,'$1://srhgt.githack.com/$2']];
 var prodEl=doc.getElementById('url-prod');
 var devEl=doc.getElementById('url-dev');
@@ -85,6 +66,26 @@ this.value=result.join('\n');return!1}
 document.getElementById('purge-form').onsubmit=function(){filesTextarea.disabled=!0;filesSubmit.disabled=!0;hide(filesSuccess);hide(filesError);show(filesWait);var body='files='+encodeURIComponent(filesTextarea.value);fetch('/purge',{method:'POST',body:body}).then(res=>{if(res.status==429){return{success:!1,response:'too many requests'}}
 return res.json()}).then(res=>{hide(filesWait);filesSubmit.disabled=!1;filesTextarea.disabled=!1;var operand=res.success?filesSuccess:filesError;operand.textContent=res.response;show(operand)});return!1}}(document));
 
+</script>
+
+<div class='panel-primary'>
+<div class='panel-heading'>
+<h2>Generate Link</h2>
+</div>
+<div class='panel-body'>
+<input autocomplete='off' id='generateurl' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' placeholder='Enter your link here...' required='required' type='url'/>
+<span class='input-group-btn'>
+<button class='btn-primary' id='btngenerate' oninvalid='this.setCustomValidity(&apos;Please Enter valid link&apos;)' required='required' type='button'>
+<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M18.865 5.1238C19.302 5.2768 19.594 5.6888 19.594 6.1518V12.9248C19.594 14.8178 18.906 16.6248 17.691 18.0248C17.08 18.7298 16.307 19.2788 15.486 19.7228L11.928 21.6448L8.364 19.7218C7.542 19.2778 6.768 18.7298 6.156 18.0238C4.94 16.6238 4.25 14.8158 4.25 12.9208V6.1518C4.25 5.6888 4.542 5.2768 4.979 5.1238L11.561 2.8108C11.795 2.7288 12.05 2.7288 12.283 2.8108L18.865 5.1238Z'/><path class='svg-c' d='M9.32251 11.9177L11.2145 13.8107L15.1125 9.91269'/></svg>Generate</button></span>
+<div class='hidden' id='generateloading'>
+<svg viewBox='0 0 50 50' x='0px' y='0px'><path d='M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z'><animateTransform attributeName='transform' attributeType='xml' dur='0.6s' from='0 25 25' repeatCount='indefinite' to='360 25 25' type='rotate'/></path></svg></div>
+<div class='hidden' id='generatelink'>
+<input id='resulturl' onclick='this.focus();this.select()' readonly='readonly' type='text'/>
+<button class='copytoclipboard' data-clipboard-action='copy' data-clipboard-target='#resulturl' id='copytoclipboard'>Copy URL</button></div></div>
+<a class='wcSafeClose' href='javascript:void'>Close</a>
+</div>
+
+<script>
 $(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});
 $(document).ready(function(){$("#btngenerate").on("click",function(){
 var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
