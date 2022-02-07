@@ -60,9 +60,6 @@ C
 <a class='wcSafeClose' href='javascript:void'>Close</a>
 </div>
 <script>
-$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});
-
-$(document).ready(function(){$('#url').keyup(function(){
 (function(doc){"use strict";const GITHUB_API_URL='https://api.github.com';const TEMPLATES=[[/^(https?):\/\/gitlab\.com\/([^\/]+.*\/[^\/]+)\/(?:raw|blob)\/(.+?)(?:\?.*)?$/i,'$1://gl.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/([^\/]+\/[^\/]+)\/(?:raw|src)\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/]+)\/revisions\/([^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/$3/files/$4'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/HEAD/files/$3'],[/^(https?):\/\/bitbucket\.org\/\!api\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/api\.bitbucket\.org\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/raw\.github(?:usercontent)?\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/github\.com\/(.[^\/]+?)\/(.[^\/]+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?\/.+)/i,'$1://raw.githack.com/$2/$3/$4'],[/^(https?):\/\/gist\.github(?:usercontent)?\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/git\.sr\.ht\/(~[^\/]+\/[^\/]+\/blob\/.+\/.+)/i,'$1://srht.githack.com/$2'],[/^(https?):\/\/hg\.sr\.ht\/(~[^\/]+\/[^\/]+\/raw\/.+)/i,'$1://srhgt.githack.com/$2']];
 var prodEl=doc.getElementById('url-prod');
 var devEl=doc.getElementById('url-dev');
@@ -87,6 +84,9 @@ var filesTextarea=doc.querySelector('.purge textarea');var filesSubmit=doc.query
 this.value=result.join('\n');return!1}
 document.getElementById('purge-form').onsubmit=function(){filesTextarea.disabled=!0;filesSubmit.disabled=!0;hide(filesSuccess);hide(filesError);show(filesWait);var body='files='+encodeURIComponent(filesTextarea.value);fetch('/purge',{method:'POST',body:body}).then(res=>{if(res.status==429){return{success:!1,response:'too many requests'}}
 return res.json()}).then(res=>{hide(filesWait);filesSubmit.disabled=!1;filesTextarea.disabled=!1;var operand=res.success?filesSuccess:filesError;operand.textContent=res.response;show(operand)});return!1}}(document));
+
+$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),$(".wcSafeClose").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val("")});
+$(document).ready(function(){$("#btngenerate").on("click",function(){
 var e=$("#generateurl").val(),r=$("#generatelink"),a=$("#generateloading"),n=$("#resulturl");
 if(""==e)return $("#generateurl").focus(),!1;$("#copytoclipboard").html(setCopyUrl),a.removeClass("hidden"),r.addClass("hidden"),
 $.ajax({url:"https://link.sophiainstitute.id/feeds/posts/summary/-/Pendidikan?alt=json-in-script",
