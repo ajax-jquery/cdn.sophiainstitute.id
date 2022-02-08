@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: CDN Jsdlivry
+title: CDN Jsdlivr
 
 ---
 <style>
@@ -27,7 +27,7 @@ title: CDN Jsdlivry
 </div>
 <div class="panel-primary">
 <div class="panel-heading">
-<h2>Generate Link GDrive</h2>
+<h2>Github to Jsdlivr</h2>
 </div>
 <span style="font-size:12px">*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
 <div class="panel-body">
