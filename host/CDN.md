@@ -45,12 +45,12 @@ C
 </div>
 <span style="font-size:12px">*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
 <div class="panel-body">
-<input name="gdrive" id="driveID" placeholder="Input Link Disini" type="text" />
+<input autocomplete="off" id="generateurl" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" placeholder="Enter your link here..." required="required" type="url" readonly="readonly" value="" />
 <div class="hidden" id="generateloading">
 <svg viewBox="0 0 50 50" x="0px" y="0px"><path d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z"><animateTransform attributeName="transform" attributeType="xml" dur="0.6s" from="0 25 25" repeatCount="indefinite" to="360 25 25" type="rotate" /></path></svg></div>
 <div class="hidden" id="generatelink">
 <h2>Hasil</h2>
-<input autocomplete="off" id="generateurl" oninvalid="this.setCustomValidity(&apos;Please Enter valid link&apos;)" placeholder="Enter your link here..." required="required" type="url" readonly="readonly" value="" />
+<input name="gdrive" id="driveID" placeholder="Input Link Disini" type="text" />
 <button class="copytoclipboard" data-clipboard-action="copy" data-clipboard-target="#generateurl" id="copytoclipboardA">Copy URL Download</button>
 <input id="resulturl" onclick="this.focus();this.select()" readonly="readonly" type="text" />
 <button class="copytoclipboard" data-clipboard-action="copy" data-clipboard-target="#resulturl" id="copytoclipboardB">Copy URL Safelink</button>
