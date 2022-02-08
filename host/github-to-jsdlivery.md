@@ -1,7 +1,7 @@
 ---
 
 layout: post
-tittle: Github to Jsdlivry
+title: Github to Jsdlivry
 
 ---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/www.jsdelivr.com/9d08d41c6d3a827fa3f95a6a74e847bcd74bca98/css/app.css?v=9d08d41c6d3a827fa3f95a6a74e847bcd74bca98"/>
