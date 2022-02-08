@@ -93,7 +93,8 @@ $(document).ready(function(){$('#driveID').keyup(function(){
      drive = dataID.indexOf("github.com");
     if (-1 != drive){
       var input = dataID.split("https://github.com/").join("").replace("/blob", "");
-      var output = "https://rawcdn.githack.com/"+input;
+     var Fadhel = input.replace("main","5e28c54c7c9745624695ccc42046053186f470d5");
+      var output = "https://rawcdn.githack.com/"+Fadhel;
            
 document.getElementById("output").value = output;$("#generateurl").val(output);
 $('#output').val(output);document.getElementById("driveID").style="background:#F2FFEB;border-color: #98f9a0;"; var xx =$("#generatelink input")
