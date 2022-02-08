@@ -66,7 +66,7 @@ return res.json()}).then(res=>{hide(filesWait);filesSubmit.disabled=!1;filesText
 </div>
 <div class="panel-primary">
 <div class="panel-heading">
-<h2>Generate Link GDrive</h2>
+<h2>Github to Githack</h2>
 </div>
 <span style="font-size:12px">*Contoh: https://drive.google.com/file/d/xxxxxxxxxxxxxxxxxxxxxxxxxxxx/view?usp=sharing</span>
 <div class="panel-body">
