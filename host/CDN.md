@@ -17,12 +17,6 @@ title: CDN Host
 C
 </button>
 </p>
-<p class="url-container">
-<input id="url-dev" class="url" placeholder="hasil" readonly="" tabindex="3" />
-<button id="url-dev-copy" class="url-copy-button" data-clipboard-target="#url-dev" title="Copy URL" disabled="" style="display:inline-block">
-C
-</button>
-</p>
 <script>
 (function(doc){"use strict";const GITHUB_API_URL='https://api.github.com';const TEMPLATES=[[/^(https?):\/\/gitlab\.com\/([^\/]+.*\/[^\/]+)\/(?:raw|blob)\/(.+?)(?:\?.*)?$/i,'$1://gl.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/([^\/]+\/[^\/]+)\/(?:raw|src)\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/]+)\/revisions\/([^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/$3/files/$4'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/HEAD/files/$3'],[/^(https?):\/\/bitbucket\.org\/\!api\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/api\.bitbucket\.org\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/raw\.github(?:usercontent)?\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/github\.com\/(.[^\/]+?)\/(.[^\/]+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?\/.+)/i,'$1://raw.githack.com/$2/$3/$4'],[/^(https?):\/\/gist\.github(?:usercontent)?\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/git\.sr\.ht\/(~[^\/]+\/[^\/]+\/blob\/.+\/.+)/i,'$1://srht.githack.com/$2'],[/^(https?):\/\/hg\.sr\.ht\/(~[^\/]+\/[^\/]+\/raw\/.+)/i,'$1://srhgt.githack.com/$2']];
 var prodEl=doc.getElementById('url-prod');
@@ -89,7 +83,7 @@ $("#reset").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClas
 $(document).ready(function(){$('#driveID').keyup(function(){
 var input=document.getElementById("driveID").value,drive=input.indexOf("github.com");if(-1!=drive){var textd=input.indexOf("d/"),textEdit=input.indexOf("/edit"),driveID=input.slice(textd+2,textEdit),output="https://docs.google.com/$type/d/"+driveID+"/export?format=pdf";-1!==input.indexOf("document")?(output=output.replace("$type","document").split("pdf").join("docx")):-1!==input.indexOf("spreadsheet")?(output=output.replace("$type","spreadsheets").split("pdf").join("xlsx")):-1!==input.indexOf("presentation")?(output="https://docs.google.com/uc?export=download&id="+(driveID=input.slice(textd+2,textEdit))):((textEdit=input.indexOf("/view")),(output=(driveID=input + "?raw=0")));
       document.getElementById("output").value = output;$("#generateurl").val(output);
-$('#output').val(output);
+$('#output').val(cdnize(ghUrl));
     } else {
       var x = document.getElementById("driveID")
 x.placeholder = "Hanya Menerima URL GDrive";x.value =""
