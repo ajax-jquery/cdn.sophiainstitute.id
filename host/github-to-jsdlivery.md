@@ -1,6 +1,6 @@
 ---
 
-layout: posts
+layout: post
 tittle: Github to Jsdlivry
 
 ---
