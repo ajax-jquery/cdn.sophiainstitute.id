@@ -60,8 +60,11 @@ C
 </div>
 
 <script>
-$(document).ready(function(){$('#driveID').keyup(function(){
+$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
+$("#reset").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val(""),$("#driveID").val(""),$("#reset").attr("class","hidden"),$("#copytoclipboardA").html(setCopyUrlA),$("#copytoclipboardB").html(setCopyUrlB)});
 
+
+$(document).ready(function(){$('#url').keyup(function(){
 (function(doc){"use strict";const GITHUB_API_URL='https://api.github.com';const TEMPLATES=[[/^(https?):\/\/gitlab\.com\/([^\/]+.*\/[^\/]+)\/(?:raw|blob)\/(.+?)(?:\?.*)?$/i,'$1://gl.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/([^\/]+\/[^\/]+)\/(?:raw|src)\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/$2/raw/$3'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/]+)\/revisions\/([^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/$3/files/$4'],[/^(https?):\/\/bitbucket\.org\/snippets\/([^\/]+\/[^\/\#\?]+)(?:\?[^#]*)?(?:\#file-(.+?))$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/HEAD/files/$3'],[/^(https?):\/\/bitbucket\.org\/\!api\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/api\.bitbucket\.org\/2.0\/snippets\/([^\/]+\/[^\/]+\/[^\/]+)\/files\/(.+?)(?:\?.*)?$/i,'$1://bb.githack.com/!api/2.0/snippets/$2/files/$3'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/(?:cdn\.)?rawgit\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/raw\.github(?:usercontent)?\.com\/([^\/]+\/[^\/]+\/[^\/]+|[0-9A-Za-z-]+\/[0-9a-f]+\/raw)\/(.+)/i,'$1://raw.githack.com/$2/$3'],[/^(https?):\/\/github\.com\/(.[^\/]+?)\/(.[^\/]+?)\/(?!releases\/)(?:(?:blob|raw)\/)?(.+?\/.+)/i,'$1://raw.githack.com/$2/$3/$4'],[/^(https?):\/\/gist\.github(?:usercontent)?\.com\/(.+?\/[0-9a-f]+\/raw\/(?:[0-9a-f]+\/)?.+)$/i,'$1://gist.githack.com/$2'],[/^(https?):\/\/git\.sr\.ht\/(~[^\/]+\/[^\/]+\/blob\/.+\/.+)/i,'$1://srht.githack.com/$2'],[/^(https?):\/\/hg\.sr\.ht\/(~[^\/]+\/[^\/]+\/raw\/.+)/i,'$1://srhgt.githack.com/$2']];var prodEl=doc.getElementById('url-prod');var devEl=doc.getElementById('url-dev');var urlEl=doc.getElementById('url');new Clipboard('.url-copy-button');var devCopyButton=doc.getElementById('url-dev-copy');var prodCopyButton=doc.getElementById('url-prod-copy');if(doc.queryCommandSupported&&doc.queryCommandSupported('copy')){devCopyButton.style.display='inline-block';prodCopyButton.style.display='inline-block'}
 urlEl.addEventListener('input',formatURL,!1);if(/(iPhone|iPad|iPod)/i.test(navigator.userAgent)){inputDev.removeAttribute('readonly')
 inputProd.removeAttribute('readonly')
@@ -87,8 +90,6 @@ n.val(resultgenerate)}else n.val("No result!")},error:function(){n.val("Error lo
 new ClipboardJS("#copytoclipboardA").on("success",function(e){$("#copytoclipboardA").html(setCopiedA)});
 new ClipboardJS("#copytoclipboardB").on("success",function(e){$("#copytoclipboardB").html(setCopiedB)});
 });
-$(".wcSafeShow").click(function(){$(".safeWrap").fadeIn()}),
-$("#reset").click(function(){$(".safeWrap").fadeOut(),$("#generatelink").addClass("hidden"),$("#generateurl").val(""),$("#driveID").val(""),$("#reset").attr("class","hidden"),$("#copytoclipboardA").html(setCopyUrlA),$("#copytoclipboardB").html(setCopyUrlB)});
 </script>
 <script>
 //<![CDATA[
