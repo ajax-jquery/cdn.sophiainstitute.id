@@ -1,6 +1,3 @@
-// BloggerJS v0.3.1
-// Copyright (c) 2017-2018 Kenny Cruz
-// Licensed under the MIT License
 var urlTotal,nextPageToken,postsDatePrefix=!1,accessOnly=!1,useApiV3=!1,apiKey=""
 ,blogId="",postsOrPages=["pages","posts"]
 ,jsonIndex=1,secondRequest=!0,feedPriority=0,amp="&amp;"[0];function urlVal()
