@@ -4,7 +4,7 @@ title: EDITOR
 ---
 
 <script src="/website/code/super-build-ckeditor.min.js"></script> 
-<div id="editor"></div>
+<textarea id="editor"></textarea>
     <script>
         ClassicEditor
             .create( document.querySelector('#editor') )
