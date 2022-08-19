@@ -3,7 +3,7 @@ layout: post
 title: EDITOR
 ---
 
-<script src="/website/code/super-build-ckeditor.min.js"></script> 
+<script src="/website/code/super-build-ckeditor.min.js?v=1"></script> 
 <textarea id="editor"></textarea>
     <script>
         ClassicEditor
