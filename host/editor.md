@@ -3,7 +3,7 @@ layout: post
 title: EDITOR
 ---
 
-<script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/super-build/ckeditor.js"></script> 
+<script src="/website/code/super-build-ckeditor.min.js"></script> 
 <from><textarea cols='25' id='contact-form-email-message' name='Message' placeholder='Message' rows='5' required=''>  </textarea></from>
 
 <script>
