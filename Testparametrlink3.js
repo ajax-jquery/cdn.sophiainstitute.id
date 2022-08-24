@@ -8,6 +8,5 @@ var url=window.location.search;
     }
   }
 }
-var nama=get('nama');
-var negara=get('negara');
-document.writeln("nama "+nama+" dari "+negara);
+var nama=get('filename');
+document.writeln("nama "+nama+);
