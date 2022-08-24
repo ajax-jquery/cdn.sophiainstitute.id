@@ -9,4 +9,4 @@ var url=window.location.search;
   }
 }
 var nama=get('filename');
-document.writeln("nama "+nama+);
+document.writeln("nama "+nama);
