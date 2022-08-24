@@ -12,4 +12,4 @@ function GetURLParameter(sParam)
     }
 }
 var modul = GetURLParameter('link');
-$("p").html(modul);
+document.getElementById("aksi").innerHTML = modul;
