@@ -3,7 +3,7 @@ CSSPost("https://cdn.sophiainstitute.id/website/code/CSS-CarouselPost.min.css");
 
 function PostM(f,e,i){'use strict';var h=window.document.createElement("script"),g=e||window.document.getElementsByTagName("script")[0];h.async=!0,h.src=f,g.parentNode.insertBefore(h,g),setTimeout(function(){h.media=i||"all"})}
 PostM('https://cdn.sophiainstitute.id/website/code/Permalinks-bar.min.js');
-PostM('https://code.responsivevoice.org/responsivevoice.js?key=BACrqbq3');
+PostM('data:/plain;base64,JChkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24oKXt2YXIgYT0kKCJsaW5rW3JlbD0nY2Fub25pY2FsJ10iKS5hdHRyKCJocmVmIiksdD1kb2N1bWVudC50aXRsZSxpPWEucmVwbGFjZSgvXi4qXC8vLCIiKS5zcGxpdCgiLmh0bWwiKS5qb2luKCIiKTskLmFqYXgoe2FzeW5jOiEwLGNyb3NzRG9tYWluOiEwLHVybDoiaHR0cHM6Ly9hcGkuc2hvcnQuaW8vbGlua3MvcHVibGljIixtZXRob2Q6IlBPU1QiLGhlYWRlcnM6e2FjY2VwdDoiYXBwbGljYXRpb24vanNvbiIsImNvbnRlbnQtdHlwZSI6ImFwcGxpY2F0aW9uL2pzb24iLEF1dGhvcml6YXRpb246InBrX3dRcEZzRmxmb0M5WUFVQngifSxwcm9jZXNzRGF0YTohMSxkYXRhOid7ImRvbWFpbiI6Im0uc29waGlhaW5zdGl0dXRlLmlkIiwiYWxsb3dEdXBsaWNhdGVzIjpmYWxzZSwib3JpZ2luYWxVUkwiOiInK2ErJyIsInBhdGgiOiInK2krJyIsInRpdGxlIjoiJyt0KycifSd9KS5kb25lKGZ1bmN0aW9uKGEpe2NvbnNvbGUubG9nKGEpfSl9KTs=');
 
 /*Auto ShortLink*/
 $(document).ready(function(){var a=$("link[rel='canonical']").attr("href"),t=document.title,i=a.replace(/^.*\//,"").split(".html").join("");$.ajax({async:!0,crossDomain:!0,url:"https://api.short.io/links/public",method:"POST",headers:{accept:"application/json","content-type":"application/json",Authorization:"pk_wQpFsFlfoC9YAUBx"},processData:!1,data:'{"domain":"m.sophiainstitute.id","allowDuplicates":false,"originalURL":"'+a+'","path":"'+i+'","title":"'+t+'"}'}).done(function(a){console.log(a)})}); 
