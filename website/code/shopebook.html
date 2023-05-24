@@ -12,7 +12,7 @@
  
       $(function() {
     $.ajax({
-        url: 'https://www.sophiainstitute.id/shop/sabdaliterasi',
+        url: 'https://cdn.sophiainstitute.id/shop/sabdaliterasi',
         type: 'get',
         dataType: 'html',
         success: function(data) {
@@ -33,7 +33,7 @@
                   
                   
                   
-                    skeleton += '<div class="produk"><div class="gambar-produk"><img alt="' + judul + '" height="800" src="'+linkGambar+'" title="' + judul + '" width="800"></div><div class="desk-produk"><span>' + judul + '</span><div class="harga-produk">' + harga + '</div><a class="link-produk" href="' + link.replace('www.sophiainstitute.id','lynk.id') + '" rel="nofollow sponsored noopener" target="_blank" title="' + judul + '">Download</a></div></div>';
+                    skeleton += '<div class="produk"><div class="gambar-produk"><img alt="' + judul + '" height="800" src="'+linkGambar+'" title="' + judul + '" width="800"></div><div class="desk-produk"><span>' + judul + '</span><div class="harga-produk">' + harga + '</div><a class="link-produk" href="' + link.replace('cdn.sophiainstitute.id','lynk.id') + '" rel="nofollow sponsored noopener" target="_blank" title="' + judul + '">Download</a></div></div>';
                 }
                 skeleton += '</div></div>';
                 $('#result').html(skeleton);
