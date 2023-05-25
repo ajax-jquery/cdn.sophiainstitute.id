@@ -1,4 +1,5 @@
-(function() {
+var label = "Translasi";
+  (function() {
     var jumlah = 4;
     let post = document.querySelectorAll('#TTS br, #TTS p'),
     a = jumlah + 1,
@@ -19,9 +20,9 @@ for (let d = 0; d < c.length; d++) {
 }
   })();
   
- 
+  $(function() {
     $.ajax({
-        url: 'https://www.sophiainstitute.id/feeds/posts/default/-/Esai?alt=json-in-script',
+        url: 'https://www.sophiainstitute.id/feeds/posts/default/-/'+label+'?alt=json-in-script',
         type: 'get',
         dataType: 'jsonp',
         success: function (JSONNYA) {
@@ -36,9 +37,9 @@ var linkbaca = new Array();
             if (malas.link[jsonnya1].rel == 'alternate') {
                 linkbaca[judulbacaNum] = malas.link[jsonnya1].href;
                 judulbacaNum++;
-                break;
+                break
             }
-        };
+        }
     
     
       var text = 'BACA JUGA:';
@@ -61,7 +62,7 @@ while (i < judulbaca.length && i < jumlah.length) {
     
     
     }
-}
+},
        
     });
 
@@ -81,7 +82,7 @@ function removeRelatedDuplicates() {
     };
     judulbaca = remove2;
     linkbaca = remov1
-};
+}
 
 function contains(fadhel, fikri) {
     for (var moh = 0; moh < fadhel.length; moh++) {
@@ -89,5 +90,8 @@ function contains(fadhel, fikri) {
             return true
         }
     };
-    return false;
+    return false
 };
+  
+      
+      });
