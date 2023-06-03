@@ -23,4 +23,4 @@ function getParameter (name, url) {
         return error.fileName
     }
 
-alert(getScriptName("getpar1.js","UJI"))
+alert(getParameter("UJI"))
