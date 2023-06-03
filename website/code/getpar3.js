@@ -24,3 +24,4 @@ function getParameter (name, url) {
     }
 
 $("p").html(getParameter("UJI"))
+$("p").append(getParameter("KEY"))
