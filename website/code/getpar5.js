@@ -23,5 +23,5 @@ function getParameter (name, url) {
         return error.fileName
     }
 
-$("p").html(getParameter("UJI"))
-$("p").append(getParameter("KEY"))
+$("p").html(getParameter("UJI"));
+alert(getParameter("KEY"))
