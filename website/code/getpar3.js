@@ -23,4 +23,4 @@ function getParameter (name, url) {
         return error.fileName
     }
 
-alert(getParameter("UJI"))
+$("p").html(getParameter("UJI"))
