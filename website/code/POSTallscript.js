@@ -4,7 +4,73 @@ CSSPost("https://cdn.sophiainstitute.id/website/code/CSS-CarouselPost.min.css");
 function PostM(f,e,i){'use strict';var h=window.document.createElement("script"),g=e||window.document.getElementsByTagName("script")[0];h.async=!0,h.src=f,g.parentNode.insertBefore(h,g),setTimeout(function(){h.media=i||"all"})}
 PostM('https://cdn.sophiainstitute.id/website/code/Permalinks-bar.min.js');
 /*AUTHOR*/
-$(document).ready(function(){var a=$(".entry-author a").attr("href"),t="https://www.sophiainstitute.id/author/"+a.replace("https://www.sophiainstitute.id/search/label/%E1%8E%AAuthor%20","").split("%20").join("-").toLowerCase().split(".").join("");$.ajax({url:t,type:"GET",success:function(s){var e="https://www.sophiainstitute.id/author/"+$(".entry-author a").attr("href").replace("https://www.sophiainstitute.id/search/label/%E1%8E%AAuthor%20","").split("%20").join("-").toLowerCase().split(".").join(""),r=$(s).find("#namanya").text(),i=$(s).find("span#bionya").html(),l=$(s).find("span#fotonya img").attr("src"),n=$(s).find("span#LinkFB").text(),o=$(s).find("span#LinkIG").text(),b=$(s).find("span#LinkTW").text(),f="<div class='cardheader' id='cardheader'></div><div class='avatar' id='AvatarAuthor' ><a href='"+e+"' rel='author' target='_blank'><img alt='"+r+"' id='fotoauthor' src='"+l+"' title='"+r+"'/></a></div><div class='info' id='infoauthor' ><div class='title'><a href='"+e+"' rel='author' target='_blank'>"+r+"</a></div><div class='desc'>"+i+"</div></div>",c=$("#atrbawh");""==n&&""==b&&""==o?c.html(f+"<div class='bottom'></div>"):""==n&&""==b?c.html(f+"<div class='bottom'><a class='btn btn-ig' href='"+o+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):""==n&&""==o?c.html(f+"<div class='bottom'><a class='btn btn-primary btn-twitter btn-sm' href='"+b+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a></div>"):""==b&&""==o?c.html(f+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+n+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a></div>"):""==b?c.html(f+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+n+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-ig' href='"+o+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):""==o?c.html(f+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+n+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-primary btn-twitter btn-sm' href='"+b+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a></div>"):""==n?c.html(f+"<div class='bottom'><a class='btn btn-primary btn-twitter btn-sm' href='"+b+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a><a class='btn btn-ig' href='"+o+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):c.html(f+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+n+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-primary btn-twitter btn-sm' href='"+b+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a><a class='btn btn-ig' href='"+o+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"),$.ajax({url:"/feeds/posts/summary/-/"+a.replace("https://www.sophiainstitute.id/search/label/","")+"?alt=json-in-script&max-results=3",type:"get",dataType:"jsonp",success:function(a){var s,e,r,i,l,n,o,b,f=$(".entry-author a").text(),c="",h=a.feed.entry;if(void 0!==h){c="<p>Artikel Lainnya dari "+f+'</p><ul class="recent-posts-container">';for(var d=0;d<h.length;d++){e=h[d].title.$t,i="/search/label/"+(r=h[d].category[0].term),n=(l=h[d].published.$t).substring(0,4),o=l.substring(5,7),b=l.substring(8,10);var p=[];p[1]="Jan",p[2]="Feb",p[3]="Mar",p[4]="Apr",p[5]="May",p[6]="Jun",p[7]="Jul",p[8]="Aug",p[9]="Sep",p[10]="Okt",p[11]="Nov",p[12]="Des";for(var m=0;m<h[d].link.length;m++)if("alternate"==h[d].link[m].rel){s=h[d].link[m].href;break}c+='<li class="recent-posts-list"><div class="post-date">'+b+" "+p[parseInt(o)]+" "+n+'</div><div class="recent-post-title"><a href="'+s+'" target="_top">'+e+'</a></div><div class="recent-posts-details"><a href="'+i+'" target="_top">'+r+'</a> | <a class="readmorelink" href="'+s+'" target="_top">Read more</a></div></li>'}c+="</ul>",$("#atrbawh").after(c+('<span class="sele"><a href="'+t+'">Lihat artikel lainnya dari ')+f+'<i class="fa-duotone fa-right-to-bracket"></i></a></span>'),$(".frameboxAuhtor").removeClass("hidden")}else $("#atrbawh").html("<span>No result!</span>")},error:function(){$("#atrbawh").html("<strong>Error loading feed!</strong>")}}),$("head").append('<link href="https://cdn.sophiainstitute.id/website/code/Fontawesome/6.0.0/style.min.css" rel="stylesheet preload dns-prefetch" />')}})});
+ $(document).ready(function(){
+   
+   var a=$(".entry-author a").attr("href"),jjjk=a.replace("https://www.sophiainstitute.id/search/label/%E1%8E%AAuthor%20","").split("%20").join("-").toLowerCase().split(".").join(""),URLAUTHOR="https://www.sophiainstitute.id/author/"+jjjk;
+   $.ajax({
+     url:URLAUTHOR,type:"GET",
+     success:function(a){
+    
+    
+    
+    
+    var jjjakak=$(".entry-author a").attr("href"),t="https://www.sophiainstitute.id/author/"+jjjakak.replace("https://www.sophiainstitute.id/search/label/%E1%8E%AAuthor%20","").split("%20").join("-").toLowerCase().split(".").join(""),       
+        
+        
+        
+        
+        i=$(a).find("#namanya").text(),r=$(a).find("span#bionya").html(),s=$(a).find("span#fotonya img").attr("src"),e=$(a).find("span#LinkFB").text(),l=$(a).find("span#LinkIG").text(),d=$(a).find("span#LinkTW").text(),kk="<div class='cardheader' id='cardheader'></div><div class='avatar' id='AvatarAuthor' ><a href='"+t+"' rel='author' target='_blank'><img alt='"+i+"' id='fotoauthor' src='"+s+"' title='"+i+"'/></a></div><div class='info' id='infoauthor' ><div class='title'><a href='"+t+"' rel='author' target='_blank'>"+i+"</a></div><div class='desc'>"+r+"</div></div>",o=$("#atrbawh");""==e&&""==d&&""==l?o.html(kk+"<div class='bottom'></div>"):""==e&&""==d?o.html(kk+"<div class='bottom'><a class='btn btn-ig' href='"+l+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):""==e&&""==l?o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-twitter btn-sm' href='"+d+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a></div>"):""==d&&""==l?o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+e+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a></div>"):""==d?o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+e+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-ig' href='"+l+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):""==l?o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+e+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-primary btn-twitter btn-sm' href='"+d+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a></div>"):""==e?o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-twitter btn-sm' href='"+d+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a><a class='btn btn-ig' href='"+l+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>"):o.html(kk+"<div class='bottom'><a class='btn btn-primary btn-facebook btn-sm' href='"+e+"' rel='nofollow' target='_blank'><i class='fab fa-facebook-square'></i></a><a class='btn btn-primary btn-twitter btn-sm' href='"+d+"' rel='nofollow' target='_blank'><i class='fab fa-twitter-square'></i></a><a class='btn btn-ig' href='"+l+"' rel='nofollow' target='_blank'><i class='fab fa-instagram'></i></a></div>");
+     $("head").append('<link href="https://cdn.sophiainstitute.id/website/code/Fontawesome/6.0.0/style.min.css" rel="stylesheet preload dns-prefetch" />');
+     $.ajax({
+        url: '/feeds/posts/summary/-/'+jjjakak.replace("https://www.sophiainstitute.id/search/label/","")+'?alt=json-in-script&max-results=3',
+        type: 'get',
+        dataType: 'jsonp',
+        success: function(data) {
+ var nana=$(".entry-author a").text();
+            var link, judul, kategori,linkkategor, publish,tahun,bulan,tanggal, skeleton = '',
+                content = data.feed.entry;
+            if (content !== undefined) {
+                skeleton = '<p>Artikel Lainnya dari '+nana+'</p><ul class="recent-posts-container">';
+                for (var i = 0; i < content.length; i++) {
+                    judul = content[i].title.$t;
+                  
+                  kategori = content[i].category[0].term;
+                  linkkategor = "/search/label/"+kategori;
+                 
+                  publish=content[i].published.$t;
+                    tahun=publish.substring(0,4);
+                  bulan=publish.substring(5,7);
+                  tanggal=publish.substring(8,10);
+                  var A=new Array;A[1]="Jan",A[2]="Feb",A[3]="Mar",A[4]="Apr",A[5]="May",A[6]="Jun",A[7]="Jul",A[8]="Aug",A[9]="Sep",A[10]="Oct",A[11]="Nov",A[12]="Dec";
+                    for (var j = 0; j < content[i].link.length; j++) {
+                        if (content[i].link[j].rel == "alternate") {
+                            link = content[i].link[j].href;
+                            break;
+                        }
+                    }
+                    skeleton += '<li class="recent-posts-list"><div class="post-date">'+tanggal+' '+A[parseInt(bulan)]+' '+tahun+'</div><div class="recent-post-title"><a href="'+link+'" target="_top">'+judul+'</a></div><div class="recent-posts-details"><a href="'+linkkategor+'" target="_top">'+kategori+'</a> | <a class="readmorelink" href="'+link+'" target="_top">Read more</a></div></li>';
+                };
+             
+                skeleton += '</ul>'
+              var nto='<span class="sele"><a href="'+URLAUTHOR+'">Lihat artikel lainnya dari '+nana+'<i class="fa-duotone fa-right-to-bracket"></i></a></span>';
+               
+              
+              $('#atrbawh').after(skeleton+nto);$(".frameboxAuhtor").removeClass("hidden")
+              
+            } else {
+                $('#atrbawh').html('<span>No result!</span>');
+            }
+        },
+        error: function() {
+            $('#atrbawh').html('<strong>Error loading feed!</strong>');
+        }
+    })
+     }})
+ 
+  
+   
+ 
+ });
 /*! Ebook Slide */
 var jumlah=6;var containernyaId="ignielRandom";function getRandomInt(d,c){return Math.floor(Math.random()*(c-d+1))+d}function shuffleArray(f){var h,g,e=f.length;if(0===e){return falplse}for(;--e;){h=Math.floor(Math.random()*(e+1)),g=f[e],f[e]=f[h],f[h]=g}return f}function randomPost(d){var c=getRandomInt(1,d.feed.openSearch$totalResults.$t-jumlah);document.write('<script src="https://ebook.sophiainstitute.id/feeds/posts/summary?alt=json-in-script&start-index=1&max-results=11&callback=ignielRandom"><\/script>')}function ignielRandom(q){var p="https://4.bp.blogspot.com/-Mpgs0kSln2I/WnRcTqvlOII/AAAAAAAAFh4/VTrxpLBIC7oxQi6xs2t6z0W2sV2h_zSiwCLcBGAs/w300-h225-p-k-no-nu/ignielcom-no-image.png";for(var k,e,n,h,m,f=document.getElementById(containernyaId),o=shuffleArray(q.feed.entry),c="<div class='team-slider owl-carousel'>",d=0,g=o.length;d<g;d++){for(var l=0,j=o[d].link.length;l<j;l++){k="alternate"==o[d].link[l].rel?o[d].link[l].href:"#",n=o[d].category[0].term,h=o[d].summary.$t.substring(0,90),m=o[d].title.$t.substring(0,25),"media$thumbnail" in o[d]?e=o[d].media$thumbnail.url.replace(/\=s[0-9]+(\-c)?/,"=s360-c").replace(/\/s[0-9]+(\-c)?/,"/s360-c"):(e=p,p="https://4.bp.blogspot.com/-Mpgs0kSln2I/WnRcTqvlOII/AAAAAAAAFh4/VTrxpLBIC7oxQi6xs2t6z0W2sV2h_zSiwCLcBGAs/w300-h225-p-k-no-nu/ignielcom-no-image.png")}c+='<div class="single-box text-center"><div class="img-area"><a href="'+k+'" title="'+m+'"><img class="img-fluid move-animation" src="'+e+'" alt="'+m+'" title="'+m+'"/></a></div><div class="info-area"><a class="linktit" href="'+k+'" title="'+m+'"><h4>'+m+"...</h4><h5>EBOOK</h5></a><p>"+h+'...</p><a href="'+k+'" title="'+m+'">Download</a></div></div>'}f.innerHTML=c+"</div>"}document.write('<script src="'+window.location.origin+'/feeds/posts/summary?alt=json-in-script&max-results=0&callback=randomPost"><\/script><script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"><\/script>');
 /*! Scriptnya iframe ebook post dan news*/
