@@ -10,7 +10,19 @@ var jumlah=6;var containernyaId="ignielRandom";function getRandomInt(d,c){return
 /*! Scriptnya iframe ebook post dan news*/
 $("div#widget_ebook").html('<div style="text-align: center;"><b><span style="font-size: 16px;">Ebook Free</span></b></div><iframe loading="lazy" title="Widget Ebook"  allowtransparency="true" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src="https://cdn.sophiainstitute.id/website/code/Embed/product.html?URLfeed=https://ebook.sophiainstitute.id/feeds/posts/summary&jumlah=10" frameborder="0" style="min-width:100%;height:340px;border:0" scrolling="no"> </iframe>'),$("div#ReelatedPost").html('<iframe loading="lazy" title="Widget Recent Post"  allowtransparency="true" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="min-width:100%;height:335px;border:0" src="https://cdn.sophiainstitute.id/website/code/Embed/RelatedPost.html?URLfeed=https://www.sophiainstitute.id/feeds/posts/summary/-/'+ReelatedPostLab+'&jumlah=9" scrolling="no"> </iframe>');
 /*! EbookSHop */
-$("#Ebook_Shop").html('<a href="https://www.sophiainstitute.id/page/ebook-shop" title="Ebook Shop" target="_blank"><div class="BukuSHoop"><span class="content"><span class="text"></span><b>TERTARIK BELANJA EBOOK?</b></span><span class="icon"></span></div></a><iframe  loading="lazy" title="Widget Ebook"  allowtransparency="true" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src="https://cdn.sophiainstitute.id/website/code/sb.html" frameborder="0"  scrolling="no" style="width:1px;min-width:100%;height:300px"> </iframe>');
+
+function maketextnumber(n) {
+    for (var r = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", 
+"o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F",
+ "G", "H", "I",  "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W",
+ "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+ e = n, t = new Array, a = 0; a <= e - 1; a++) {
+        t[a] = r[parseInt(Math.random() * r.length)];
+        t = t;
+        randomtextnumber = t.join("")
+    }
+};
+$("#Ebook_Shop").html('<a href="https://www.sophiainstitute.id/page/ebook-shop" title="Ebook Shop" target="_blank"><div class="BukuSHoop"><span class="content"><span class="text"></span><b>TERTARIK BELANJA EBOOK?</b></span><span class="icon"></span></div></a><iframe  loading="lazy" title="Widget Ebook"  allowtransparency="true" allowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" src="https://cdn.sophiainstitute.id/website/code/sb.html?id='+(maketextnumber(20), randomtextnumber)+'" frameborder="0"  scrolling="no" style="width:1px;min-width:100%;height:300px"> </iframe>');
 /*! AutoShort */
 $(document).ready(function(){var a=$("#driveID").val(),t=document.title,i=a.replace(/^.*\//,"").split(".html").join("");$.ajax({async:!0,crossDomain:!0,url:"https://api.short.io/links/public",method:"POST",headers:{accept:"application/json","content-type":"application/json",Authorization:"pk_wQpFsFlfoC9YAUBx"},processData:!1,data:'{"domain":"m.sophiainstitute.id","allowDuplicates":false,"originalURL":"'+a+'","path":"'+i+'","title":"'+t+'"}'}).done(function(a){console.log(a)})});
 /*! BACAJUGA MId post */
