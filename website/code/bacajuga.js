@@ -22,7 +22,7 @@ for (let d = 0; d < c.length; d++) {
   
   $(function() {
     $.ajax({
-        url: 'https://www.sophiainstitute.id/feeds/posts/default/-/'+label+'?alt=json-in-script',
+        url: 'https://www.sophiainstitute.xyz/feeds/posts/default/-/'+label+'?alt=json-in-script',
         type: 'get',
         dataType: 'jsonp',
         success: function (JSONNYA) {
