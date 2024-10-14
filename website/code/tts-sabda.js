@@ -54,7 +54,7 @@ document.getElementById("dengar").innerHTML = '<div id="ra-player" data-skin="ht
 setTimeout(go, 2000);
 }
 </\script>
-<script src="https://sabdaliterasi.shop/assets/js/plusui/go-tts.js"><\/script>
+<script src="https://sabdaliterasi.shop/assets/js/plusui/go-tts.js?min=v1"><\/script>
 </body>
 </html>
   `;
