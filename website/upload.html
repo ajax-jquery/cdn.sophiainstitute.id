@@ -11,8 +11,14 @@ permalink: /upload-post
 </head>
 <body>
     <h1>Upload Post to Blogger</h1>
+    
     <input type="text" id="title" placeholder="Post Title" required>
     <textarea id="content" placeholder="Post Content" required></textarea>
+    
+    <!-- Tambahan input untuk label dan permalink -->
+    <input type="text" id="labels" placeholder="Labels (comma separated)">
+    <input type="text" id="permalink" placeholder="Custom Permalink">
+
     <button onclick="uploadPost()">Upload</button>
 
     <script>
@@ -20,6 +26,8 @@ permalink: /upload-post
             console.log('Uploading post...');
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
+            const labels = document.getElementById('labels').value.split(',').map(label => label.trim());
+            const url = document.getElementById('permalink').value;
     
             try {
                 const response = await fetch('/api/upload', {
@@ -27,7 +35,12 @@ permalink: /upload-post
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ title, content }),
+                    body: JSON.stringify({ 
+                        title, 
+                        content, 
+                        labels, 
+                        url
+                    }),
                     credentials: 'include'
                 });
     
@@ -38,6 +51,6 @@ permalink: /upload-post
             }
         }
     </script>
-    
 </body>
 </html>
+
