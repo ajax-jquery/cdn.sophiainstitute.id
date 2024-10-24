@@ -27,7 +27,7 @@ permalink: /upload-post
             const title = document.getElementById('title').value;
             const content = document.getElementById('content').value;
             const labels = document.getElementById('labels').value.split(',').map(label => label.trim());
-            const url = document.getElementById('permalink').value;
+            const customPermalink = document.getElementById('permalink').value;
     
             try {
                 const response = await fetch('/api/upload', {
@@ -39,7 +39,7 @@ permalink: /upload-post
                         title, 
                         content, 
                         labels, 
-                        url
+                        customPermalink
                     }),
                     credentials: 'include'
                 });
