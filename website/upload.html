@@ -18,7 +18,7 @@ permalink: /upload-post
     <!-- Tambahan input untuk label dan permalink -->
     <input type="text" id="labels" placeholder="Labels (comma separated)">
     <input type="text" id="permalink" placeholder="Custom Permalink">
-
+<textarea id="description" placeholder="Post Content" required></textarea>
     <button onclick="uploadPost()">Upload</button>
 
     <script>
@@ -28,6 +28,7 @@ permalink: /upload-post
             const content = document.getElementById('content').value;
             const labels = document.getElementById('labels').value.split(',').map(label => label.trim());
             const customPermalink = document.getElementById('permalink').value;
+            const description = document.getElementById('description').value;
     
             try {
                 const response = await fetch('/api/upload', {
@@ -39,7 +40,8 @@ permalink: /upload-post
                         title, 
                         content, 
                         labels, 
-                        customPermalink
+                        customPermalink,
+                        description
                     }),
                     credentials: 'include'
                 });
