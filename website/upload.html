@@ -9,13 +9,14 @@ permalink: /upload-post
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Post</title>
 <script>
-const url = '/api/';
+const url = '/api/ping';
 
 setTimeout(() => {
     fetch(url)
         .then(response => {
             if (response.ok) {
-                console.log('Server is awake!');
+                console.log('Server is awake!');document.body.classList.remove('hidden');
+
             } else {
                 console.error('Error waking up server');
             }
@@ -23,8 +24,9 @@ setTimeout(() => {
         .catch(error => console.error('Fetch error:', error));
 },0); // setiap 5 menit
 </script>
+<style>.hidden{display:none}</style>
 </head>
-<body>
+<body class="hidden">
     <h1>Upload Post to Blogger</h1>
     
     <input type="text" id="title" placeholder="Post Title" required>
