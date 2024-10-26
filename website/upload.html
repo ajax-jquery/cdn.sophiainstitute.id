@@ -26,7 +26,7 @@ setTimeout(() => {
 </script>-->
 <style>.hidden{display:none}</style>
 </head>
-<body class="">
+<body class="hidden">
     <h1>Upload Post to Blogger</h1>
     
     <input type="text" id="title" placeholder="Post Title" required>
@@ -54,7 +54,7 @@ setTimeout(() => {
                 // Jika sudah login, sembunyikan tombol login dan aktifkan tombol submit
                 document.querySelector('a[href="/api/auth/"]').style.display = 'none';
                 document.getElementById('submit-btn').disabled = false;
-            }
+            };document.body.classList.remove('hidden');
         } catch (error) {
             console.error('Error checking login status:', error);
         }
