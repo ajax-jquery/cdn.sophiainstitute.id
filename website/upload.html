@@ -8,7 +8,7 @@ permalink: /upload-post
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Post</title>
-<script>
+<!--<script>
 const url = '/api/';
 
 setTimeout(() => {
@@ -22,7 +22,7 @@ setTimeout(() => {
         })
         .catch(error => console.error('Fetch error:', error));
 },0); // setiap 5 menit
-</script>
+</script>-->
 </head>
 <body>
     <h1>Upload Post to Blogger</h1>
@@ -34,9 +34,33 @@ setTimeout(() => {
     <input type="text" id="labels" placeholder="Labels (comma separated)">
     <input type="text" id="permalink" placeholder="Custom Permalink">
 <textarea id="description" placeholder="Post Content" required></textarea>
-    <button onclick="uploadPost()">Upload</button>
-<a href="/api/auth/"><button>Login</button></a>
+    <button id="submit-btn" disabled onclick="uploadPost()">Upload</button>
 
+<a href="/api/auth"><button id="login-btn">Login</button></a>
+
+
+<script type="text/javascript">
+    // Fungsi untuk mengecek status login
+    async function checkLoginStatus() {
+        try {
+            const response = await fetch('/api/auth/status', {
+                credentials: 'include'
+            });
+            const data = await response.json();
+            
+            if (data.loggedIn) {
+                // Jika sudah login, sembunyikan tombol login dan aktifkan tombol submit
+                document.querySelector('a[href="/api/auth/"]').style.display = 'none';
+                document.getElementById('submit-btn').disabled = false;
+            }
+        } catch (error) {
+            console.error('Error checking login status:', error);
+        }
+    }
+
+    // Panggil fungsi untuk mengecek status login saat halaman dimuat
+    window.onload = checkLoginStatus;
+</script>
 
     <script>
         async function uploadPost() {
