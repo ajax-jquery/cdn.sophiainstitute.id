@@ -64,23 +64,20 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
  }
                            
                            
-     uploadMp3ToGithub(
+      var GG= await uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-).then(GG => {
-   return{
-               audio:r,start:function(){return r.src=GG,r.play()}}    
-});                  
+)                  
                          
                          
                          
                          
                          
                          
-                     });var n,o}
+             return{audio:r,start:function(){return r.src=GG,r.play()}}            });var n,o}
                               
                               function v(){var e,t=o.getAttribute("data-skin");return Promise.all([m(t+"/template.html"),(t=t+"/styles.css",e=document.createElement("LINK"),e.setAttribute("as","style"),e.setAttribute("rel","preload"),void e.setAttribute("href",t))]).then(function(e){o.innerHTML=e[0]})}function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
 function babi(){readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'))};setTimeout(babi,1000)}
