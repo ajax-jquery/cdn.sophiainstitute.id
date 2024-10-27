@@ -1,4 +1,4 @@
-<script>
+
   let MyKey="e95924d4c31c30fd217aaa1593f5d427",
       MyDomain="https://sophiainstitute.id"+Path.replace('/artikel/','')+bahasacode;
   let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
@@ -87,4 +87,3 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
                               
                               function v(){var e,t=o.getAttribute("data-skin");return Promise.all([m(t+"/template.html"),(t=t+"/styles.css",e=document.createElement("LINK"),e.setAttribute("as","style"),e.setAttribute("rel","preload"),void e.setAttribute("href",t))]).then(function(e){o.innerHTML=e[0]})}function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
 function babi(){readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'))};setTimeout(babi,1000)}
-</script>
