@@ -69,16 +69,13 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     "master",
     Pu.de(Hm_Key)
 ).then((audioUrl) => {
-         let audioElement = document.getElementById("ra-audio");
             
         
         if (audioUrl) {
      var mytts="https://cdn.jsdelivr.net/gh/"+repo+"@master/"+path;
-    audio:r,start:function(){return r.src=mytts,r.play()}}
+    return{audio:r,start:function(){return r.src=mytts,r.play()}}
         } else {
-           
-             audio:r,start:function(){return r.src=mytts,r.play()}}
-        
+           return{audio:r,start:function(){return r.src=mytts,r.play()}}}
     });;                     
                          
                          
