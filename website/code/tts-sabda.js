@@ -6,6 +6,18 @@ let Path=Pathlink,
 rootstyle=document.getElementById("styleroot").innerHTML,
 isi_tts=ISI_POSTINGANSI;
 
+  function generateRandomString(length = 50) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
+
+// Contoh penggunaan
+let MYstring=generateRandomString();
+
 var artikel=localStorage.getItem("Bahasa");-1!==artikel.indexOf("-")&&(artikel=artikel.split("-")[0]),-1!==artikel.indexOf("_")&&(artikel=artikel.split("_")[0]),console.log(artikel);var bahasa="Google id-ID-Wavenet-A",bahasacode="id-ID";switch(artikel){
   case"en":bahasacode="en-US";bahasa="Amazon2 Danielle";break;
   case"ar":bahasacode="arb";bahasa="Amazon Zeina";break;
@@ -54,7 +66,7 @@ document.getElementById("dengar").innerHTML = '<div id="ra-player" data-skin="ht
 setTimeout(go, 2000);
 }
 </\script>
-<script src="https://cdn.sophiainstitute.xyz/website/code/go-tts.js"><\/script>
+<script src="https://cdn.sophiainstitute.xyz/website/code/go-tts.js?o=${MYstring}"><\/script>
 </body>
 </html>
   `;
