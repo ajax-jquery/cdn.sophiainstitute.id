@@ -64,20 +64,18 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
  }
                            
                            
-     uploadMp3ToGithub(
+    var kambing = await uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-).then(GG => {
-   return{
-               audio:r,start:function(){return r.src=GG,r.play()}}    
-});                  
+)                 
                          
                          
                          
-                         
+       return{
+               audio:r,start:function(){return r.src=kambing ,r.play()}}                     
                          
                          
                      });var n,o}
