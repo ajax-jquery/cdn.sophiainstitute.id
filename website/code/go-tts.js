@@ -1,4 +1,6 @@
-let MyKey="e95924d4c31c30fd217aaa1593f5d427",
+
+
+  let MyKey="e95924d4c31c30fd217aaa1593f5d427",
       MyDomain="https://sophiainstitute.id"+Path.replace('/artikel/','')+bahasacode;
   let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
 const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
@@ -9,81 +11,86 @@ const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
 function ReadAloudPlayer(o,t,a,e){var r={};!o.isTTS&&/iPad|iPhone|iPod/.test(navigator.userAgent)&&a(".ra-no-ios").hide();a(".ra-logo",t).css("cursor","pointer").click(function(){window.open("https://www.readaloudwidget.com/","_blank")});var n=a(".ra-btn-play",t),i=a(".ra-btn-rewind",t),s=(n.click(function(){a(t).is(".ra-playing")?o.pause():o.play()}),i.click(function(){o.currentTime=Math.max(o.currentTime-(o.isTTS?1:5),0)}),a(".ra-btn[data-toggle]").click(function(){var e=a(this).data("toggle");return a(".ra-overlay",t).not(e).hide(),a(e).toggle(),!1}),a(document).on("mouseup touchend touchcancel",function(e){a(e.target).closest(".ra-btn[data-toggle], .ra-overlay").length||a(".ra-overlay",t).hide()}),a(".ra-time-text",t)),u=a(".ra-error-text",t),c=a(".ra-status-bg",t),l=a(".ra-load-progress-bar",t),d=a(".ra-playback-position-bar",t),h=a(".ra-seek-knob",t),f=(c.click(function(e){o.currentTime=T(c,e)*o.duration}),h.click(function(){return!1}),h.on("mousedown touchstart",function(){return r.seekKnob=!0,P(function(e){var e=T(c,e),t=100*e+"%";h.css("left",t),d.css("width",t),o.duration&&o.duration!=1/0&&S(e*o.duration)},function(e){r.seekKnob=!1,o.currentTime=T(c,e)*o.duration}),!1}),a(".ra-voice-select",t));o.isTTS?(o.voices.forEach(function(e){a("<option>").text(e.name).val(e.name).appendTo(f)}),f.val(o.voice.name),f.change(function(){var e=o.voices.find(function(e){return e.name==f.val()});e=e,o.voice=e,localStorage.setItem("sitespeakerVoice",e.name)})):f.parent().hide();var p=a(".ra-rate-bg",t),g=a(".ra-rate-bar",t),v=a(".ra-rate-knob",t);function m(e){o.playbackRate=e,localStorage.setItem("sitespeakerRate",e)}p.click(function(e){m(Math.exp((2*T(p,e)-1)*Math.log(2)))}),v.click(function(){return!1}),v.on("mousedown touchstart",function(){r.rateKnob=!0;var n=A(o.isTTS?500:100,m);return P(function(e){var e=T(p,e),t=100*e+"%";v.css("left",t),g.css("width",t),n(Math.exp((2*e-1)*Math.log(2)))},function(){r.rateKnob=!1}),!1});var y,w=a(".ra-volume-bg",t),b=a(".ra-volume-bar",t),E=a(".ra-volume-knob",t);function k(e){o.volume=e,localStorage.setItem("sitespeakerVolume",e)}w.click(function(e){k(T(w,e))}),E.click(function(){return!1}),E.on("mousedown touchstart",function(){r.volumeKnob=!0;var n=A(o.isTTS?500:100,k);return P(function(e){var e=T(w,e),t=100*e+"%";E.css("left",t),b.css("width",t),n(e)},function(){r.volumeKnob=!1}),!1}),a(o).on("progress",function(e){l.css("width",100*e.loaded/e.total+"%")}),a(o).on("playing",function(){a(t).addClass("ra-playing"),a(t).removeClass("ra-stalled ra-error")}),a(o).on("pause ended",function(){a(t).removeClass("ra-playing")}),a(o).on("error",function(){a(t).addClass("ra-error"),u.text(o.error.message)}),a(o).on("stalled",function(){a(t).addClass("ra-stalled")}),a(o).on("timeupdate",function(){var e;r.seekKnob||(e=100*o.currentTime/o.duration+"%",h.css("left",e),d.css("width",e),o.duration&&o.duration!=1/0&&S(o.currentTime))}),a(o).on("voicechange",function(){f.val(o.voice.name)}),a(o).on("ratechange",function(){var e;r.rateKnob||(e=50+50*Math.log(o.playbackRate)/Math.log(2)+"%",p.is(".ra-vertical")?(v.css("bottom",e),g.css("height",e)):(v.css("left",e),g.css("width",e)))}),a(o).on("volumechange",function(){var e;r.volumeKnob||(e=100*o.volume+"%",w.is(".ra-vertical")?(E.css("bottom",e),b.css("height",e)):(E.css("left",e),b.css("width",e)))}),o.isTTS&&(y=localStorage.getItem("sitespeakerVoice"))&&(n=o.voices.find(function(e){return e.name==y}))&&(o.voice=n);i=localStorage.getItem("sitespeakerRate")||e.defaultRate,i&&(o.defaultPlaybackRate=o.playbackRate=Number(i)),a(o).triggerHandler("ratechange"),n=localStorage.getItem("sitespeakerVolume")||e.defaultVolume;function P(t,n){function o(e){return e.clientX=e.originalEvent.changedTouches[0].clientX,e.clientY=e.originalEvent.changedTouches[0].clientY,t(e),!1}function r(e){return e.clientX=e.originalEvent.changedTouches[0].clientX,e.clientY=e.originalEvent.changedTouches[0].clientY,i(e),!1}function i(e){return a(document).off("mousemove",t),a(document).off("mouseup mouseleave",i),a(document).off("touchmove",o),a(document).off("touchend touchcancel",r),n&&n(e),!1}a(document).on("mousemove",t),a(document).on("mouseup mouseleave",i),a(document).on("touchmove",o),a(document).on("touchend touchcancel",r)}function T(e,t){var n=e.get(0).getBoundingClientRect(),e=e.is(".ra-vertical")?1-(t.clientY-n.top)/n.height:(t.clientX-n.left)/n.width;return Math.min(1,Math.max(e,0))}function S(e){var t;o.isTTS?s.text(Math.min(Math.round(e)+1,o.duration)+"/"+o.duration):s.text("-"+(e=o.duration-e,t=Math.floor(e/60),e=Math.floor(e-60*t),t<10?"0":"")+t+":"+(e<10?"0":"")+e)}function A(e,t){var n,o;return function(){o={this:this,args:arguments},n=n||setTimeout(r,e)};function r(){n=null,t.apply(o.this,o.args)}}n&&(o.volume=Number(n)),a(o).triggerHandler("volumechange")}
 function ReadAloudDoc(i){var a=["H1","H2","H3","H4","H5","H6"],s=["P","BLOCKQUOTE","PRE"],r=["OL","UL"];function u(e){i(e).find("sup").hide(),i(e).find("*").filter(function(){return this.style&&"absolute"==this.style.position}).hide();var t=e.innerText.trim();return"LI"==e.tagName?i(e).index()+1+". "+t:t}function c(e){e=e?a.indexOf(e.tagName):-1;return-1==e?100:e+1}function l(e,t){return e==document.body?null:1==e.nodeType&&!t&&e.lastChild?e.lastChild:e.previousSibling||l(e.parentNode,!0)}function d(e){return e}this.getTexts=function(){0<i(".read-aloud").length||(0<i(".sitespeaker-read-aloud").length?i(".sitespeaker-read-aloud").addClass("read-aloud"):(e=function(e){for(var t=e.slice(0,1),n=1;n<e.length;n++)e[n]!=e[n-1]&&t.push(e[n]);return t}(e=i("p").not("blockquote > p").parent().get()),(e=i(e).filter(":visible").get()).length?(n=e.map(function(e){return i(e).children(s.join(", ")).text().length}),o=Math.max.apply(null,n),(e=e.filter(function(e,t){return n[t]>o/7})).forEach(function(e){i(function(e){var t=[],e=i(e).children(a.concat(s).join(", ")).get(0),n=c(e),o=l(e,!0);for(;o&&!i(o).hasClass("read-aloud");){var r;1==o.nodeType&&(r=c(o))<n&&(t.push(o),n=r),o=l(o)}return t.reverse()}(e)).addClass("read-aloud"),i(e).children(a.concat(s).join(", ")).addClass("read-aloud"),i(e).children(r.join(", ")).children("li").addClass("read-aloud")})):i(a.concat(s).join(", ")).filter(":visible").addClass("read-aloud")));var n,o,e=i(".no-read-aloud:visible").hide(),t=function(e){for(var t=i(e).get().map(u).filter(d),n=0;n<t.length;n++)/\w$/.test(t[n])&&(t[n]+=".");return console.log(t),t}(".read-aloud:visible");return e.show(),t}}
 function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAloudWebSpeech},function(){return t=t||e()}),n=r.getAttribute("data-lang"),u=r.getAttribute("data-voice"),c=r.getAttribute("data-key"),l=r.getAttribute("data-speed")||r.getAttribute("data-rate"),d=r.getAttribute("data-volume"),h={lang:n,voice:u,key:c,defaultRate:l,defaultVolume:d};return u==a&&s().preload(),o&&i?v().then(function(){var e=o.getElementsByClassName("ra-btn-play")[0],t=function(){e.removeEventListener("click",t),/iPad|iPhone|iPod/.test(navigator.userAgent)&&(r.src="https://assets.readaloudwidget.com/embed/sound/silence.mp3",r.play(),"undefined"!=typeof speechSynthesis)&&speechSynthesis.speak(new SpeechSynthesisUtterance(" ")),f(h)};e.addEventListener("click",t)}):f(h);function f(n){return console.log("%cSabdaliterasi.shop","font-family: fantasy; font-size: 2em;"),Promise.all([!window.jQuery&&m("https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js").then(eval)]).then(function(e){var t="function"==typeof readAloudGetText?readAloudGetText(jQuery):new ReadAloudDoc(jQuery).getTexts().join("\n\n");return Promise.all([function t(n,o){return o.voice==a?p(n,o).catch(function(e){return console.error(e),g(n,o)}):g(n,o).catch(function(e){return console.error(e),o.voice=a,t(n,o)})}(t,n),o&&(i?Promise.resolve():v()).then(function(){jQuery(o).addClass("ra-loading")}),"function"==typeof readAloudPlayPreRollAd?readAloudPlayPreRollAd():null])}).then(function(e){e=e[0];return jQuery(e.audio).one("canplay",function(){jQuery(o).removeClass("ra-loading")}),new ReadAloudPlayer(e.audio,o,jQuery,n),e.start()})}function p(t,n){var o=s();return o.ready(n.lang).then(function(e){if(e)return{audio:o,start:function(){return o.setText(t),o.play()}};throw new Error("Web Speech API unavailable for language "+n.lang)})}
-                       function g(e,t){
-                         return e=e,n=t.lang,o=t.voice,t=t.key,function(o,r){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("POST",o,!0),n.setRequestHeader("Content-type","application/json"),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)));console.log("LANG: "+r.lang);console.log("VOICE: "+r.voice)},n.send(JSON.stringify(r))})}("https://ws.readaloudwidget.com/synthesize?t="+Date.now(),{text:e,lang:n,voice:o,key:MyKey,referer:MyDomain,isNonCanonical:!!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]")}).then(JSON.parse).then(function(e){if(e.error)throw new Error("code "+e.error);return e.url}).then(function(e){
-                           
- function uploadMp3ToGithub(url, repo, path, branch, token) {  
-         var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
-       try {
-        // Step 1: Fetch the MP3 file from the given URL
-        const response = await fetch(url);
-        const arrayBuffer = await response.arrayBuffer();
-        const base64Content = btoa(
-            new Uint8Array(arrayBuffer)
-                .reduce((data, byte) => data + String.fromCharCode(byte), '')
-        );
+                      function g(e, t) {
+    var n = t.lang;
+    var o = t.voice;
 
-        // Step 2: Prepare the GitHub API request to upload the file
-        const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
-        const uploadResponse = await fetch(apiUrl, {
-            method: "PUT",
-            headers: {
-                "Authorization": `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                message: "Add MP3 file via API",
-                content: base64Content,
-                branch: branch
-            })
-        });
-
-        // Step 3: Handle response
-        if (uploadResponse.ok) {
-            console.log("File uploaded successfully!");
-           return mytts
-             
-        } else {
-            console.error("Failed to upload file", await uploadResponse.json());
-         
-            return mytts
-        }
-    } 
-    catch (error) {
-        console.error("Error uploading file:", error);
-   return mytts
-    
-    
-    }                    
-      
-          
-          
+    return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
+        xhr.setRequestHeader("Content-type", "application/json");
         
-         
- };                          
-                           
-                           
-       
-                           
-                           
-             
-                         
-                         
-                         
-       return{
-            audio:r,
-            start:function(){return r.src=uploadMp3ToGithub(
-    e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
-    "ajax-jquery/cdn.sophiainstitute.id",
-    "TTS"+Path.replace(".html",".mp3"),
-    "master",
-    Pu.de(Hm_Key)
-),r.play()}
-       
-       }                     
-                         
-                         
-                     });var n,o}
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    resolve(xhr.responseText);
+                } else {
+                    reject(new Error(xhr.responseText || xhr.statusText || xhr.status));
+                }
+                console.log("LANG: " + n);
+                console.log("VOICE: " + o);
+            }
+        };
+        xhr.send(JSON.stringify({ text: e, lang: n, voice: o, key: MyKey, referer: MyDomain, isNonCanonical: !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]") }));
+    }).then(JSON.parse).then(async function(e) {
+        if (e.error) throw new Error("code " + e.error);
+        var audioUrl = e.url;
+
+        async function uploadMp3ToGithub(url, repo, path, branch, token) {  
+            var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
+            try {
+                // Fetch the MP3 file from the given URL
+                const response = await fetch(url);
+                const arrayBuffer = await response.arrayBuffer();
+                const base64Content = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+
+                // Prepare the GitHub API request to upload the file
+                const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+                const uploadResponse = await fetch(apiUrl, {
+                    method: "PUT",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        message: "Add MP3 file via API",
+                        content: base64Content,
+                        branch: branch
+                    })
+                });
+
+                // Handle response
+                if (uploadResponse.ok) {
+                    console.log("File uploaded successfully!");
+                    return mytts;
+                } else {
+                    console.error("Failed to upload file", await uploadResponse.json());
+                    return mytts;
+                }
+            } 
+            catch (error) {
+                console.error("Error uploading file:", error);
+                return mytts;
+            }                    
+        }
+
+        // Call the upload function and start the audio
+        return {
+            audio: r,
+            start: async function() {
+                r.src = await uploadMp3ToGithub(
+                    audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
+                    "ajax-jquery/cdn.sophiainstitute.id",
+                    "TTS" + Path.replace(".html", ".mp3"),
+                    "master",
+                    Pu.de(Hm_Key)
+                );
+                return r.play();
+            }
+        };
+    });
+}
+
                               
                               function v(){var e,t=o.getAttribute("data-skin");return Promise.all([m(t+"/template.html"),(t=t+"/styles.css",e=document.createElement("LINK"),e.setAttribute("as","style"),e.setAttribute("rel","preload"),void e.setAttribute("href",t))]).then(function(e){o.innerHTML=e[0]})}function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
 function babi(){readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'))};setTimeout(babi,1000)}
