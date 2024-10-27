@@ -4,7 +4,9 @@
 function submitTryit() {
 let Path=Pathlink,
 rootstyle=document.getElementById("styleroot").innerHTML,
-isi_tts=ISI_POSTINGANSI;
+isi_tts=ISI_POSTINGANSI,
+  Mydate=new Date(DatePost).getTime();
+
 
   function generateRandomString(length = 50) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
