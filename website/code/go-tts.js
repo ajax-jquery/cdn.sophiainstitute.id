@@ -61,6 +61,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
          
  }
                            
+                           
       uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
@@ -68,14 +69,21 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     "master",
     Pu.de(Hm_Key)
 ).then((audioUrl) => {
+         let audioElement = document.getElementById("ra-audio");
+            
+        
         if (audioUrl) {
      var mytts="https://cdn.jsdelivr.net/gh/"+repo+"@master/"+path;
-     return{audio:r,start:function(){return r.src=mytts,r.play()}}
+     audioElement.src = mytts; 
+            audioElement.autoplay = true; 
+            audioElement.play();  
         } else {
-           return{audio:r,start:function(){return r.src=e,r.play()}}
+            audioElement.src =e; 
+            audioElement.autoplay = true; 
+            audioElement.play();  
         }
     });;                     
-                           
+                         
                          
                          
                          
