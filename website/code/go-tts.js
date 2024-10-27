@@ -19,7 +19,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
 
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
+        xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Mydate, true);
         xhr.setRequestHeader("Content-type", "application/json");
 
         xhr.onreadystatechange = function() {
