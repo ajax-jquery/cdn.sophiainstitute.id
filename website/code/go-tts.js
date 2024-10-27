@@ -41,18 +41,24 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
         // Step 3: Handle response
         if (uploadResponse.ok) {
             console.log("File uploaded successfully!");
-          var mytts="https://cdn.jsdelivr.net/gh/"+repo+"@master/"+path;
-          
-           return{audio:r,start:function(){return r.src=mytts,r.play()}}
+           var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
+            return mytts;
         } else {
             console.error("Failed to upload file", await uploadResponse.json());
-          return{audio:r,start:function(){return r.src=e,r.play()}}
+          return null;
         }
     } 
     catch (error) {
-        console.error("Error uploading file:", error);return{audio:r,start:function(){return r.src=e,r.play()}}
+        console.error("Error uploading file:", error);
+    return null;
+    
+    
     }                    
-                           
+      
+          
+          
+        
+         
  }
                            
       uploadMp3ToGithub(
@@ -61,7 +67,14 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-);                     
+).then((audioUrl) => {
+        if (audioUrl) {
+     var mytts="https://cdn.jsdelivr.net/gh/"+repo+"@master/"+path;
+     return{audio:r,start:function(){return r.src=mytts,r.play()}}
+        } else {
+           return{audio:r,start:function(){return r.src=e,r.play()}}
+        }
+    });;                     
                            
                          
                          
