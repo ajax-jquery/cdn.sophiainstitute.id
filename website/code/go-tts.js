@@ -1,5 +1,6 @@
 
 
+
   let MyKey="e95924d4c31c30fd217aaa1593f5d427",
       MyDomain="https://sophiainstitute.com"+Path.replace('/artikel/','')+bahasacode;
   let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
@@ -17,117 +18,124 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     var n = t.lang;
     var o = t.voice;
 
-    return new Promise(function(resolve, reject) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Mydate, true);
-        xhr.setRequestHeader("Content-type", "application/json");
-
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
-                    resolve(xhr.responseText);
-                } else {
-                    reject(new Error(xhr.responseText || xhr.statusText || xhr.status));
-                }
-                console.log("LANG: " + n);
-                console.log("VOICE: " + o);
+    // Fungsi untuk memeriksa keberadaan file di GitHub
+    async function checkFileExists(repo, path, branch, token) {
+        const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
+        const response = await fetch(apiUrl, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Accept": "application/vnd.github.v3.raw"
             }
-        };
+        });
+        return response.status === 200; // Jika status 200, file ada
+    }
 
-        xhr.send(JSON.stringify({ 
-            text: e, 
-            lang: n, 
-            voice: o, 
-            key: MyKey, 
-            referer: MyDomain, 
-            isNonCanonical: !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]") 
-        }));
-    }).then(JSON.parse).then(async function(e) {
-        if (e.error) throw new Error("code " + e.error);
-        var audioUrl = e.url;
+    // Fungsi untuk upload file ke GitHub
+    async function uploadMp3ToGithub(url, repo, path, branch, token) {  
+        var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
+        try {
+            // Fetch the MP3 file from the given URL
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const base64Content = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
 
-        // Fungsi untuk memeriksa keberadaan file di GitHub
-        async function checkFileExists(repo, path, branch, token) {
-            const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
-            const response = await fetch(apiUrl, {
-                method: "GET",
+            // Prepare the GitHub API request to upload the file
+            const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+            const uploadResponse = await fetch(apiUrl, {
+                method: "PUT",
                 headers: {
                     "Authorization": `Bearer ${token}`,
-                    "Accept": "application/vnd.github.v3.raw"
-                }
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    message: "Add MP3 file via API",
+                    content: base64Content,
+                    branch: branch
+                })
             });
-            return response.status === 200; // Jika status 200, file ada
-        }
 
-        // Fungsi untuk upload file ke GitHub
-        async function uploadMp3ToGithub(url, repo, path, branch, token) {  
-            var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
-            try {
-                // Fetch the MP3 file from the given URL
-                const response = await fetch(url);
-                const arrayBuffer = await response.arrayBuffer();
-                const base64Content = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-
-                // Prepare the GitHub API request to upload the file
-                const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
-                const uploadResponse = await fetch(apiUrl, {
-                    method: "PUT",
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        message: "Add MP3 file via API",
-                        content: base64Content,
-                        branch: branch
-                    })
-                });
-
-                // Handle response
-                if (uploadResponse.ok) {
-                    console.log("File uploaded successfully!");
-                    return mytts;
-                } else {
-                    console.error("Failed to upload file", await uploadResponse.json());
-                    return mytts;
-                }
-            } 
-            catch (error) {
-                console.error("Error uploading file:", error);
+            // Handle response
+            if (uploadResponse.ok) {
+                console.log("File uploaded successfully!");
                 return mytts;
-            }                    
-        }
+            } else {
+                console.error("Failed to upload file", await uploadResponse.json());
+                return mytts;
+            }
+        } 
+        catch (error) {
+            console.error("Error uploading file:", error);
+            return mytts;
+        }                    
+    }
 
-        // Definisikan variabel untuk repository dan path
-        const repo = "ajax-jquery/cdn.sophiainstitute.id";
-        const path = "TTS" + Path.replace(".html", ".mp3");
-        const branch = "master";
-        const token = Pu.de(Hm_Key);
+    // Definisikan variabel untuk repository dan path
+    const repo = "ajax-jquery/cdn.sophiainstitute.id";
+    const path = "TTS" + Path.replace(".html", ".mp3");
+    const branch = "master";
+    const token = Pu.de(Hm_Key);
 
-        // Memeriksa apakah file sudah ada
+    return new Promise(async function(resolve, reject) {
+        // Memeriksa apakah file sudah ada di GitHub
         const fileExists = await checkFileExists(repo, path, branch, token);
 
-        return {
-            audio: r,
-            start: async function() {
-                if (fileExists) {
-                    // Jika file ada, gunakan URL yang ada
+        if (fileExists) {
+            // Jika file ada, gunakan URL yang sudah ada di GitHub
+            resolve({
+                audio: r,
+                start: function() {
                     r.src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
-                } else {
-                    // Jika file tidak ada, upload dan ambil URL
-                    r.src = await uploadMp3ToGithub(
-                        audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
-                        repo,
-                        path,
-                        branch,
-                        token
-                    );
+                    return r.play();
                 }
-                return r.play();
-            }
-        };
+            });
+        } else {
+            // Jika file tidak ada, lakukan POST ke API untuk mendapatkan audioUrl
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
+            xhr.setRequestHeader("Content-type", "application/json");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.error) {
+                            reject(new Error("code " + response.error));
+                        } else {
+                            // Jika POST berhasil, dapatkan audioUrl dan upload ke GitHub
+                            var audioUrl = response.url;
+                            resolve({
+                                audio: r,
+                                start: async function() {
+                                    r.src = await uploadMp3ToGithub(
+                                        audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
+                                        repo,
+                                        path,
+                                        branch,
+                                        token
+                                    );
+                                    return r.play();
+                                }
+                            });
+                        }
+                    } else {
+                        reject(new Error(xhr.responseText || xhr.statusText || xhr.status));
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify({ 
+                text: e, 
+                lang: n, 
+                voice: o, 
+                key: MyKey, 
+                referer: MyDomain, 
+                isNonCanonical: !!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]") 
+            }));
+        }
     });
 }
+
 
 
                               
