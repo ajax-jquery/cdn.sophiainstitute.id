@@ -64,7 +64,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
  }
                            
                            
-   const kambing =  await uploadMp3ToGithub(
+   let kambing =  await uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
