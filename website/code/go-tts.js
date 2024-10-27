@@ -59,7 +59,7 @@ const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
           
         
          
- }
+ };
   
   
   
@@ -79,13 +79,13 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
      
                            
                            
-      return{ uploadMp3ToGithub(
+    uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key),r,e
-)   }               
+)                 
                          
                          
                          
