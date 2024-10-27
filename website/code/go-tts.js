@@ -12,7 +12,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
                        function g(e,t){
                          return e=e,n=t.lang,o=t.voice,t=t.key,function(o,r){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("POST",o,!0),n.setRequestHeader("Content-type","application/json"),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)));console.log("LANG: "+r.lang);console.log("VOICE: "+r.voice)},n.send(JSON.stringify(r))})}("https://ws.readaloudwidget.com/synthesize?t="+Date.now(),{text:e,lang:n,voice:o,key:MyKey,referer:MyDomain,isNonCanonical:!!document.querySelector("html.translated-ltr, html.translated-rtl, ya-tr-span, [_msttexthash], [x-bergamot-translated]")}).then(JSON.parse).then(function(e){if(e.error)throw new Error("code "+e.error);return e.url}).then(function(e){
                            
- async function uploadMp3ToGithub(url, repo, path, branch, token) {  
+ function uploadMp3ToGithub(url, repo, path, branch, token) {  
          var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
        try {
         // Step 1: Fetch the MP3 file from the given URL
@@ -72,7 +72,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
                          
        return{
             audio:r,
-            start:function(){return r.src=await uploadMp3ToGithub(
+            start:function(){return r.src=uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
