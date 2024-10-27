@@ -13,7 +13,8 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
                            
                            
                            
-       async function uploadMp3ToGithub(url, repo, path, branch, token) {                    
+       async function uploadMp3ToGithub(url, repo, path, branch, token) {  
+         var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
        try {
         // Step 1: Fetch the MP3 file from the given URL
         const response = await fetch(url);
@@ -41,16 +42,16 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
         // Step 3: Handle response
         if (uploadResponse.ok) {
             console.log("File uploaded successfully!");
-           var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
-            return mytts;
+           
+             return{audio:r,start:function(){return r.src=mytts,r.play()}}
         } else {
             console.error("Failed to upload file", await uploadResponse.json());
-          return null;
+           return{audio:r,start:function(){return r.src=mytts,r.play()}}
         }
     } 
     catch (error) {
         console.error("Error uploading file:", error);
-    return null;
+     return{audio:r,start:function(){return r.src=mytts,r.play()}}
     
     
     }                    
@@ -68,15 +69,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-).then((audioUrl) => {
-            
-        
-        if (audioUrl) {
-     var mytts="https://cdn.jsdelivr.net/gh/"+repo+"@master/"+path;
-    return{audio:r,start:function(){return r.src=mytts,r.play()}}
-        } else {
-           return{audio:r,start:function(){return r.src=mytts,r.play()}}}
-    });;                     
+)                  
                          
                          
                          
