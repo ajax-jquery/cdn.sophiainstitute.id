@@ -43,15 +43,16 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
         if (uploadResponse.ok) {
             console.log("File uploaded successfully!");
            
-             return{audio:r,start:function(){return r.src=mytts,r.play()}}
+             audio:r,start:function(){return r.src=mytts,r.play()}
         } else {
             console.error("Failed to upload file", await uploadResponse.json());
-           return{audio:r,start:function(){return r.src=mytts,r.play()}}
+         
+             audio:r,start:function(){return r.src=mytts,r.play()}
         }
     } 
     catch (error) {
         console.error("Error uploading file:", error);
-     return{audio:r,start:function(){return r.src=mytts,r.play()}}
+    audio:r,start:function(){return r.src=mytts,r.play()}
     
     
     }                    
@@ -63,13 +64,13 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
  }
                            
                            
-      uploadMp3ToGithub(
+      return{ uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-)                  
+)   }               
                          
                          
                          
