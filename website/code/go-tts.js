@@ -52,7 +52,7 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
     } 
     catch (error) {
         console.error("Error uploading file:", error);
-   return mytts
+    audio:r,start:function(){return r.src=mytts,r.play()}
     
     
     }                    
@@ -64,13 +64,13 @@ function readAloudInit(r,o,i){var e,t,a="free",s=(e=function(){return new ReadAl
  }
                            
                            
-      var GG= await uploadMp3ToGithub(
+     var GG = uploadMp3ToGithub(
     e.replace("cdn.readaloudwidget.com/","www.sophiainstitute.xyz/TTS/"),
     "ajax-jquery/cdn.sophiainstitute.id",
     "TTS"+Path.replace(".html",".mp3"),
     "master",
     Pu.de(Hm_Key)
-)                  
+);                  
                          
                          
                          
