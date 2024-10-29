@@ -1,4 +1,5 @@
- let MyKey="5c7f0d232ce083163526dc7f613cb290",
+
+  let MyKey="5c7f0d232ce083163526dc7f613cb290",
       Domain="mnbvczesr45.org",
       MyDomain="https://"+Domain+Path.replace('/artikel/','')+bahasacode;
   let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};
@@ -293,13 +294,12 @@ function readAloudInit(r, o, i){
       const fileExists = await checkFileExists(repo, path, branch, token);
 let src;
       if (fileExists) {
-        resolve({
-          audio: r,
-          start: function() {
-            src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
-            return console.log("%cTTS is Already", "color:#00ff1d;font-family:fantasy; font-size: 2em;");console.log("Source:", src);
-          }
-        });
+   src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
+  console.log("%cTTS is Already", "color:#00ff1d;font-family:fantasy; font-size: 2em;");
+  console.log("Source:", src);
+  resolve({
+    audio: r // Kembalikan objek audio
+  });
       }
       else {
         console.log("%cTTS is Uploading...", "color:#ffaa00;font-family:fantasy; font-size: 2em;");
@@ -308,32 +308,38 @@ let src;
         xhr.setRequestHeader("Content-type", "application/json");
 
         xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-              var response = JSON.parse(xhr.responseText);
-              if (response.error) {
-                reject(new Error("code " + response.error));
-              } else {
-                var audioUrl = response.url;
-                resolve({
-                  audio: r,
-                  start: async function() {
-                     src = await uploadMp3ToGithub(
-                      audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
-                      repo,
-                      path,
-                      branch,
-                      token
-                    );
-                    return console.log("%cTTS is Uploaded", "color:#00ff1d;font-family:fantasy; font-size: 2em;");console.log("Source:", src);
-                  }
-                });
-              }
-            } else {
-              reject(new Error(xhr.responseText || xhr.statusText || xhr.status));
-            }
-          }
-        };
+  if (xhr.readyState == 4) {
+    if (xhr.status == 200) {
+      var response = JSON.parse(xhr.responseText);
+      if (response.error) {
+        reject(new Error("code " + response.error));
+      } else {
+        var audioUrl = response.url;
+
+        // Langsung upload ke GitHub tanpa memerlukan fungsi start
+        uploadMp3ToGithub(
+          audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
+          repo,
+          path,
+          branch,
+          token
+        ).then((src) => {
+          // Setelah upload selesai, lakukan hal yang diperlukan
+          console.log("%cTTS is Uploaded", "color:#00ff1d;font-family:fantasy; font-size: 2em;");
+          console.log("Source:", src);
+          resolve({
+            audio: r // Kembali hasil audio jika diperlukan
+          });
+        }).catch((error) => {
+          reject(new Error("Failed to upload audio: " + error));
+        });
+      }
+    } else {
+      reject(new Error(xhr.responseText || xhr.statusText || xhr.status));
+    }
+  }
+};
+
 
         xhr.send(JSON.stringify({
           text: e,
@@ -355,3 +361,4 @@ function babi(){
   
   
   }()
+
