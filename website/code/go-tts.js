@@ -138,7 +138,7 @@ function babi(){readAloudInit(document.getElementById('ra-audio'),document.getEl
   
   
   }
-function gogo(){
+!function(){
 let MyKey="5c7f0d232ce083163526dc7f613cb290",
       MyDomain="https://mnbvczesr45.org"+Path.replace('/artikel/','')+bahasacode;
 let Pu={
@@ -300,12 +300,12 @@ let src;
           audio: r,
           start: function() {
             src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
-            return console.log("%cAlready", "color:#00ff1d;font-family:fantasy; font-size: 1em;");console.log("Source:", src);
+            return console.log("%cTTS is Already", "color:#00ff1d;font-family:fantasy; font-size: 2em;");console.log("Source:", src);
           }
         });
       }
       else {
-        console.log("%cIs Uploading...", "color:#ffaa00;font-family:fantasy; font-size: 1em;");
+        console.log("%cTTS is Uploading...", "color:#ffaa00;font-family:fantasy; font-size: 2em;");
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
         xhr.setRequestHeader("Content-type", "application/json");
@@ -328,7 +328,7 @@ let src;
                       branch,
                       token
                     );
-                    return console.log("%cUploaded", "color:#00ff1d;font-family:fantasy; font-size: 1em;");console.log("Source:", src);
+                    return console.log("%cTTS is Uploaded", "color:#00ff1d;font-family:fantasy; font-size: 1em;");console.log("Source:", src);
                   }
                 });
               }
@@ -357,4 +357,4 @@ function babi(){
   
   
   
-  }gogo()
+  }()
