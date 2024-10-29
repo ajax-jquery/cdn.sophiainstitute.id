@@ -284,16 +284,17 @@ function readAloudInit(r, o, i){
 
     return new Promise(async function(resolve, reject) {
       const fileExists = await checkFileExists(repo, path, branch, token);
-
+let src;
       if (fileExists) {
         resolve({
           audio: r,
           start: function() {
-            r.src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
-            return console.log("already", r.src);
+            src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
+            return console.log("already", src);
           }
         });
-      } else {
+      }
+      else {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
         xhr.setRequestHeader("Content-type", "application/json");
@@ -309,14 +310,14 @@ function readAloudInit(r, o, i){
                 resolve({
                   audio: r,
                   start: async function() {
-                    r.src = await uploadMp3ToGithub(
+                     src = await uploadMp3ToGithub(
                       audioUrl.replace("cdn.readaloudwidget.com/", "www.sophiainstitute.xyz/TTS/"),
                       repo,
                       path,
                       branch,
                       token
                     );
-                    return console.log("added", r.src);
+                    return console.log("added",src);
                   }
                 });
               }
