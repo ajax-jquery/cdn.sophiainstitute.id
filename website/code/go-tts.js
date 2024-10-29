@@ -300,11 +300,12 @@ let src;
           audio: r,
           start: function() {
             src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
-            return console.log("already", src);
+            return console.log("%cAlready", "color:#00ff1d;font-family:fantasy; font-size: 1em;");console.log("Source:", src);
           }
         });
       }
       else {
+        console.log("%cIs Uploading...", "color:#ffaa00;font-family:fantasy; font-size: 1em;");
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://ws.readaloudwidget.com/synthesize?t=" + Date.now(), true);
         xhr.setRequestHeader("Content-type", "application/json");
@@ -327,7 +328,7 @@ let src;
                       branch,
                       token
                     );
-                    return console.log("added",src);
+                    return console.log("%cUploaded", "color:#00ff1d;font-family:fantasy; font-size: 1em;");console.log("Source:", src);
                   }
                 });
               }
