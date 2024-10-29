@@ -243,39 +243,49 @@ function readAloudInit(r, o, i){
       return response.status === 200;
     }
 
-    async function uploadMp3ToGithub(url, repo, path, branch, token) {
-      var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
-      try {
-        const response = await fetch(url);
-        const arrayBuffer = await response.arrayBuffer();
-        const base64Content = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
+   async function uploadMp3ToGithub(url, repo, path, branch, token, attempts = 3) {  
+  var mytts = "https://cdn.jsdelivr.net/gh/" + repo + "@" + branch + "/" + path;
+  
+  try {
+    const response = await fetch(url);
+    const arrayBuffer = await response.arrayBuffer();
+    const base64Content = btoa(new Uint8Array(arrayBuffer).reduce((data, byte) => data + String.fromCharCode(byte), ''));
 
-        const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
-        const uploadResponse = await fetch(apiUrl, {
-          method: "PUT",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: "Add MP3 file via API",
-            content: base64Content,
-            branch: branch
-          })
-        });
+    const apiUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+    const uploadResponse = await fetch(apiUrl, {
+      method: "PUT",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: "Add MP3 file via API",
+        content: base64Content,
+        branch: branch
+      })
+    });
 
-        if (uploadResponse.ok) {
-          console.log("File uploaded successfully!");
-          return mytts;
-        } else {
-          console.error("Failed to upload file", await uploadResponse.json());
-          return mytts;
-        }
-      } catch (error) {
-        console.error("Error uploading file:", error);
-        return mytts;
-      }
+    if (uploadResponse.ok) {
+      console.log("File uploaded successfully!");
+      return mytts;
+    } else {
+      console.error("Failed to upload file", await uploadResponse.json());
+      throw new Error("Upload failed");
     }
+  } catch (error) {
+    console.error("Error uploading file:", error);
+
+    // Jika masih ada percobaan tersisa, coba lagi
+    if (attempts > 1) {
+      console.log(`Retrying upload... Attempts left: ${attempts - 1}`);
+      return uploadMp3ToGithub(url, repo, path, branch, token, attempts - 1); // Mengurangi jumlah percobaan
+    } else {
+      console.error("All attempts to upload failed.");
+      return mytts; // Kembalikan URL default jika semua percobaan gagal
+    }
+  }                    
+}
+
 
     const repo = "ajax-jquery/TTS-Sophia";
     const path = "TTS" + Path.replace(".html", ".mp3");
