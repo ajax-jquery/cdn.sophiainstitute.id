@@ -185,7 +185,7 @@ function readAloudInit(r, o, i){
   function f(n) {
     console.log("%cSabdaliterasi.shop", "font-family: fantasy; font-size: 2em;");
     return Promise.all([
-      !window.jQuery && m("https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js").then(eval)
+      !window.jQuery && loadJQuery()
     ]).then(function() {
       var t = "function" == typeof readAloudGetText ? readAloudGetText(jQuery) : new ReadAloudDoc(jQuery).getTexts().join("\n\n");
       return Promise.all([
@@ -206,6 +206,16 @@ function readAloudInit(r, o, i){
       });
       new ReadAloudPlayer(e.audio, o, jQuery, n);
       return e.start();
+    });
+  }
+
+  function loadJQuery() {
+    return new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = "https://sabdaliterasi.shop/assets/js/jquery-3.7.1.min.js";
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
     });
   }
 
@@ -328,6 +338,7 @@ function readAloudInit(r, o, i){
     });
   }
 }
+
 
 function babi(){
   readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'))};setTimeout(babi,1000)
