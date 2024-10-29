@@ -277,7 +277,7 @@ function readAloudInit(r,o,i){
 
 
                               
-                              function v(){var e,t=o.getAttribute("data-skin");return Promise.all([m(t+"/template.htm"),(t=t+"/styles.css",e=document.createElement("LINK"),e.setAttribute("as","style"),e.setAttribute("rel","preload"),void e.setAttribute("href",t))]).then(function(e){o.innerHTML=e[0]})}function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
+                              function m(o){return new Promise(function(e,t){var n=new XMLHttpRequest;n.open("GET",o,!0),n.onreadystatechange=function(){4==n.readyState&&(200==n.status?e(n.responseText):t(new Error(n.responseText||n.statusText||n.status)))},n.send(null)})}}
 function babi(){
   readAloudInit(document.getElementById('ra-audio'),document.getElementById('ra-player'))};setTimeout(babi,1000)
   
