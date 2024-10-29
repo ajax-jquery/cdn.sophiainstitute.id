@@ -297,9 +297,6 @@ let src;
    src = `https://cdn.jsdelivr.net/gh/${repo}@${branch}/${path}`;
   console.log("%cTTS is Already", "color:#00ff1d;font-family:fantasy; font-size: 2em;");
   console.log("Source:", src);
-  resolve({
-    audio: r // Kembalikan objek audio
-  });
       }
       else {
         console.log("%cTTS is Uploading...", "color:#ffaa00;font-family:fantasy; font-size: 2em;");
@@ -327,9 +324,7 @@ let src;
           // Setelah upload selesai, lakukan hal yang diperlukan
           console.log("%cTTS is Uploaded", "color:#00ff1d;font-family:fantasy; font-size: 2em;");
           console.log("Source:", src);
-          resolve({
-            audio: r // Kembali hasil audio jika diperlukan
-          });
+         
         }).catch((error) => {
           reject(new Error("Failed to upload audio: " + error));
         });
