@@ -52,7 +52,7 @@ Path="`+Path+`";
 <body id='BodyTTS' class=''>
 <div id="tts_article">
 <div id="dengar" onclick="dengar()"> 
-<div id="ra-player" data-skin="https://sabdaliterasi.shop/assets/html/skin/tema">`+html+`</div></div>
+<div id="ra-player" data-skin="https://sabdaliterasi.xyz/assets/html/skin/tema">`+html+`</div></div>
 <audio id="ra-audio" data-lang="`+bahasacode+`" data-voice="`+bahasa+`" data-key="afs537fsjdkr846ta241f263sfad25"></audio></div>
 <article><div id="postSplit">`+isi_tts+`</div></article>
 <script>
