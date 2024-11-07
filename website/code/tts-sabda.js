@@ -64,7 +64,7 @@ K[i].setAttribute('class','read-aloud');
     
     };
 function dengar(){
-document.getElementById("dengar").innerHTML = '<div id="ra-player" data-skin="https://sabdaliterasi.shop/assets/html/skin/tema" class="ra-loading">`+html+`</div>';document.getElementById("dengar").removeAttribute("onclick");
+document.getElementById("dengar").innerHTML = '<div id="ra-player" data-skin="https://sabdaliterasi.xyz/assets/html/skin/tema" class="ra-loading">`+html+`</div>';document.getElementById("dengar").removeAttribute("onclick");
 setTimeout(go(), 2000);
 }
 </\script>
