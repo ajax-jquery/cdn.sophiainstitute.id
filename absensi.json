@@ -1,7 +1,19 @@
 {
-    "Minggu, 17 November 2024": {
-        "Hadir": ["Dimas", "Rio"],
-        "Izin": ["Fadhel"],
-        "Alpa": []
-    }
+  "Minggu, 17 November 2024": {
+    "Hadir": [
+      "Dimas",
+      "Rio"
+    ],
+    "Izin": [
+      "Fadhel"
+    ],
+    "Alpa": []
+  },
+  "Rabu, 20 November 2024": {
+    "Hadir": [
+      "Dimas"
+    ],
+    "Izin": [],
+    "Alpa": []
+  }
 }
