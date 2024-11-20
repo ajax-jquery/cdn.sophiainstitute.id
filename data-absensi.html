@@ -1,0 +1,253 @@
+---
+layout: null
+permalink: /data-absensi/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi</title>
+  <style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+h1 {
+  margin: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+td {
+  cursor: pointer;
+}
+
+td.hadir {
+  background-color: #d4edda;
+}
+
+td.izin {
+  background-color: #ffe8a1;
+}
+
+td.alpa {
+  background-color: #f8d7da;
+}
+
+.hidden {
+  display: none;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  text-align: center;
+}
+
+#close-popup {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#popup-list {
+  text-align: left;
+  padding: 0;
+  margin: 20px 0;
+}.hidden{display:none!important}.Hadir {color: #d4edda;}
+.Izin {color: #ffe8a1;}
+.Alpa {color: #f8d7da;}</style>
+</head>
+<body>
+  <h1>Data Absensi</h1>
+  <table id="absensi-table">
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Hadir</th>
+        <th>Izin</th>
+        <th>Alpa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be generated dynamically -->
+    </tbody>
+  </table>
+
+  <!-- Popup Modal -->
+  <div id="popup" class="hidden">
+    <div class="popup-content">
+      <span id="close-popup">&times;</span>
+      <h2 id="popup-title">Detail Kehadiran</h2>
+      <ul id="popup-list">
+        <!-- Dates will be populated dynamically -->
+      </ul>
+    </div>
+  </div>
+
+  <script>
+  let Pu={Cr:"MBDRTNFJCAPOSQEIGWLHVYZUKXmbdrtnfjcaposqeigwlhvyzukx3508749216+/=",en:function(r){let e=Pu.Cr,t="",a=0;for(;a<r.length;){let h=r.charCodeAt(a++),c=r.charCodeAt(a++),n=r.charCodeAt(a++),o=h>>2,A=(3&h)<<4|c>>4,C=isNaN(c)?64:(15&c)<<2|n>>6,d=isNaN(n)?64:63&n;t+=e.charAt(o)+e.charAt(A)+e.charAt(C)+e.charAt(d)}return t},de:function(r){let e=Pu.Cr,t="",a=0;for(r=r.replace(/[^A-Za-z0-9\+\/\=]/g,"");a<r.length;){let h=e.indexOf(r.charAt(a++)),c=e.indexOf(r.charAt(a++)),n=e.indexOf(r.charAt(a++)),o=e.indexOf(r.charAt(a++)),A=h<<2|c>>4,C=(15&c)<<4|n>>2,d=(3&n)<<6|o;t+=String.fromCharCode(A),64!==n&&(t+=String.fromCharCode(C)),64!==o&&(t+=String.fromCharCode(d))}return t}};const Hm_Key="X0jzU5rPLVokKVWWtaQYmxYWHF6vZp55V3ikYUBgKsooLxBoLqjFYf==";
+  
+  // Replace with your GitHub repository details and API Key
+const repoOwner = "ajax-jquery";
+const repoName = "cdn.sophiainstitute.xyz";
+const filePath = "absensi.json";
+const apiKey = Pu.de(Hm_Key); // jj
+
+
+const tableBody = document.querySelector("#absensi-table tbody");
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-title");
+const popupList = document.getElementById("popup-list");
+const closePopup = document.getElementById("close-popup");
+
+// Fetch JSON file from GitHub API
+async function fetchAbsensi() {
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`;
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "application/vnd.github.v3.raw"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch data from GitHub");
+    }
+
+    const data = await response.json();
+    populateTable(data);
+  } catch (error) {
+    console.error("Error fetching absensi.json:", error);
+  }
+}
+
+// Populate the table with data
+function populateTable(data) {
+  const attendance = {};
+
+  // Flatten data by name
+  Object.entries(data).forEach(([date, details]) => {
+    const readableDate = formatDate(date);
+    ["Hadir", "Izin", "Alpa"].forEach((status) => {
+      details[status].forEach((name) => {
+        if (!attendance[name]) {
+          attendance[name] = { Hadir: [], Izin: [], Alpa: [] };
+        }
+        attendance[name][status].push(readableDate);
+      });
+    });
+  });
+
+  // Generate table rows, sorted by name alphabetically
+  const names = Object.keys(attendance).sort(); // Sort names alphabetically
+  names.forEach((name) => {
+    const statuses = attendance[name];
+    const row = document.createElement("tr");
+
+    // Name column
+    const nameCell = document.createElement("td");
+    nameCell.textContent = name;
+    row.appendChild(nameCell);
+
+    // Status columns (Hadir, Izin, Alpa)
+    ["Hadir", "Izin", "Alpa"].forEach((status) => {
+      const cell = document.createElement("td");
+      cell.textContent = statuses[status].length;
+      cell.classList.add(status.toLowerCase()); // Add class for styling
+      cell.addEventListener("click", () => showPopup(status, name, statuses[status])); // Show popup on click
+      row.appendChild(cell);
+    });
+
+    // Append row to table body
+    
+    
+    tableBody.appendChild(row);
+  });
+}
+// Format date to "Hari, Tanggal Bulan Tahun"
+function formatDate(dateStr) {
+  const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+  const months = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+  ];
+
+  const date = new Date(dateStr);
+  const dayName = days[date.getDay()];
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${dayName}, ${day} ${month} ${year}`;
+}
+
+// Show popup with details
+function showPopup(status, name, dates) {
+  popupTitle.textContent = `${name} (${status})`;
+  popupTitle.classList.add(status);
+  popupList.innerHTML = ""; // Clear previous dates
+
+  dates.forEach((date) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = date;
+    popupList.appendChild(listItem);
+  });
+
+  popup.classList.remove("hidden");
+}
+
+// Close popup
+closePopup.addEventListener("click", () => {
+ popupTitle.removeAttribute("class");
+ popup.classList.add("hidden");
+});
+
+// Fetch absensi data when page loads
+fetchAbsensi();
+
+ </script>
+</body>
+</html> 
