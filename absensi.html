@@ -6,6 +6,25 @@ permalink: /absensi/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<script>
+function pingEndpoint(url) {
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        console.log(`Endpoint ${url} is reachable. Status Code: ${response.status}`);
+      } else {
+        console.log(`Endpoint ${url} returned status code: ${response.status}`);
+      }
+    })
+    .catch(error => {
+      console.error(`Error reaching endpoint ${url}: ${error}`);
+    });
+}
+
+// Ganti dengan URL endpoint yang ingin diuji
+pingEndpoint("https://absensi-anggota.glitch.me/submit-absensi");
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Absensi Kajian</title>
