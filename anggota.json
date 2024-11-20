@@ -1,32 +1,31 @@
-{
-            "Nama": [
-"Rama Safawi",
-"Fitrayanti S. Maila",
-"Isnurananda",
-"Febrianto",
-"Abd gafur",
-"TATANG MUHAMMAD NOOR",
-"Maswar",
-"Alif fikri",
-"Alyah Bongga",
-"Anifa Hakim",
-"Rio Ardiansya",
-"Yuliana Anggraeni A",
-"Athaya Alifianti",
-"Muh. Fadli",
-"Dimas Septiadi Pratama",
-"Nafsal",
-"Nasrudin",
-"AHKSAN",
-"Moh Valen Saputra makaranu",
-"Esa Hariani",
-"Rafli",
-"Moh. Shadiq m al-idrus",
-"Abdi Risaldi",
-"Mohamad Rifki",
-"Rifa Melda",
-"Faiz rahmansyah",
-"Rio ardiansya","Sofyan"
-
-            ]
-        }
+{ 
+            "Nama": [ 
+                        "Abd Gafur", 
+                        "Abdi Risaldi", 
+                        "Ahksan", 
+                        "Alif Fikri", 
+                        "Alyah Bongga", 
+                        "Anifa Hakim", 
+                        "Athaya Alifianti", 
+                        "Dimas Septiadi Pratama", 
+                        "Esa Hariani", 
+                        "Faiz Rahmansyah", 
+                        "Febrianto", 
+                        "Fitrayanti S. Maila", 
+                        "Isnurananda", 
+                        "Maswar", 
+                        "Moh Valen Saputra Makaranu", 
+                        "Moh. Shadiq M Al-idrus", 
+                        "Mohamad Rifki", 
+                        "Muh. Fadli", 
+                        "Nafsal", 
+                        "Nasrudin", 
+                        "Rafli", 
+                        "Rama Safawi", 
+                        "Rifa Melda", 
+                        "Rio Ardiansya", 
+                        "Sofyan", 
+                        "Tatang Muhammad Noor", 
+                        "Yuliana Anggraeni A"
+            ] 
+}
