@@ -2,16 +2,16 @@
 layout: null
 permalink: /data-absensi/
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Absensi</title>
-  <style>h1,table{margin:20px}#popup,body{display:flex}#close-popup,td{cursor:pointer}body{font-family:Arial,sans-serif;margin:0;padding:0;flex-direction:column;align-items:center;background-color:#f9f9f9}.popup-content,table{background-color:#fff}table{border-collapse:collapse;width:80%;box-shadow:0 0 10px rgba(0,0,0,.1)}td,th{border:1px solid #ddd;padding:12px;text-align:center}th{background-color:#f4f4f4;font-weight:700}td.hadir{background-color:#d4edda}td.izin{background-color:#ffe8a1}td.alpa{background-color:#f8d7da}#popup{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);align-items:center;justify-content:center}.popup-content{padding:20px;border-radius:5px;box-shadow:0 0 15px rgba(0,0,0,.3);width:50%;text-align:center}#close-popup{position:absolute;top:10px;right:20px;font-size:1.5rem;color:#333}#popup-list{text-align:left;padding:0;margin:20px 0}.hidden{display:none!important}.Hadir{color:#d4edda}.Izin{color:#ffe8a1}.Alpa{color:#f8d7da}</style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <style>h1,table{margin:20px}#popup,body{display:flex}#close-popup,td{cursor:pointer}body{font-family:Arial,sans-serif;margin:0;padding:0;flex-direction:column;align-items:center;background-color:#f9f9f9}.popup-content,table{background-color:#fff}table{border-collapse:collapse;width:80%;box-shadow:0 0 10px rgba(0,0,0,.1)}td,th{border:1px solid #ddd;padding:12px;text-align:center}th{background-color:#f4f4f4;font-weight:700}td.hadir{background-color:#d4edda}td.izin{background-color:#ffe8a1}td.alpa{background-color:#f8d7da}#popup{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);align-items:center;justify-content:center}.popup-content{padding:20px;border-radius:5px;box-shadow:0 0 15px rgba(0,0,0,.3);width:50%;text-align:center}#close-popup{position:absolute;top:10px;right:20px;font-size:3.5rem;color:#fff}#popup-list{text-align:left;padding:0;margin:20px 0}.hidden{display:none!important}.hilang{display:none}.Hadir{color:#d4edda}.Izin{color:#ffe8a1}.Alpa{color:#f8d7da}</style>
 </head>
-<body>
+<body class="hilang">
   <h1>Data Absensi</h1>
   <table id="absensi-table">
     <thead>
@@ -64,7 +64,7 @@ async function fetchAbsensi() {
     }
 
     const data = await response.json();
-    populateTable(data);
+    populateTable(data); $('body').fadeIn(3000)
   } catch (error) {
     console.error("Error fetching absensi.json:", error);
   }
@@ -149,3 +149,4 @@ fetchAbsensi();
  </script>
 </body>
 </html> 
+
