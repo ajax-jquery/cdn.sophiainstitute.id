@@ -55,6 +55,30 @@ pingEndpoint("https://absensi-anggota.glitch.me/submit-absensi");
     <button onclick="closeAuthModal()">Batal</button>
   </div>
   <script>
+function syncAttendanceWithLocalStorage() {
+    const savedData = localStorage.getItem('attendanceData');
+    if (savedData) {
+        const attendance = JSON.parse(savedData);
+        // Mengisi form dengan data yang disimpan di localStorage
+        Object.entries(attendance).forEach(([key, value]) => {
+            const input = document.querySelector(`input[name="${key}"][value="${value}"]`);
+            if (input) {
+                input.checked = true;
+            }
+        });
+    }
+}
+// Menyimpan data ke localStorage saat form berubah
+document.getElementById('attendanceForm').addEventListener('change', () => {
+    const formData = new FormData(document.getElementById('attendanceForm'));
+    const attendance = {};
+    for (let [key, value] of formData.entries()) {
+        attendance[key] = value;
+    }
+    localStorage.setItem('attendanceData', JSON.stringify(attendance));
+});
+// Menghapus data localStorage setelah submit
+
   // Fungsi untuk menyembunyikan loading screen setelah data dimuat
 
 
@@ -122,7 +146,7 @@ const uniqueNames = [...new Set(jsonData.Nama.map(normalizeName))];
     </td>
 </tr>
             `;
-            tbody.innerHTML += tr;
+            tbody.innerHTML += tr;syncAttendanceWithLocalStorage();
         });
     $('#loading-screen').fadeOut(3000)
     })
@@ -183,7 +207,7 @@ document.getElementById('authSubmit').addEventListener('click', async () => {
         const result = await response.json();
         alert(result.message); 
         if (response.ok) {
-            closeAuthModal();
+            closeAuthModal();localStorage.removeItem('attendanceData');
         }
     } catch (error) {
         console.error('Error submitting attendance:', error);
