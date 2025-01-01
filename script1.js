@@ -4,11 +4,11 @@ function fungsib(){var a=document.createElement("div");a.id="levelmaxblock";a.in
     
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        location.reload();
+        location.href = location.href
     }
 });
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-        location.reload();
+       location.href = location.href
     }
 });
