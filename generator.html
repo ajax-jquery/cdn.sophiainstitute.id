@@ -10,7 +10,11 @@ permalink: /go
 <script>
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-       location.href = location.href;location.reload(true);
+       location.reload(true);location.href = location.href;
+    }
+});document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        location.reload(true);location.href = location.href
     }
 });
 	function loadAdScriptt() {
