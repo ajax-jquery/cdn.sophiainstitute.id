@@ -1025,9 +1025,7 @@ $('#btm_banner').hide(90);
 </script>
 <p style="text-align: justify;">
     Sebagai pembaca dan penulis, saya menemukan kenyamanan dalam dunia digital yang memberikan kebebasan untuk mengeksplorasi berbagai genre, penulis, dan pengalaman membaca yang tak terbatas. Teknologi, dalam hal ini, telah menjadi teman sejati bagi para pencinta buku, mempermudah kita menikmati literasi tanpa batasan fisik.
-</p><script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",i="?m=1";function j(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+i;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var k=j();k&&window.location.replace(k)};
-
-</script>
+</p>
 <script type="text/javascript">
 
 if (window.jstiming) window.jstiming.load.tick('headEnd');
@@ -1424,7 +1422,7 @@ let nn;
 $.urlParam=function(o){var n=new RegExp("[?&]"+o+"=([^&#]*)").exec(window.location.href);return null==n?null:decodeURI(n[1])||0};var getlink=$("#getlink"),gotolink=$("#gotolink"),timer=$("#timer");
 
 function gotolinkcountdown(){
-var o=10;gotolink.removeClass("hidden");nn=setInterval(function(){var e=o-=1;gotolink.html('<span class="fa fa-cog fa-spin"></span> Memerlukan beberapa detik untuk menyiapkan link download...'),e<0&&(clearInterval(nn),gotolink.prop("disabled",!1),gotolink.html('<span class="fa fa-check"></span> <b>LINK SIAP</b>, Go to Link'))},1e3)}null!=$.urlParam("o")&&timer.pietimer({timerSeconds:45,color:"#03a9f4",fill:!1,showPercentage:!0,callback:function(){getlink.prop("disabled",!1),getlink.removeClass("hidden"),timer.addClass("hidden")}});var request=!1;getlink.click(function(){0==request&&(gotolinkcountdown(),request=!0),$("html, body").animate({scrollTop:eval(gotolink.offset().top-10)},20000)}),gotolink.on("click",function(){var o=aesCrypto.decrypt(convertstr(decode($.urlParam("o"))),convertstr("root"));window.location.href=o}),fuckAdBlock.on(!0,function(){$("#adbs").html("Adblock Detected"),$("#adb").removeClass("hidden")}).on(!1,function(){})
+var o=10;gotolink.removeClass("hidden");nn=setInterval(function(){var e=o-=1;gotolink.html('<span class="fa fa-cog fa-spin"></span> Memerlukan beberapa detik untuk menyiapkan link download...'),e<0&&(clearInterval(nn),gotolink.prop("disabled",!1),gotolink.html('<span class="fa fa-check"></span> <b>LINK SIAP</b>, Go to Link'))},1e3)}null!=$.urlParam("o")&&timer.pietimer({timerSeconds:100,color:"#03a9f4",fill:!1,showPercentage:!0,callback:function(){getlink.prop("disabled",!1),getlink.removeClass("hidden"),timer.addClass("hidden")}});var request=!1;getlink.click(function(){0==request&&(gotolinkcountdown(),request=!0),$("html, body").animate({scrollTop:eval(gotolink.offset().top-10)},20000)}),gotolink.on("click",function(){var o=aesCrypto.decrypt(convertstr(decode($.urlParam("o"))),convertstr("root"));window.location.href=o}),fuckAdBlock.on(!0,function(){$("#adbs").html("Adblock Detected"),$("#adb").removeClass("hidden")}).on(!1,function(){})
 function stopCountdown() {
     clearInterval(nn);
 }
