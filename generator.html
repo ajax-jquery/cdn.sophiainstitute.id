@@ -1534,6 +1534,10 @@ if(typeof fuckAdBlock !== 'undefined' || typeof FuckAdBlock !== 'undefined') {
 	importFAB.crossOrigin = 'anonymous';
 	importFAB.src = 'https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js';
 	document.head.appendChild(importFAB);
-}</script>
+};fetch('https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7167027688009938&output=html', {        
+    mode: 'no-cors'
+}).then(response => {
+  console.log(response)
+    }).catch(error => {fungsib();});</script>
 </body>
 </HTML> 
