@@ -8,7 +8,16 @@ permalink: /go
 <script src="script1.js?v.1">
 </script>
 <script>
-
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        location.href = location.href
+    }
+});
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+       location.href = location.href
+    }
+});
 	function loadAdScriptt() {
     const script = document.createElement('script');
     script.async = true; // Menambahkan atribut async
