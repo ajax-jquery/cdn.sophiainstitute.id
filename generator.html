@@ -10,12 +10,12 @@ permalink: /go
 <script>
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-        location.href = location.href
+        location.href = location.href;location.reload(true);
     }
 });
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-       location.href = location.href
+       location.href = location.href;location.reload(true);
     }
 });
 	function loadAdScriptt() {
