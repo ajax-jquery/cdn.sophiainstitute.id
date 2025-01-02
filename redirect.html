@@ -9,6 +9,15 @@ permalink: /to
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
+        function decodeBase64(input) {
+  try {
+    return decodeURIComponent(escape(atob(input)));
+  } catch (e) {
+    console.error("Decoding gagal: ", e);
+    return null;
+  }
+}
+
         // Fungsi untuk mendapatkan nilai parameter dari URL secara manual
         function getQueryParam(param) {
             const queryString = window.location.search.substring(1); // Hilangkan tanda `?`
@@ -28,7 +37,7 @@ permalink: /to
 
         // Redirect ke URL jika parameter `go` ada
         if (redirectUrl) {
-            window.location.href = redirectUrl;
+            window.location.href = decodeBase64(redirectUrl);
         } else {
             document.body.innerHTML = "<h1>Error: Parameter 'go' tidak ditemukan!</h1>";
         }
