@@ -10,7 +10,7 @@ permalink: /go
 <script>
 	function enBase64(input) {
   try {
-    return btoa(unescape(encodeURIComponent(input)));
+    return unescape(encodeURIComponent(input));
   } catch (e) {
     console.error("Encoding gagal: ", e);
     return null;
