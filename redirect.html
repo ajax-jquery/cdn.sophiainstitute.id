@@ -9,13 +9,26 @@ permalink: /to
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        function decodeBase64(input) {
-  try {
-    return decodeURIComponent(escape(input));
-  } catch (e) {
-    console.error("Decoding gagal: ", e);
-    return null;
-  }
+        function customBase64Decode(encodedStr) {
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let decoded = '';
+    let buffer = '';
+    
+    // Convert each character in encoded string to its 6-bit binary representation
+    for (let i = 0; i < encodedStr.length; i++) {
+        const index = charset.indexOf(encodedStr[i]);
+        if (index === -1) throw new Error('Invalid character in the encoded string.');
+        buffer += index.toString(2).padStart(6, '0');
+    }
+
+    // Break the binary buffer into chunks of 8 bits (1 byte) and convert to characters
+    for (let i = 0; i < buffer.length; i += 8) {
+        const chunk = buffer.slice(i, i + 8);
+        const charCode = parseInt(chunk, 2);
+        decoded += String.fromCharCode(charCode);
+    }
+
+    return decoded;
 }
 
         // Fungsi untuk mendapatkan nilai parameter dari URL secara manual
@@ -26,7 +39,7 @@ permalink: /to
             for (let i = 0; i < params.length; i++) {
                 const pair = params[i].split('='); // Pisahkan kunci dan nilai
                 if (pair[0] === param) {
-                    return decodeURIComponent(escape(pair[1])); // Decode nilai parameter
+                    return decodeURIComponent(pair[1]); // Decode nilai parameter
                 }
             }
             return null; // Jika parameter tidak ditemukan
@@ -37,7 +50,7 @@ permalink: /to
 
         // Redirect ke URL jika parameter `go` ada
         if (redirectUrl) {
-            window.location.href = redirectUrl;
+            window.location.href = customBase64Decode(redirectUrl);
         } else {
             document.body.innerHTML = "<h1>Error: Parameter 'go' tidak ditemukan!</h1>";
         }
