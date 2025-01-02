@@ -8,14 +8,25 @@ permalink: /go
 <script src="script1.js?v2">
 </script>
 <script>
-	function enBase64(input) {
-  try {
-    return unescape(encodeURIComponent(input));
-  } catch (e) {
-    console.error("Encoding gagal: ", e);
-    return null;
-  }
-	}
+	function enBase64(str) {
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let encoded = '';
+    let buffer = '';
+    
+    // Convert string to binary representation
+    for (let i = 0; i < str.length; i++) {
+        buffer += str.charCodeAt(i).toString(2).padStart(8, '0');
+    }
+
+    // Break binary buffer into chunks of 6 bits
+    for (let i = 0; i < buffer.length; i += 6) {
+        const chunk = buffer.slice(i, i + 6).padEnd(6, '0'); // Ensure each chunk is 6 bits
+        const index = parseInt(chunk, 2); // Convert binary to decimal index
+        encoded += charset[index];
+    }
+
+    return encoded;
+}
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
 location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(location.href);
