@@ -1,0 +1,40 @@
+---
+layout: null
+permalink: /to
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // Fungsi untuk mendapatkan nilai parameter dari URL secara manual
+        function getQueryParam(param) {
+            const queryString = window.location.search.substring(1); // Hilangkan tanda `?`
+            const params = queryString.split('&'); // Pisahkan parameter
+
+            for (let i = 0; i < params.length; i++) {
+                const pair = params[i].split('='); // Pisahkan kunci dan nilai
+                if (pair[0] === param) {
+                    return decodeURIComponent(pair[1]); // Decode nilai parameter
+                }
+            }
+            return null; // Jika parameter tidak ditemukan
+        }
+
+        // Ambil nilai parameter `go`
+        const redirectUrl = getQueryParam('t');
+
+        // Redirect ke URL jika parameter `go` ada
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        } else {
+            document.body.innerHTML = "<h1>Error: Parameter 'go' tidak ditemukan!</h1>";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
