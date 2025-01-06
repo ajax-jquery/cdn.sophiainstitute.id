@@ -1,178 +1,41 @@
 {
   "Umum": {
-    "2025-01-07": {
-      "Hadir": [
-        "Abd Gafur",
-        "Abdi Risaldi",
-        "Alif Fikri",
-        "Alyah Bongga",
-        "Anifa Hakim",
-        "Athaya Alifianti",
-        "Esa Hariani",
-        "Faiz Rahmansyah",
-        "Febrianto",
-        "Fitrayanti S. Maila",
-        "Isnurananda",
-        "Maswar",
-        "Moh. Shadiq M Al-idrus",
-        "Nasrudin",
-        "Rafli",
-        "Rama Safawi",
-        "Rifa Melda",
-        "Rio Ardiansya",
-        "Sofyan",
-        "Tatang Muhammad Noor"
-      ],
-      "Izin": [
-        "Mohamad Rifki",
-        "Nafsal"
-      ],
-      "Alpa": [
-        "Muh. Fadli"
-      ]
-    },
-    "2025-01-06": {
-      "Hadir": [
-        "Abd Gafur",
-        "Abdi Risaldi",
-        "Alif Fikri",
-        "Alyah Bongga",
-        "Anifa Hakim",
-        "Athaya Alifianti",
-        "Esa Hariani",
-        "Faiz Rahmansyah",
-        "Febrianto",
-        "Fitrayanti S. Maila",
-        "Isnurananda",
-        "Maswar",
-        "Moh. Shadiq M Al-idrus",
-        "Mohamad Rifki",
-        "Muh. Fadli",
-        "Nafsal",
-        "Nasrudin",
-        "Rafli",
-        "Rama Safawi",
-        "Rifa Melda",
-        "Rio Ardiansya",
-        "Sofyan",
-        "Tatang Muhammad Noor"
-      ],
+    "2025-01-12": {
+      "Hadir": [],
       "Izin": [],
       "Alpa": []
     }
   },
   "Filsafat Islam": {
     "nama": "Yuliana Anggraeni Ali",
-    "2025-01-07": {
-      "Hadir": [
-        "Fitrayanti S. Maila",
-        "Sofyan"
-      ],
-      "Izin": [],
-      "Alpa": [
-        "Isnurananda",
-        "Muh. Fadli",
-        "Nasrudin",
-        "Rifa Melda"
-      ]
-    },
-    "2025-01-06": {
+    "2025-01-12": {
       "Hadir": [],
-      "Izin": [
-        "Fitrayanti S. Maila",
-        "Isnurananda",
-        "Muh. Fadli",
-        "Nasrudin",
-        "Rifa Melda",
-        "Sofyan"
-      ],
+      "Izin": [],
       "Alpa": []
     }
   },
   "Filsafat Rasionalisme": {
     "nama": "Moh. Valen Saputra",
-    "2025-01-06": {
-      "Hadir": [
-        "Abd Gafur",
-        "Rama Safawi"
-      ],
-      "Izin": [
-        "Alif Fikri",
-        "Mohamad Rifki",
-        "Rio Ardiansya"
-      ],
-      "Alpa": [
-        "Alyah Bongga"
-      ]
-    },
-    "2025-01-07": {
-      "Hadir": [
-        "Abd Gafur",
-        "Alif Fikri",
-        "Alyah Bongga",
-        "Mohamad Rifki",
-        "Rama Safawi",
-        "Rio Ardiansya"
-      ],
+    "2025-01-12": {
+      "Hadir": [],
       "Izin": [],
       "Alpa": []
     }
   },
   "Filsafat Empirisme": {
     "nama": "Dimas Septiadi Pratama",
-    "2025-01-06": {
+    "2025-01-12": {
       "Hadir": [],
       "Izin": [],
-      "Alpa": [
-        "Abdi Risaldi",
-        "Anifa Hakim",
-        "Athaya Alifianti",
-        "Esa Hariani",
-        "Maswar",
-        "Rafli"
-      ]
-    },
-    "2025-01-07": {
-      "Hadir": [
-        "Abdi Risaldi",
-        "Anifa Hakim",
-        "Athaya Alifianti"
-      ],
-      "Izin": [],
-      "Alpa": [
-        "Esa Hariani",
-        "Maswar",
-        "Rafli"
-      ]
+      "Alpa": []
     }
   },
   "Filsafat Materialisme": {
     "nama": "Akhsan",
-    "2025-01-07": {
-      "Hadir": [
-        "Faiz Rahmansyah",
-        "Tatang Muhammad Noor"
-      ],
-      "Izin": [
-        "Febrianto",
-        "Nafsal"
-      ],
-      "Alpa": [
-        "Moh. Shadiq M Al-idrus"
-      ]
-    },
-    "2025-01-06": {
-      "Hadir": [
-        "Faiz Rahmansyah",
-        "Tatang Muhammad Noor"
-      ],
-      "Izin": [
-        "Febrianto",
-        "Nafsal"
-      ],
-      "Alpa": [
-        "Moh. Shadiq M Al-idrus"
-      ]
+    "2025-01-12": {
+      "Hadir": [],
+      "Izin": [],
+      "Alpa": []
     }
   }
 }
