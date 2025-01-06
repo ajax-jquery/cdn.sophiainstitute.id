@@ -1,5 +1,5 @@
 {
- "Umum": {
+  "Umum": {
     "2025-01-07": {
       "Hadir": [],
       "Izin": [],
@@ -15,9 +15,18 @@
   },
   "Filsafat Rasionalisme": {
     "2025-01-07": {
-      "Hadir": [],
-      "Izin": [],
-      "Alpa": []
+      "Hadir": [
+        "Rama Safawi"
+      ],
+      "Izin": [
+        "Alif Fikri",
+        "Mohamad Rifki"
+      ],
+      "Alpa": [
+        "Abd Gafur",
+        "Alyah Bongga",
+        "Rio Ardiansya"
+      ]
     }
   },
   "Filsafat Empirisme": {
