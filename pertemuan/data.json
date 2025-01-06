@@ -15,32 +15,9 @@
   },
   "Filsafat Rasionalisme": {
     "2025-01-07": {
-      "Hadir": [
-        "Rama Safawi"
-      ],
-      "Izin": [
-        "Alif Fikri",
-        "Mohamad Rifki"
-      ],
-      "Alpa": [
-        "Abd Gafur",
-        "Alyah Bongga",
-        "Rio Ardiansya"
-      ]
-    },
-    "2025-01-06": {
-      "Hadir": [
-        "Abd Gafur",
-        "Rama Safawi"
-      ],
-      "Izin": [
-        "Alif Fikri",
-        "Mohamad Rifki"
-      ],
-      "Alpa": [
-        "Alyah Bongga",
-        "Rio Ardiansya"
-      ]
+      "Hadir": [],
+      "Izin": [],
+      "Alpa": []
     }
   },
   "Filsafat Empirisme": {
@@ -51,31 +28,10 @@
     }
   },
   "Filsafat Materialisme": {
-    "2025-01-06": {
-      "Hadir": [
-        "Faiz Rahmansyah",
-        "Tatang Muhammad Noor"
-      ],
-      "Izin": [
-        "Febrianto",
-        "Nafsal"
-      ],
-      "Alpa": [
-        "Moh. Shadiq M Al-idrus"
-      ]
-    },
     "2025-01-07": {
-      "Hadir": [
-        "Faiz Rahmansyah",
-        "Tatang Muhammad Noor"
-      ],
-      "Izin": [
-        "Febrianto",
-        "Nafsal"
-      ],
-      "Alpa": [
-        "Moh. Shadiq M Al-idrus"
-      ]
+      "Hadir": [],
+      "Izin": [],
+      "Alpa": []
     }
   }
-}
+}  
