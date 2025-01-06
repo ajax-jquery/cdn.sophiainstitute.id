@@ -7,7 +7,7 @@ permalink: /filsafat-empirisme/absensi/
 <head>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script>
-const ENDPOIN="https://absensi-anggota.glitch.me/filsafat-empirisme/submit-absensi";
+const ENDPOIN="https://absensi-anggota.glitch.me/filsafat-empirisme";
 const Dept="Filsafat Empirisme";
 function pingEndpoint(t){fetch(t).then(n=>{n.ok?console.log(`Endpoint ${t} is reachable. Status Code: ${n.status}`):console.log(`Endpoint ${t} returned status code: ${n.status}`)}).catch(n=>{console.error(`Error reaching endpoint ${t}: ${n}`)})}
 pingEndpoint(ENDPOIN);
