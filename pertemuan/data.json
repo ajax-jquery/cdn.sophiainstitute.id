@@ -16,12 +16,21 @@
   },
   "Filsafat Rasionalisme": {
     "nama": "Moh. Valen Saputra",
-    "2025-01-07": {
-      "Hadir": [],
-      "Izin": [],
-      "Alpa": []
-    },
     "2025-01-06": {
+      "Hadir": [
+        "Abd Gafur",
+        "Rama Safawi"
+      ],
+      "Izin": [
+        "Alif Fikri",
+        "Mohamad Rifki",
+        "Rio Ardiansya"
+      ],
+      "Alpa": [
+        "Alyah Bongga"
+      ]
+    },
+    "2025-01-07": {
       "Hadir": [
         "Abd Gafur",
         "Rama Safawi"
