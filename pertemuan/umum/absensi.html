@@ -211,7 +211,7 @@ async function dokumentasi(t){return new Promise((e,n)=>{let a=new FileReader;a.
         const response = await fetch(ENDPOIN, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password, attendanceData, filename, filebase64}),
+            body: JSON.stringify({ username, password, attendanceData, filename:filename, filebase64:filebase64}),
         });
 
         const result = await response.json();
