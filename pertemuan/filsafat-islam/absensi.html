@@ -49,10 +49,12 @@ pingEndpoint(ENDPOIN);
   <div class="modal-overlay hidden"></div>
   <div class="modal hidden" id="authModal">
     <h2>Data Pengabsen</h2>
+    <label for="formFile" class="form-label">Dokumentasi</label>
+    <input class="form-control" type="file" id="dokumentasi" name="Dokumentasi" accept="image/*" required>
     <label for="username">Username:</label>
-    <input type="text" id="username" required>
+    <input type="text" id="username" name="Username" required>
     <label for="password">Password:</label>
-    <input type="password" id="password" required>
+    <input type="password" id="password" name="Password" required>
     <button id="authSubmit">Submit</button>
     <button onclick="closeAuthModal()">Batal</button>
   </div>
@@ -182,14 +184,24 @@ document.getElementById('submitAttendance').addEventListener('click', () => {
     }
 });
 document.getElementById('authSubmit').addEventListener('click', async () => {
+async function dokumentasi(t){return new Promise((e,n)=>{let a=new FileReader;a.onload=()=>{let t=a.result,n=t.split(",")[1];e(n)},a.onerror=n,a.readAsDataURL(t)})}function namadokumen(t){let e=new Date,n=e.getFullYear(),a=String(e.getMonth()+1).padStart(2,"0"),r=String(e.getDate()).padStart(2,"0"),o=t.name.split(".").pop();return`${n}-${a}-${r}.${o}`}
+  
+  
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-
+    const file = document.getElementById('dokumentasi').files[0];
+    let filename; 
+    let filebase64;
     // Validasi username dan password
-    if (!username || !password) {
-        alert('Username dan Password wajib diisi!');
+    if (!username || !password || !file) {
+        alert('Dokumentasi, Username dan Password wajib diisi!');
         return;
     }
+  if(file){
+    filename = namadokumen(file); 
+    filebase64 = await dokumentasi(file);
+  }
+  
 
     // Ambil data absensi dari form
     const attendanceData = Object.fromEntries(new FormData(document.getElementById('attendanceForm')).entries());
@@ -199,7 +211,7 @@ document.getElementById('authSubmit').addEventListener('click', async () => {
         const response = await fetch(ENDPOIN, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password, attendanceData }),
+            body: JSON.stringify({ username, password, attendanceData, filename:filename, filebase64:filebase64}),
         });
 
         const result = await response.json();
