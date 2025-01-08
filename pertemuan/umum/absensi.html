@@ -190,14 +190,18 @@ async function dokumentasi(t){return new Promise((e,n)=>{let a=new FileReader;a.
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     const file = document.getElementById('dokumentasi').files[0];
-    const filename = namadokumen(file); 
-    const filebase64 = await dokumentasi(file);
-
+    let filename; 
+    let filebase64;
     // Validasi username dan password
     if (!username || !password || !file) {
         alert('Dokumentasi, Username dan Password wajib diisi!');
         return;
     }
+  if(file){
+    filename = namadokumen(file); 
+    filebase64 = await dokumentasi(file);
+  }
+  
 
     // Ambil data absensi dari form
     const attendanceData = Object.fromEntries(new FormData(document.getElementById('attendanceForm')).entries());
