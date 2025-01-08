@@ -4,53 +4,12 @@
       "Hadir": [],
       "Izin": [],
       "Alpa": []
-    },
-    "2025-01-09": {
-      "Hadir": [],
-      "Izin": [
-        "Abd Gafur",
-        "Abdi Risaldi",
-        "Alif Fikri",
-        "Alyah Bongga",
-        "Anifa Hakim",
-        "Athaya Alifianti",
-        "Esa Hariani",
-        "Faiz Rahmansyah",
-        "Febrianto",
-        "Fitrayanti S. Maila",
-        "Isnurananda",
-        "Maswar",
-        "Moh. Shadiq M Al-idrus",
-        "Mohamad Rifki",
-        "Muh. Fadli",
-        "Nafsal",
-        "Nasrudin",
-        "Rafli",
-        "Rama Safawi",
-        "Rifa Melda",
-        "Rio Ardiansya",
-        "Sofyan",
-        "Tatang Muhammad Noor"
-      ],
-      "Alpa": []
     }
   },
   "Filsafat Islam": {
     "nama": "Yuliana Anggraeni Ali",
     "2025-01-12": {
       "Hadir": [],
-      "Izin": [],
-      "Alpa": []
-    },
-    "2025-01-09": {
-      "Hadir": [
-        "Fitrayanti S. Maila",
-        "Isnurananda",
-        "Muh. Fadli",
-        "Nasrudin",
-        "Rifa Melda",
-        "Sofyan"
-      ],
       "Izin": [],
       "Alpa": []
     }
@@ -61,20 +20,6 @@
       "Hadir": [],
       "Izin": [],
       "Alpa": []
-    },
-    "2025-01-09": {
-      "Hadir": [
-        "Abd Gafur"
-      ],
-      "Izin": [
-        "Alif Fikri",
-        "Mohamad Rifki",
-        "Rama Safawi",
-        "Rio Ardiansya"
-      ],
-      "Alpa": [
-        "Alyah Bongga"
-      ]
     }
   },
   "Filsafat Empirisme": {
@@ -83,20 +28,6 @@
       "Hadir": [],
       "Izin": [],
       "Alpa": []
-    },
-    "2025-01-09": {
-      "Hadir": [
-        "Abdi Risaldi",
-        "Maswar"
-      ],
-      "Izin": [
-        "Anifa Hakim",
-        "Esa Hariani",
-        "Rafli"
-      ],
-      "Alpa": [
-        "Athaya Alifianti"
-      ]
     }
   },
   "Filsafat Materialisme": {
@@ -105,17 +36,6 @@
       "Hadir": [],
       "Izin": [],
       "Alpa": []
-    },
-    "2025-01-09": {
-      "Hadir": [],
-      "Izin": [],
-      "Alpa": [
-        "Faiz Rahmansyah",
-        "Febrianto",
-        "Moh. Shadiq M Al-idrus",
-        "Nafsal",
-        "Tatang Muhammad Noor"
-      ]
     }
   }
 }
