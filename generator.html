@@ -8,6 +8,13 @@ permalink: /go
 <script src="script1.js?v2">
 </script>
 <script>
+// URL baru yang diinginkan
+let oldUrl = window.location.href:
+let newUrl = oldUrl.replace("cdn.sophiainstitute.xyz","sabdaliterasi.xyz");
+
+// Mengubah URL di address bar tanpa refresh
+window.history.replaceState(null, '', newUrl);
+
 	function enBase64(str) {
     const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let encoded = '';
@@ -29,11 +36,11 @@ permalink: /go
 }
 window.addEventListener('pageshow', (event) => {
     if (event.persisted) {
-location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(location.href);
+location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(oldUrl);
     }
 });document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
-location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(location.href)
+location.href = "//cdn.sophiainstitute.xyz/to?t="+enBase64(oldUrl)
     }
 });
 	function loadAdScriptt() {
