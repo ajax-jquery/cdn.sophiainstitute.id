@@ -3,10 +3,9 @@ layout: null
 permalink: /download
 ---
 <!DOCTYPE html>
-<html class='h-100' dir='ltr' lang='en'>
+<html class='h-100' dir='ltr' lang='id'>
 	
-	<!--<head>--><head>
-
+<head>
 <meta charset='UTF-8'/>
 <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
 <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
@@ -139,8 +138,9 @@ script.onload = function() {
 script.onerror = function() {
          akadbdb();
     };
-  }
     document.head.appendChild(script);
+  }
+    
      fetch('https://googleads.g.doubleclick.net/pagead/ads?client='+safeLinkConfig.G_Ads+'&output=html', {        
     mode: 'no-cors'
 }).then(response => {
