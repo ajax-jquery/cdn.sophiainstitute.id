@@ -127,17 +127,19 @@ console.log("VALID");
     }, 5000);
 }
 function loadAdScript() {
+  let loaded = false;
+  if(loaded == false){
     const script = document.createElement('script');
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+safeLinkConfig.G_Ads;
     script.async = true;
 script.crossOrigin="anonymous";
 script.onload = function() {
-        starad(); console.log("VALID")
+        starad(); console.log("VALID");loaded=true;
     };
-
-    script.onerror = function() {
+script.onerror = function() {
          akadbdb();
     };
+  }
     document.head.appendChild(script);
      fetch('https://googleads.g.doubleclick.net/pagead/ads?client='+safeLinkConfig.G_Ads+'&output=html', {        
     mode: 'no-cors'
@@ -896,7 +898,7 @@ const getParameter = (name)=>{
 }	
 
 /* safelink logic */
-
+loadAdScript();
 /* get urlHash from parameter */
 const urlHash = getParameter(safeLinkConfig.parameterName);
 
@@ -909,7 +911,7 @@ if (urlHash != null){
 	$("#DownloadBtn").removeClass('d-none');				
 }else{
 	/* remove main safelink */
-  $("#DownloadBtn").remove();
+  $("div.d-flex.bg-success.text-light.fw-bold.py-2.text-center.justify-content-center").remove();
 	$("#main-getlink").remove();
 	$("#main-gotolink").remove();
 }
