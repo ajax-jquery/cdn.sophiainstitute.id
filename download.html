@@ -29,42 +29,33 @@ permalink: /download
 	countDownTimer: 50,
     animasi: 10000,
     G_Ads:"ca-pub-7167027688009938"
-};
-    const lokasi= window.location.href;
-   !function(){
-    const script = document.createElement('script');
-    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client="+safeLinkConfig.G_Ads;
-    script.async = true;
-    script.crossOrigin = "anonymous";
-    script.onload = function() {
-        loadedads = true;
-    };
-    document.head.appendChild(script);
-}();</script>
+};const lokasi= window.location.href;</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7167027688009938"
+     crossorigin="anonymous"></script>
 <!--[ START: PWA Meta Tags]-->
-<link rel="apple-touch-icon" sizes="57x57" href="/app/icons/apple-icon-57x57.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/app/icons/apple-icon-60x60.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/app/icons/apple-icon-72x72.png" />
-<link rel="apple-touch-icon" sizes="76x76" href="/app/icons/apple-icon-76x76.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="/app/icons/apple-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="120x120" href="/app/icons/apple-icon-120x120.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/app/icons/apple-icon-144x144.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/app/icons/apple-icon-152x152.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/app/icons/apple-icon-180x180.png" />
-<link rel="shortcut icon" type="image/png" sizes="16x16" href="/app/icons/favicon-16x16.png" />
-<link rel="shortcut icon" type="image/png" sizes="32x32" href="/app/icons/favicon-32x32.png" />
-<link rel="shortcut icon" type="image/png" sizes="96x96" href="/app/icons/favicon-96x96.png" />
-<link rel="shortcut icon" type="image/png" sizes="192x192" href="/app/icons/android-icon-192x192.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+<link rel="shortcut icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+<link rel="shortcut icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+<link rel="shortcut icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+<link rel="shortcut icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
 <link href="/favicon.ico" rel="shortcut icon" sizes="16x16" type="image/x-icon" />
-<link rel="manifest" href="/app/manifest.json" />
+<link rel="manifest" href="/manifest.json" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="application-name" content="Sabda Literasi Palu" />
 <meta name="theme-color" content="#f26926" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Sabda Literasi Palu" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="msapplication-config" content="/app/browserconfig.xml" />
-<meta name="msapplication-TileImage" content="/app/icons/ms-icon-144x144.png" />
+<meta name="msapplication-config" content="/browserconfig.xml" />
+<meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png" />
 <meta name="msapplication-TileColor" content="#ffffff" />
 <!--[ END: PWA Meta Tags ]-->
 	</head>
@@ -136,7 +127,7 @@ console.log("VALID");
         document.body.removeChild(testDiv);
     });
 
-    }, 5000);
+    }, 10000);
 }
 function loadAdScript() {
   if(loadedads == false){
@@ -910,10 +901,9 @@ const getParameter = (name)=>{
 }	
 
 /* safelink logic */
-loadAdScript();
+setTimeout(loadAdScript, 10000);
 /* get urlHash from parameter */
 const urlHash = getParameter(safeLinkConfig.parameterName);
-
 /* push new url to browser (remove hash parameter) */
 history.pushState(null, "", location.href.split("?")[0]);
 
